@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>랑카위 완벽 여행 플래너 및 숙소 지도 가이드</title>
+  <meta name="description" content="2026년 7월 17일~20일 랑카위 3박 4일 최적 경로 계획, 추천 명소 및 테마별 숙소 정보가 담긴 대화형 지도 보고서">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  
+  <style>
+    /* Reset & CSS variables */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    :root {
+      --primary: #0d9488;
+      --primary-hover: #0f766e;
+      --primary-rgb: 13, 148, 136;
+      --secondary: #f59e0b;
+      --secondary-rgb: 245, 158, 11;
+      --accent: #2563eb;
+      --bg-primary: #FAF9F5; /* Sandy Warm Sand */
+      --bg-secondary: #ffffff;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --border: #e2e8f0;
+      --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 
+                    0 8px 10px -6px rgba(0, 0, 0, 0.05);
+      --card-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+                           0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-kr: 'Noto Sans KR', sans-serif;
+      --font-en: 'Outfit', sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0a0e17; /* Deep Marine Midnight */
+      --bg-secondary: #131a26;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #64748b;
+      --border: #202b3e;
+      --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 
+                    0 8px 10px -6px rgba(0, 0, 0, 0.3);
+      --card-shadow-hover: 0 20px 30px -5px rgba(0, 0, 0, 0.4), 
+                           0 15px 15px -5px rgba(0, 0, 0, 0.2);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-kr);
+      line-height: 1.6;
+      transition: var(--transition);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header & Hero Section */
+    header {
+      background: linear-gradient(135deg, #0d9488 0%, #064e3b 100%);
+      color: #ffffff;
+      padding: 60px 0 90px 0;
+      position: relative;
+      overflow: hidden;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    [data-theme="dark"] header {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(
+        circle, 
+        rgba(245,158,11,0.15) 0%, 
+        transparent 70%
+      );
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .logo {
+      font-family: var(--font-en);
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    .theme-toggle {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 10px 20px;
+      border-radius: 30px;
+      color: #ffffff;
+      cursor: pointer;
+      font-family: var(--font-kr);
+      font-weight: 500;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+
+    .quick-stats {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 12px 24px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .stat-val {
+      font-family: var(--font-en);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+
+    .stat-lbl {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.70);
+    }
+
+    /* Main layout sections */
+    main {
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
+      padding-bottom: 80px;
+    }
+
+    section {
+      background-color: var(--bg-secondary);
+      border-radius: var(--radius);
+      box-shadow: var(--card-shadow);
+      padding: 35px;
+      margin-bottom: 40px;
+      transition: var(--transition);
+      border: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      position: relative;
+      padding-left: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 6px;
+      height: 26px;
+      background-color: var(--primary);
+      border-radius: 3px;
+    }
+
+    /* Map and Panel Layout */
+    .map-section-grid {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 30px;
+    }
+
+    @media (max-width: 992px) {
+      .map-section-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .map-outer {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .map-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .map-filter-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .map-filter-btn {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .map-filter-btn:hover {
+      background-color: var(--border);
+    }
+
+    .map-filter-btn.active {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .map-wrapper {
+      position: relative;
+      height: 480px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 2px solid var(--border);
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    #leaflet-map {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    /* SVG Map Fallback */
+    #svg-map-fallback {
+      width: 100%;
+      height: 100%;
+      background-color: #e0f2fe;
+      display: none;
+      position: relative;
+    }
+
+    [data-theme="dark"] #svg-map-fallback {
+      background-color: #0f172a;
+    }
+
+    .svg-fallback-content {
+      width: 100%;
+      height: 100%;
+    }
+
+    .svg-island {
+      fill: #cbd5e1;
+      stroke: #64748b;
+      stroke-width: 2;
+      transition: var(--transition);
+    }
+
+    [data-theme="dark"] .svg-island {
+      fill: #1e293b;
+      stroke: #475569;
+    }
+
+    .svg-zone {
+      fill: rgba(13, 148, 136, 0.15);
+      stroke: var(--primary);
+      stroke-width: 1;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .svg-zone:hover {
+      fill: rgba(13, 148, 136, 0.35);
+    }
+
+    .svg-marker {
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .svg-marker:hover {
+      transform: scale(1.3);
+      transform-origin: center;
+    }
+
+    /* Panel styles */
+    .panel-wrapper {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--bg-primary);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      max-height: 520px;
+    }
+
+    .panel-tabs {
+      display: flex;
+      background-color: var(--border);
+      gap: 1px;
+    }
+
+    .panel-tab-btn {
+      flex: 1;
+      background-color: var(--bg-secondary);
+      border: none;
+      padding: 14px 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-family: var(--font-kr);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .panel-tab-btn.active {
+      background-color: var(--bg-primary);
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .panel-content-area {
+      padding: 16px;
+      overflow-y: auto;
+      flex-grow: 1;
+    }
+
+    .list-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .location-list-item {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: var(--transition);
+    }
+
+    .location-list-item:hover {
+      border-color: var(--primary);
+      transform: translateX(4px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .location-list-item.selected {
+      border-color: var(--primary);
+      background-color: rgba(var(--primary-rgb), 0.04);
+      box-shadow: 0 4px 10px -1px rgba(var(--primary-rgb), 0.1);
+    }
+
+    .loc-icon-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .loc-badge-hotel {
+      background-color: var(--primary);
+    }
+
+    .loc-badge-activity {
+      background-color: var(--secondary);
+    }
+
+    .loc-info {
+      flex-grow: 1;
+    }
+
+    .loc-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .loc-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* Style quiz styling */
+    .quiz-box {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .quiz-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .quiz-option {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: var(--transition);
+    }
+
+    .quiz-option:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .quiz-option.active {
+      border-color: var(--primary);
+      background-color: rgba(var(--primary-rgb), 0.05);
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+
+    .quiz-opt-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .quiz-opt-text h4 {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .quiz-opt-text p {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .quiz-result {
+      margin-top: 16px;
+      background-color: var(--bg-secondary);
+      border: 1px dashed var(--primary);
+      border-radius: 10px;
+      padding: 16px;
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .quiz-result.active {
+      display: block;
+    }
+
+    .quiz-result-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .quiz-result-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Accommodations section grid */
+    .accomm-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .accomm-card {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+
+    .accomm-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--primary);
+    }
+
+    .accomm-card.highlighted {
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+    }
+
+    .accomm-header {
+      padding: 20px;
+      position: relative;
+    }
+
+    .accomm-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      background-color: rgba(var(--primary-rgb), 0.1);
+      color: var(--primary);
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .accomm-title-ko {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .accomm-title-en {
+      font-family: var(--font-en);
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .accomm-body {
+      padding: 0 20px 20px 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .accomm-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .accomm-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .accomm-badge {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    .accomm-footer {
+      border-top: 1px solid var(--border);
+      padding: 14px 20px;
+      background-color: rgba(0, 0, 0, 0.01);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .accomm-price {
+      font-family: var(--font-en);
+      font-weight: 700;
+      color: var(--secondary);
+      font-size: 15px;
+    }
+
+    .accomm-rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .star-icon {
+      color: var(--secondary);
+    }
+
+    /* Itinerary section with timeline */
+    .timeline-container {
+      position: relative;
+      margin: 30px 0;
+      padding-left: 20px;
+    }
+
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background-color: var(--border);
+    }
+
+    .day-selector {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+
+    .day-tab-btn {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border);
+      padding: 10px 20px;
+      border-radius: 20px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-family: var(--font-kr);
+      font-weight: 700;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+
+    .day-tab-btn.active {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .day-content {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .day-content.active {
+      display: block;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 30px;
+      padding-left: 25px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -25px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      border: 3px solid var(--bg-secondary);
+      z-index: 2;
+      transition: var(--transition);
+    }
+
+    .timeline-item:hover::before {
+      background-color: var(--secondary);
+      transform: scale(1.2);
+    }
+
+    .time-slot {
+      font-family: var(--font-en);
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .event-card {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      transition: var(--transition);
+    }
+
+    .event-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .event-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .event-desc {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .event-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .meta-tag {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .meta-tag-highlight {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Tip Card style */
+    .tip-card {
+      background-color: rgba(var(--secondary-rgb), 0.05);
+      border: 1px solid rgba(var(--secondary-rgb), 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    .tip-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #b45309;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    [data-theme="dark"] .tip-title {
+      color: var(--secondary);
+    }
+
+    .tip-list {
+      list-style-type: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .tip-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tip-list li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .tip-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--secondary);
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0c111d;
+      color: #94a3b8;
+      padding: 40px 0;
+      text-align: center;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin-bottom: 8px;
+    }
+
+    footer a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-nav">
+        <div class="logo" id="main-logo">
+          🏝️ LANGKAWI<span>PLANNER</span>
+        </div>
+        <button class="theme-toggle" id="themeBtn" aria-label="테마 전환">
+          <span id="themeBtnIcon">🌙</span> <span id="themeBtnText">다크 모드</span>
+        </button>
+      </div>
+      <div class="hero-content">
+        <h1>랑카위 완벽 여행 계획 & 숙소 가이드</h1>
+        <p>말레이시아의 청정 보석 랑카위! 2026년 7월 17일부터 20일까지 3박 4일 일정을 한눈에 파악하고, 최적의 명소와 엄선된 숙소를 대화형 지도로 살펴보세요.</p>
+        <div class="quick-stats">
+          <div class="stat-item">
+            <div class="stat-val">July 17 - 20</div>
+            <div class="stat-lbl">여행 일정 (3박 4일)</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">Tax Free</div>
+            <div class="stat-lbl">섬 전체 면세 구역</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">15 Spots</div>
+            <div class="stat-lbl">지도 등록 핵심 장소</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    
+    <!-- Map & Explorer Section -->
+    <section aria-labelledby="map-explorer-title">
+      <h2 class="section-title" id="map-explorer-title">🗺️ 대화형 랑카위 지도 및 장소 탐색기</h2>
+      <div class="map-section-grid">
+        
+        <!-- Left Map Area -->
+        <div class="map-outer">
+          <div class="map-header">
+            <span class="loc-desc">지도를 클릭하여 상세 정보를 보거나 필터를 적용하세요.</span>
+            <div class="map-filter-group" role="group" aria-label="지도 표시 필터">
+              <button class="map-filter-btn active" onclick="filterMap('all')" id="btn-filter-all">전체</button>
+              <button class="map-filter-btn" onclick="filterMap('hotel')" id="btn-filter-hotel">🏨 숙소</button>
+              <button class="map-filter-btn" onclick="filterMap('activity')" id="btn-filter-activity">⭐ 명소/체험</button>
+            </div>
+          </div>
+          
+          <div class="map-wrapper">
+            <!-- Leaflet Target -->
+            <div id="leaflet-map"></div>
+            
+            <!-- SVG Fallback -->
+            <div id="svg-map-fallback">
+              <svg class="svg-fallback-content" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                <!-- Water Background implicitly covers viewport -->
+                <!-- Stylized Outline of Langkawi Island -->
+                <path class="svg-island" d="M 120 180 C 150 140, 200 130, 260 120 C 320 110, 390 80, 480 90 C 570 100, 680 120, 710 170 C 740 220, 750 290, 700 350 C 650 410, 580 430, 500 440 C 420 450, 350 420, 280 430 C 210 440, 160 410, 130 380 C 100 350, 80 300, 90 250 C 100 200, 90 220, 120 180 Z" />
+                
+                <!-- Stylized Zonal Overlays -->
+                <!-- Datai Bay (North West) -->
+                <path class="svg-zone" d="M 120 180 C 150 140, 200 130, 250 150 C 230 190, 170 210, 120 180 Z" onclick="selectZone('Datai Bay')" />
+                <!-- Tanjung Rhu (North) -->
+                <path class="svg-zone" d="M 450 100 C 500 95, 580 105, 600 150 C 550 180, 480 170, 450 100 Z" onclick="selectZone('Tanjung Rhu')" />
+                <!-- Pantai Kok (West) -->
+                <path class="svg-zone" d="M 100 250 C 130 220, 180 230, 210 270 C 180 320, 130 310, 100 250 Z" onclick="selectZone('Pantai Kok')" />
+                <!-- Pantai Cenang (South West) -->
+                <path class="svg-zone" d="M 140 370 C 180 330, 230 340, 250 380 C 210 420, 160 410, 140 370 Z" onclick="selectZone('Pantai Cenang')" />
+                <!-- Kuah Town (South East) -->
+                <path class="svg-zone" d="M 520 370 C 580 350, 650 360, 680 390 C 640 430, 560 420, 520 370 Z" onclick="selectZone('Kuah Town')" />
+                
+                <!-- Zone Labels -->
+                <text x="180" y="160" font-weight="bold" font-size="12" fill="#0f172a">데이터이 베이</text>
+                <text x="500" y="135" font-weight="bold" font-size="12" fill="#0f172a">탄중 루</text>
+                <text x="135" y="270" font-weight="bold" font-size="12" fill="#0f172a">판타이 콕</text>
+                <text x="160" y="375" font-weight="bold" font-size="12" fill="#0f172a">판타이 체낭</text>
+                <text x="580" y="380" font-weight="bold" font-size="12" fill="#0f172a">쿠아 타운</text>
+                
+                <!-- Hot markers (Interactively rendered via JS or basic inline SVGs) -->
+                <!-- In fallback mode, we notify the user with text overlay -->
+                <rect x="250" y="220" width="300" height="60" rx="10" fill="rgba(15, 23, 42, 0.85)" />
+                <text x="400" y="245" fill="#ffffff" font-size="12" font-weight="bold" text-anchor="middle">네트워크 연결 끊김 - 오프라인 모드</text>
+                <text x="400" y="265" fill="#e2e8f0" font-size="11" text-anchor="middle">각 지역 구역을 클릭해 상세 숙소 목록을 보실 수 있습니다.</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Interactive Tab Panel -->
+        <div class="panel-wrapper">
+          <div class="panel-tabs" role="tablist">
+            <button class="panel-tab-btn active" onclick="switchPanelTab('activities')" id="tab-btn-activities" role="tab" aria-selected="true" aria-controls="panel-activities">⭐ 추천 명소</button>
+            <button class="panel-tab-btn" onclick="switchPanelTab('hotels')" id="tab-btn-hotels" role="tab" aria-selected="false" aria-controls="panel-hotels">🏨 추천 숙소</button>
+            <button class="panel-tab-btn" onclick="switchPanelTab('quiz')" id="tab-btn-quiz" role="tab" aria-selected="false" aria-controls="panel-quiz">💡 스타일 매칭</button>
+          </div>
+          
+          <div class="panel-content-area">
+            <!-- Activities Panel -->
+            <div class="panel-content" id="panel-activities" role="tabpanel">
+              <div class="list-container" id="list-activities">
+                <!-- Dynamically populated or static template -->
+              </div>
+            </div>
+            
+            <!-- Hotels Panel -->
+            <div class="panel-content" id="panel-hotels" style="display:none;" role="tabpanel">
+              <div class="list-container" id="list-hotels">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+            
+            <!-- Style Quiz Panel -->
+            <div class="panel-content" id="panel-quiz" style="display:none;" role="tabpanel">
+              <div class="quiz-box">
+                <div class="quiz-title">나의 여행 스타일을 선택해보세요!</div>
+                
+                <div class="quiz-option" onclick="runQuiz('couple')" id="quiz-opt-couple">
+                  <span class="quiz-opt-icon">💖</span>
+                  <div class="quiz-opt-text">
+                    <h4>로맨틱 허니문 / 커플 여행</h4>
+                    <p>럭셔리 프라이빗 서비스와 오션뷰 휴식</p>
+                  </div>
+                </div>
+                
+                <div class="quiz-option" onclick="runQuiz('family')" id="quiz-opt-family">
+                  <span class="quiz-opt-icon">👨‍👩‍👧</span>
+                  <div class="quiz-opt-text">
+                    <h4>가족 휴양 여행</h4>
+                    <p>넓은 백사장, 수영장, 키즈클럽 등 편리한 인프라</p>
+                  </div>
+                </div>
+                
+                <div class="quiz-option" onclick="runQuiz('active')" id="quiz-opt-active">
+                  <span class="quiz-opt-icon">⚡</span>
+                  <div class="quiz-opt-text">
+                    <h4>액티비티 & 나이트라이프</h4>
+                    <p>수상 레저, 불쇼, 밤거리 쇼핑 및 주변 식당가 접근성</p>
+                  </div>
+                </div>
+                
+                <div class="quiz-option" onclick="runQuiz('healing')" id="quiz-opt-healing">
+                  <span class="quiz-opt-icon">🌿</span>
+                  <div class="quiz-opt-text">
+                    <h4>정글 속 절대적 힐링</h4>
+                    <p>문명과 단절된 고요한 원시림에서 누리는 고독한 휴양</p>
+                  </div>
+                </div>
+                
+                <div class="quiz-result" id="quiz-result-box">
+                  <div class="quiz-result-title" id="quiz-result-title">추천 결과</div>
+                  <div class="quiz-result-desc" id="quiz-result-desc">테스트를 진행하시면 추천 리조트가 여기에 나타납니다.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Detailed Accommodations List Cards -->
+    <section aria-labelledby="hotels-section-title">
+      <h2 class="section-title" id="hotels-section-title">🏨 랑카위 지역별 추천 숙소 분석</h2>
+      <div class="accomm-grid" id="accomm-cards-container">
+        <!-- Dynamically populated from JS array to guarantee data integrity -->
+      </div>
+    </section>
+
+    <!-- Itinerary Section -->
+    <section aria-labelledby="itinerary-title">
+      <h2 class="section-title" id="itinerary-title">📅 랑카위 3박 4일 추천 상세 일정표</h2>
+      <span class="loc-desc" style="display: block; margin-top: -16px; margin-bottom: 20px;">각 일차를 클릭하여 동선과 상세 시간대별 계획을 확인해 보세요.</span>
+      
+      <div class="day-selector" role="tablist" aria-label="일차 선택">
+        <button class="day-tab-btn active" onclick="switchDay(1)" id="day-btn-1" role="tab" aria-selected="true" aria-controls="day-content-1">7/17 (1일차)</button>
+        <button class="day-tab-btn" onclick="switchDay(2)" id="day-btn-2" role="tab" aria-selected="false" aria-controls="day-content-2">7/18 (2일차)</button>
+        <button class="day-tab-btn" onclick="switchDay(3)" id="day-btn-3" role="tab" aria-selected="false" aria-controls="day-content-3">7/19 (3일차)</button>
+        <button class="day-tab-btn" onclick="switchDay(4)" id="day-btn-4" role="tab" aria-selected="false" aria-controls="day-content-4">7/20 (4일차)</button>
+      </div>
+
+      <!-- Day 1 Content -->
+      <div class="day-content active" id="day-content-1" role="tabpanel">
+        <div class="timeline-container">
+          
+          <div class="timeline-item">
+            <div class="time-slot">14:00 ~ 15:00</div>
+            <div class="event-card">
+              <div class="event-title">🛬 랑카위 공항 도착 및 렌터카 수령</div>
+              <div class="event-desc">
+                랑카위 국제공항(LGK)에 도착 후 수하물을 찾고 사전에 예약한 렌터카를 인수합니다. 
+                랑카위는 대중교통이 발달하지 않아 렌터카 혹은 그랩(Grab) 서비스 이용이 절대적입니다.
+              </div>
+              <div class="event-meta">
+                <span class="meta-tag">📍 위치: <span class="meta-tag-highlight">랑카위 국제공항</span></span>
+                <span class="meta-tag">⚠️ 팁: 말레이시아는 운전석이 우측에 있으며 좌측 통행입니다.</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="time-slot">15:30 ~ 16:30</div>
+            <div class="event-card">
+              <div class="event-title">🏨 숙소 체크인 & 휴식</div>
+              <div class="event-desc">
+                첫날은 시내 접근성이 우수한 판타이 체낭 또는 콕 지역의 숙소로 체크인합니다.
+                가볍게 짐을 정리하고 옷을 갈아입은 후 수영장이나 객실 뷰를 감상하며 비행 피로를 풉니다.
+              </div>
+              <div class="event-meta">
+                <span class="meta-tag">🏨 추천: <span class="meta-tag-highlight">파크로열 랑카위 (체낭) / 더 단나 (판타이 콕)</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time-slot">16:30 ~ 18:30</div>
+            <div class="event-card">
+              <div class="event-title">🏖️ 판타이 체낭 해변 자유 산책</div>
+              <div class="event-desc">
+                랑카위에서 가장 번화하고 활기찬 판타이 체낭 해변을 걷습니다. 
+                해변가에는 모래사장을 따라 트렌디한 선셋 바와 면세점이 밀집해 있어 랑카위 고유의 자유로운 분위기를 즐기기에 완벽합니다.
+              </div>
+              <div class="event-meta">
+                <span class="meta-tag">📍 위치: <span class="meta-tag-highlight">판타이 체낭 해변</span></span>
+                <span class="meta-tag">🛍️ 추천: 체낭 몰 및 코코밸리 면세점 구경 (초콜릿 및 음료 저렴)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time-slot">18:30 ~ 22:00</div>
+            <div class="event-card">
+              <div class="event-title">🔥 옐로우 비치 선셋 디너 & 판타이 체낭 파이어 쇼</div>
+              <div class="event-desc">
+                노랗게 물드는 선셋을 바라보며 해변 노천 레스토랑에서 저녁 식사와 음료를 즐깁니다. 
+                밤 8시 30분부터는 판타이 체낭 해변의 여러 바 앞에서 화려하고 아찔한 불쇼(Fire Show)가 무료로 펼쳐집니다.
+              </div>
+              <div class="event-meta">
+                <span class="meta-tag">🍽️ 추천 식당: <span class="meta-tag-highlight">Yellow Beach Cafe 또는 Thirstday Bar</span></span>
+                <span class="meta-tag">🔥 팁: 불쇼 명당 선점을 위해 20시 전에 음료를 주문해 모래사장 자리를 잡아두세요.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Day 2 Content -->
+      <div class="day-content" id="day-content-2" role="tabpanel">
+        <div class="timeline-container">
+          
+          <div class="timeline-item">
+            <div class="time-slot">09:00 ~ 12:00</div>
+            <div class="event-card">
+              <div class="event-title">🚠 랑카위 스카이캡(케이블카) & 스카이브릿지</div>
+              <div class="event-desc">
+                세계에서 가장 가파른 경사각 중 하나를 자랑하는 랑카위 스카이캡을 타고 머친창 산(708m) 정상에 오릅니다.
+                봉우리 사이에 공중부양하듯 떠 있는 125m 길이의 곡선 보행교 '스카이브릿지'에서 바라보는 360도 해안 절경은 단연 일품입니다.
+              </div>
+              <div class="event-meta">
+                <span class="meta-tag">📍 위치: <span class="meta-tag-highlight">오리엔탈 빌리지 내 스카이캡 매표소</span></span>
+                <span class="meta-tag">⚠️ 주의: 대기 시간이 길어질 수 있으므로 주말 오전 9시 전 조기 방문을 적극 추천합니다.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time-slot">12:00 ~ 13:30</div>
+            <div class="event-card">
+              <div class="event-title">💦 세븐 웰스 폭포 (Seven Wells) 하이킹</div>
+              <div class="event-desc">
+                스카이캡 하부 정류장에서 도보로 접근 가능한 대자연 계곡입니다. 
+                울창한 정글 계곡을 따라 물이 흘러내리며 자연적으로 만들어진 7개의 물웅덩이(풀장)가 있어 시원하게 발을 담그고 가벼운 산책을 하기 좋습니다.
+              </div>
+              <div class="event-meta">
+                <span class="meta-tag">📍 위치: <span class="meta-tag-highlight">세븐 웰스 폭포 주차장</span></span>
+                <span class="meta-tag">🐒 주의: 야생 원숭이가 많아 가방이나 귀중품을 열어두면 가져갈 위험이 있으니 보관에 주의하세요.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time-slot">13:30 ~ 15:30</div>
+            <div class="event-card">
+              <div class="event-title">⛵ 텔라가 하버 마리나 점심 식사 및 호텔 휴식</div>
+              <div class="event-desc">
+                유럽식 요트 정박지가 펼쳐진 텔라가 하버로 이동하여 이국적인 요트 정박지 뷰를 배경으로 여유로운 이탈리안 또는 말레이 현지식 점심을 먹습니다.
+                식사 후 한낮의 열기를 피하기 위해 호텔로 복귀하여 수영 및 낮잠을 청합니다.
+              </div>
+              <div class="event-meta">
+                <span class="meta-tag">🍽️ 추천 식당: <span class="meta-tag-highlight">The Loaf (카페/베이커리) 또는 Tapaz (타파스 요리)</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time-slot">18:00 ~ 21:30</div>
+            <div class="event-card">
+              <div class="event-title">🦅 독수리 광장 인증샷 & 토요 쿠아 야시장 로컬 푸드 투어</div>
+              <div class="event-desc">
+                해 질 무렵 랑카위의 랜드마크인 12미터 높이의 붉은 갈색 독수리상이 있는 독수리 광장(Dataran Lang)에서 기념 사진을 남깁니다. 
+                이후 매주 토요일 저녁 열리는 쿠아 야시장으로 이동하여 사테(말레이식 꼬치), 로티 차나이, 나시고렝 등 가성비 높은 로컬 야식들을 다양하게 맛봅니다.
+              </div>
+              <div class="event-meta">
+                <span class="meta-tag">📍 야시장 장소: <span class="meta-tag-highlight">Kuah Town Night Market (토요일 운영)</span></span>
+                <span class="meta-tag">⚠️ 팁: 야시장은 카드 결제가 거의 불가능하므로 반드시 링깃(MYR) 현금을 넉넉히 준비해 가세요.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Day 3 Content -->
+      <div class="day-content" id="day-content-3" role="tabpanel">
+        <div class="timeline-container">
+          
+          <div class="timeline-item">
+            <div class="time-slot">09:30 ~ 12:30</div>
+            <div class="event-card">
+              <div class="event-title">🛶 유네스코 킬림 맹그로브 보트 투어 & 탄중루 비치</div>
+              <div class="event-desc">
+                북부 킬림 지질공원에서 보트를 타고 울창한 맹그로브 숲 수림 사잇길을 달립니다. 
+                어두운 동굴 벽에 가득한 박쥐 관람, 강 위에 비치는 악어 절벽, 랑카위 이름의 유래가 된 붉은독수리 떼 먹이 사냥을 감상합니다. 
+                투어 종료 후에는 에메랄드빛 평화로운 탄중루 해변에서 휴식을 취합니다.
+              </div>
+              <div class="event-meta">
+                <span class="meta-tag">📍 출발지: <span class="meta-tag-highlight">킬림 제티 (Kilim Jetty)</span></span>
+                <span class="meta-tag">⚠️ 예약: 현지 제티에서 직접 흥정하거나, 마이리얼트립 등 플랫폼에서 프라이빗 단독 보트 사전 예약 권장.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time-slot">12:30 ~ 14:00</div>
+            <div class="event-card">
+              <div class="event-title">🍽️ 탄중루 로컬 해산물 점심식사</div>
+              <div class="event-desc">
+                북부 탄중루 비치 인근에 있는 바다 전망 식당에서 신선한 피시 앤 칩스 또는 말레이시아 전통 요리로 식사합니다.
+                시원한 코코넛 주스를 마시며 랑카위 특유의 한적함을 만끽하세요.
+              </div>
+              <div class="event-meta">
+                <span class="meta-tag">🍽️ 추천 식당: <span class="meta-tag-highlight">Scarborough Fish & Chips (탄중루 해변 앞 최고 뷰)</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time-slot">16:30 ~ 20:00</div>
+            <div class="event-card">
+              <div class="event-title">🌅 럭셔리 선셋 요트 크루즈 투어</div>
+              <div class="event-desc">
+                오후 4시 반경 쿠아 항구에서 화려한 요트에 승선합니다. 
+                바다 한가운데서 그물망(자쿠지 네트)을 내리고 맥주를 마시며 파도에 둥둥 떠다니는 이색 바다 수영을 즐깁니다. 
+                이어 맛있는 바비큐 뷔페 식사와 주류/음료 무제한 혜택을 누리며, 바다 너머로 붉게 타들어가는 환상적인 일몰을 감상합니다.
+              </div>
+              <div class="event-meta">
+                <span class="meta-tag">📍 집결지: <span class="meta-tag-highlight">Royal Langkawi Yacht Club</span></span>
+                <span class="meta-tag">👙 필수 준비물: 젖어도 되는 옷 또는 수영복, 선크림, 비치 타월 및 갈아입을 여벌 옷</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Day 4 Content -->
+      <div class="day-content" id="day-content-4" role="tabpanel">
+        <div class="timeline-container">
+          
+          <div class="timeline-item">
+            <div class="time-slot">09:30 ~ 11:30</div>
+            <div class="event-card">
+              <div class="event-title">🛍️ 마지막 면세점 싹쓸이 쇼핑 & 기념품 구매</div>
+              <div class="event-desc">
+                랑카위 섬 전체가 면세 특구인 만큼, 술과 수입 초콜릿 가격이 말레이시아 본토의 절반 이하 수준으로 매우 저렴합니다. 
+                가족과 지인들에게 선물할 초콜릿 세트와 랑카위 면세점에서만 싸게 살 수 있는 물품들을 쇼핑합니다.
+              </div>
+              <div class="event-meta">
+                <span class="meta-tag">📍 쇼핑 명소: <span class="meta-tag-highlight">The Zone Duty Free 또는 Coco Valley (체낭 위치)</span></span>
+                <span class="meta-tag">⚠️ 팁: 랑카위 면세 쇼핑 시 결제를 위해 여권 원본 또는 사진 촬영본을 제시해야 할 수 있습니다.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time-slot">11:30 ~ 13:00</div>
+            <div class="event-card">
+              <div class="event-title">🍽️ 현지 정통 브런치 & 호텔 체크아웃</div>
+              <div class="event-desc">
+                호텔로 돌아와 짐을 모두 챙겨 체크아웃한 뒤, 체낭 근처에서 말레이시아 정통 로컬 면 요리나 트렌디한 브런치 카페에서 든든한 식사를 합니다.
+              </div>
+              <div class="event-meta">
+                <span class="meta-tag">🍽️ 추천 식당: <span class="meta-tag-highlight">Smiling Buffalo (빈티지 숲속 카페)</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time-slot">13:00 ~ 15:00</div>
+            <div class="event-card">
+              <div class="event-title">🚗 렌터카 반납 및 공항 출국 수속</div>
+              <div class="event-desc">
+                공항 주차장 인근 반납 구역에서 렌터카 직원을 만나 차량 내외관 점검을 받고 반납합니다. 
+                랑카위 공항 카운터에서 위탁 수하물을 부치고 탑승 수속을 밟으며 행복했던 3박 4일 일정을 마무리합니다.
+              </div>
+              <div class="event-meta">
+                <span class="meta-tag">📍 목적지: <span class="meta-tag-highlight">랑카위 국제공항 (LGK)</span></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- General Langkawi Tips Card -->
+      <div class="tip-card">
+        <h3 class="tip-title">💡 랑카위 여행 꿀팁 & 주의사항 (7월 중순 날씨 대비)</h3>
+        <ul class="tip-list">
+          <li><strong>7월 날씨 대처</strong>: 랑카위의 7월은 우기에 접어드는 시기로, 스콜성 폭우가 자주 내립니다. 가방에 항상 접이식 우산이나 우비를 소지하세요.</li>
+          <li><strong>교통수단 선택</strong>: Grab이 매우 잘 잡힙니다. 만약 우측 운전석 통행이 낯설다면 렌트보다는 Grab을 매번 호출하는 편이 안전합니다.</li>
+          <li><strong>세금 환급</strong>: 랑카위 숙박 시 1박당 소액의 관광진흥세(Tourism Tax/Tourism Fee)가 부과될 수 있습니다 (체크인 시 현금 지불 대비).</li>
+          <li><strong>원숭이/자연 보호</strong>: 스카이브릿지나 폭포 등 자연 관광지에서 음식물이나 페트병을 들고 다니면 원숭이가 덤벼들 수 있으니 보이지 않게 가방에 넣으세요.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- Checklist section -->
+    <section aria-labelledby="checklist-title">
+      <h2 class="section-title" id="checklist-title">🎒 랑카위 여행 출발 전 체크리스트</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 14px;">
+        <div style="background-color: var(--bg-primary); padding: 20px; border-radius: 12px; border: 1px solid var(--border);">
+          <h4 style="font-weight: 700; margin-bottom: 12px; color: var(--primary);">필수 지참 서류 & 전자기기</h4>
+          <ul style="list-style-type: none; display: flex; flex-direction: column; gap: 8px;">
+            <li>🪪 여권 (만료기간 6개월 이상 필수)</li>
+            <li>🪪 한국 운전면허증 + 영문 면허증 또는 국제 운전면허증 (차량 렌트 시 필수)</li>
+            <li>🔌 어댑터 (말레이시아는 3핀 G형 240V 사용, 멀티어댑터 챙기기)</li>
+            <li>💳 현금 및 카드 (야시장용 현금 링깃 환전 및 해외 결제 신용/트래블로그 카드)</li>
+          </ul>
+        </div>
+        <div style="background-color: var(--bg-primary); padding: 20px; border-radius: 12px; border: 1px solid var(--border);">
+          <h4 style="font-weight: 700; margin-bottom: 12px; color: var(--secondary);">자연/액티비티 물품</h4>
+          <ul style="list-style-type: none; display: flex; flex-direction: column; gap: 8px;">
+            <li>👙 아쿠아슈즈 & 수영복 (요트 선셋 크루즈 및 계곡 물놀이용)</li>
+            <li>🧴 자외선 차단제 (SPF 50 이상 필수)</li>
+            <li>🦟 모기 기피제 (맹그로브 숲이나 정글 하이킹 시 필수)</li>
+            <li>☔ 경량 우산 또는 우비 (7월의 갑작스러운 스콜성 비 대응)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>🏝️ 랑카위 완벽 여행 플래너 및 숙소 지도 가이드 © 2026</p>
+      <p>본 자료는 웹 브라우저에서 편리하게 보실 수 있도록 단일 self-contained HTML 파일로 작성되었습니다.</p>
+    </div>
+  </footer>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
+  <script>
+    // Data structures
+    const locations = [
+      {
+        id: 1,
+        nameKo: "리츠칼튼 랑카위",
+        nameEn: "The Ritz-Carlton Langkawi",
+        lat: 6.3478,
+        lng: 99.6728,
+        type: "hotel",
+        category: "luxury",
+        tag: "초호화 럭셔리",
+        desc: "판타이 콕 남쪽, 우림과 오션뷰가 어우러진 최고급 리조트. 로맨틱 커플 및 허니문에 적극 추천.",
+        features: ["프라이빗 풀", "오션뷰 스파", "패밀리 서비스"],
+        price: "₩₩₩₩",
+        rating: "4.9"
+      },
+      {
+        id: 2,
+        nameKo: "더 다타이 랑카위",
+        nameEn: "The Datai Langkawi",
+        lat: 6.4227,
+        lng: 99.6713,
+        type: "hotel",
+        category: "healing",
+        tag: "자연 친화 럭셔리",
+        desc: "북서부 다타이 베이의 울창한 1000만년 정글 속에 은둔하는 친환경 힐링 최고급 리조트.",
+        features: ["원시 정글 트레일", "해변 라이프", "내추럴 골프"],
+        price: "₩₩₩₩",
+        rating: "4.9"
+      },
+      {
+        id: 3,
+        nameKo: "파크로열 랑카위 리조트",
+        nameEn: "PARKROYAL Langkawi Resort",
+        lat: 6.2847,
+        lng: 99.7314,
+        type: "hotel",
+        category: "active",
+        tag: "최고의 인프라 신축",
+        desc: "2023년 오픈. 판타이 체낭과 텡가 비치 번화가 한가운데 위치해 쇼핑, 맛집 접근성이 최상인 곳.",
+        features: ["신축 인프라", "루프탑 풀", "체낭 해변 도보"],
+        price: "₩₩₩",
+        rating: "4.7"
+      },
+      {
+        id: 4,
+        nameKo: "포시즌스 리조트 랑카위",
+        nameEn: "Four Seasons Resort Langkawi",
+        lat: 6.4497,
+        lng: 99.7892,
+        type: "hotel",
+        category: "family",
+        tag: "명품 패밀리형 리조트",
+        desc: "북부 탄중루의 1.5km에 달하는 긴 은빛 해변과 아랍풍 디자인이 결합한 평화로운 최고급 휴양 리조트.",
+        features: ["아랍풍 빌라", "프라이빗 비치", "야외 키즈액티비티"],
+        price: "₩₩₩₩",
+        rating: "4.8"
+      },
+      {
+        id: 5,
+        nameKo: "더 단나 랑카위",
+        nameEn: "The Danna Langkawi",
+        lat: 6.3683,
+        lng: 99.6828,
+        type: "hotel",
+        category: "couple",
+        tag: "클래식 유럽피안",
+        desc: "식민지 시절의 영국식 클래식 감성과 요트 선착장, 대형 3단 인피니티 풀이 조화로운 판타이 콕의 명소.",
+        features: ["클래식 디자인", "3단 인피니티 풀", "요트 마리나 뷰"],
+        price: "₩₩₩",
+        rating: "4.7"
+      },
+      {
+        id: 6,
+        nameKo: "프랑지파니 랑카위 리조트",
+        nameEn: "Frangipani Langkawi Resort",
+        lat: 6.2796,
+        lng: 99.7335,
+        type: "hotel",
+        category: "active",
+        tag: "친환경 가성비",
+        desc: "판타이 텡가의 조용한 해변에 자리 잡은 에코 호텔. 합리적인 가격에 드넓은 해변과 평화를 누릴 수 있는 곳.",
+        features: ["친환경 리조트", "에코 스파", "가성비 오션비치"],
+        price: "₩₩",
+        rating: "4.3"
+      },
+      {
+        id: 7,
+        nameKo: "웨스틴 랑카위 리조트",
+        nameEn: "The Westin Langkawi Resort & Spa",
+        lat: 6.3005,
+        lng: 99.8550,
+        type: "hotel",
+        category: "family",
+        tag: "웰니스 & 쿠아 접근성",
+        desc: "쿠아 타운 및 독수리 광장 인근에 있어 로컬 및 페리 탑승이 쉽고 수려한 정원 조경이 빛나는 웰니스 호텔.",
+        features: ["헤븐리 스파", "쿠아 타운 인근", "웰니스 프로그램"],
+        price: "₩₩₩",
+        rating: "4.6"
+      },
+      {
+        id: 8,
+        nameKo: "랑카위 스카이캡 (케이블카)",
+        nameEn: "Langkawi SkyCab",
+        lat: 6.3714,
+        lng: 99.6716,
+        type: "activity",
+        category: "active",
+        tag: "아웃도어 필수",
+        desc: "세계 최장 급경사 케이블카. 구름을 뚫고 오르는 환상적인 감동 선사.",
+        features: ["케이블카", "3D아트 뮤지엄", "오리엔탈빌리지"],
+        price: "중",
+        rating: "4.8"
+      },
+      {
+        id: 9,
+        nameKo: "랑카위 스카이브릿지",
+        nameEn: "Langkawi SkyBridge",
+        lat: 6.3705,
+        lng: 99.6708,
+        type: "activity",
+        category: "active",
+        tag: "아웃도어 필수",
+        desc: "해발 660m 산봉우리에 걸친 125m 길이 곡선 보행 다리.",
+        features: ["공중 보행교", "짜릿한 유리바닥", "파노라마 뷰"],
+        price: "소",
+        rating: "4.8"
+      },
+      {
+        id: 10,
+        nameKo: "독수리 광장",
+        nameEn: "Dataran Lang (Eagle Square)",
+        lat: 6.3086,
+        lng: 99.8521,
+        type: "activity",
+        category: "family",
+        tag: "시그니처 포토존",
+        desc: "랑카위 항구 관문에 우뚝 솟은 12m 대형 독수리 동상이 있는 공식 랜드마크 광장.",
+        features: ["포토스팟", "해안공원 산책", "랜드마크"],
+        price: "무료",
+        rating: "4.5"
+      },
+      {
+        id: 11,
+        nameKo: "킬림 맹그로브 생태 투어",
+        nameEn: "Kilim Karst Geoforest Park",
+        lat: 6.4032,
+        lng: 99.8606,
+        type: "activity",
+        category: "healing",
+        tag: "자연생태 어드벤처",
+        desc: "유네스코 지정 세계지질공원의 웅장한 자연 경관과 원생림을 관통하는 보트 탐험.",
+        features: ["맹그로브 보트", "독수리 피딩", "박쥐/악어동굴"],
+        price: "중",
+        rating: "4.9"
+      },
+      {
+        id: 12,
+        nameKo: "판타이 체낭 해변 & 파이어 쇼",
+        nameEn: "Pantai Cenang Beach & Fire Show",
+        lat: 6.2942,
+        lng: 99.7288,
+        type: "activity",
+        category: "active",
+        tag: "나이트라이프",
+        desc: "각종 수상 스포츠와 해질녘 선셋 바, 화려한 야간 불쇼를 다채롭게 즐기는 랑카위 최고 번화 비치.",
+        features: ["제트스키", "비치 불쇼", "선셋 레스토랑"],
+        price: "무료",
+        rating: "4.7"
+      },
+      {
+        id: 13,
+        nameKo: "세븐 웰스 폭포",
+        nameEn: "Seven Wells Waterfall",
+        lat: 6.3804,
+        lng: 99.6721,
+        type: "activity",
+        category: "healing",
+        tag: "자연 힐링",
+        desc: "머친창 산의 계곡수가 7개의 천연 물웅덩이를 이룬 지상낙원 계곡 폭포.",
+        features: ["천연 수영장", "정글 하이킹", "야생 동물"],
+        price: "무료",
+        rating: "4.4"
+      },
+      {
+        id: 14,
+        nameKo: "토요 쿠아 야시장",
+        nameEn: "Kuah Town Saturday Night Market",
+        lat: 6.3215,
+        lng: 99.8458,
+        type: "activity",
+        category: "active",
+        tag: "현지 로컬 체험",
+        desc: "매주 토요일 밤에 활기차게 열리는 랑카위 최대 규모 야시장. 저렴하고 신선한 로컬 푸드 천국.",
+        features: ["사테 꼬치", "망고 주스", "로컬 먹거리"],
+        price: "소",
+        rating: "4.5"
+      },
+      {
+        id: 15,
+        nameKo: "선셋 요트 크루즈 피어",
+        nameEn: "Sunset Yacht Cruise Terminal",
+        lat: 6.3032,
+        lng: 99.8421,
+        type: "activity",
+        category: "couple",
+        tag: "낭만 가득 선셋",
+        desc: "요트 선상 위에서 무제한 음료와 뷔페식, 자쿠지 네트 수영을 즐기며 바라보는 랑카위 최고의 석양 체험 코스.",
+        features: ["요트 크루즈", "선상 바비큐", "네트 수영"],
+        price: "고",
+        rating: "4.9"
+      }
+    ];
+
+    let map = null;
+    let mapMarkers = [];
+    let currentFilter = 'all';
+
+    // Initialize Map and UI on window load
+    window.onload = function() {
+      // Initialize theme based on preference or data attribute
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeUI(savedTheme);
+
+      // Setup theme button listener
+      document.getElementById('themeBtn').addEventListener('click', toggleTheme);
+
+      // Check Leaflet presence
+      if (typeof L === 'undefined') {
+        document.getElementById('leaflet-map').style.display = 'none';
+        document.getElementById('svg-map-fallback').style.display = 'block';
+      } else {
+        initLeafletMap();
+      }
+
+      // Populate list containers
+      renderLists();
+      renderAccomCards();
+    };
+
+    // Toggle Dark/Light Theme
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeUI(newTheme);
+    }
+
+    function updateThemeUI(theme) {
+      const btnIcon = document.getElementById('themeBtnIcon');
+      const btnText = document.getElementById('themeBtnText');
+      if (theme === 'dark') {
+        btnIcon.textContent = '☀️';
+        btnText.textContent = '라이트 모드';
+      } else {
+        btnIcon.textContent = '🌙';
+        btnText.textContent = '다크 모드';
+      }
+    }
+
+    // Initialize Leaflet Map
+    function initLeafletMap() {
+      // Centered around Langkawi
+      map = L.map('leaflet-map').setView([6.36, 99.77], 11);
+      
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+      }).addTo(map);
+
+      // Custom marker colors/icons
+      locations.forEach(loc => {
+        const markerColor = loc.type === 'hotel' ? '#0d9488' : '#f59e0b';
+        const markerHtml = `
+          <div style="
+            background-color: ${markerColor};
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 6px rgba(0,0,0,0.3);
+          "></div>
+        `;
+
+        const customIcon = L.divIcon({
+          html: markerHtml,
+          className: 'custom-div-icon',
+          iconSize: [14, 14],
+          iconAnchor: [7, 7]
+        });
+
+        const marker = L.marker([loc.lat, loc.lng], { icon: customIcon })
+          .addTo(map)
+          .bindPopup(`
+            <div style="font-family: 'Noto Sans KR', sans-serif; padding: 4px;">
+              <strong style="font-size:14px; color:${markerColor}">${loc.nameKo}</strong>
+              <div style="font-size:11px; color:#64748b; margin-top:2px;">${loc.nameEn}</div>
+              <div style="font-size:12px; margin-top:6px; line-height:1.4;">${loc.desc}</div>
+              <div style="font-size:11px; color:var(--primary); margin-top:6px; font-weight:bold;">★ ${loc.rating} / ${loc.tag}</div>
+            </div>
+          `);
+
+        mapMarkers.push({
+          id: loc.id,
+          type: loc.type,
+          markerObj: marker
+        });
+      });
+    }
+
+    // Fallback selection triggers list highlighted state
+    function selectZone(zoneName) {
+      // Find hotel card matching the area
+      const hotelTab = document.getElementById('tab-btn-hotels');
+      hotelTab.click();
+      
+      const items = document.querySelectorAll('.location-list-item');
+      items.forEach(item => {
+        if (item.getAttribute('data-area') === zoneName || item.textContent.includes(zoneName)) {
+          item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          item.classList.add('selected');
+          setTimeout(() => item.classList.remove('selected'), 2000);
+        }
+      });
+    }
+
+    // Switch right panel tab (Activities / Hotels / Quiz)
+    function switchPanelTab(tabName) {
+      // Deactivate all
+      document.querySelectorAll('.panel-tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.panel-content').forEach(c => c.style.display = 'none');
+
+      // Activate selected
+      if (tabName === 'activities') {
+        document.getElementById('tab-btn-activities').classList.add('active');
+        document.getElementById('panel-activities').style.display = 'block';
+      } else if (tabName === 'hotels') {
+        document.getElementById('tab-btn-hotels').classList.add('active');
+        document.getElementById('panel-hotels').style.display = 'block';
+      } else if (tabName === 'quiz') {
+        document.getElementById('tab-btn-quiz').classList.add('active');
+        document.getElementById('panel-quiz').style.display = 'block';
+      }
+    }
+
+    // Filter Map Markers and list items
+    function filterMap(type) {
+      currentFilter = type;
+      
+      // Update buttons
+      document.querySelectorAll('.map-filter-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(`btn-filter-${type}`).classList.add('active');
+
+      // Update map markers
+      if (map) {
+        mapMarkers.forEach(m => {
+          if (type === 'all' || m.type === type) {
+            map.addLayer(m.markerObj);
+          } else {
+            map.removeLayer(m.markerObj);
+          }
+        });
+      }
+
+      // Re-render lists
+      renderLists();
+    }
+
+    // Render side panels
+    function renderLists() {
+      const actList = document.getElementById('list-activities');
+      const hotList = document.getElementById('list-hotels');
+      
+      actList.innerHTML = '';
+      hotList.innerHTML = '';
+
+      locations.forEach(loc => {
+        if (currentFilter !== 'all' && loc.type !== currentFilter) return;
+
+        const item = document.createElement('div');
+        item.className = 'location-list-item';
+        item.setAttribute('id', `item-${loc.id}`);
+        item.onclick = () => focusLocation(loc.id, loc.lat, loc.lng);
+
+        const badgeClass = loc.type === 'hotel' ? 'loc-badge-hotel' : 'loc-badge-activity';
+        const badgeChar = loc.type === 'hotel' ? '🏨' : '⭐';
+
+        item.innerHTML = `
+          <div class="loc-icon-badge ${badgeClass}">${badgeChar}</div>
+          <div class="loc-info">
+            <div class="loc-title">${loc.nameKo}</div>
+            <div class="loc-desc">${loc.nameEn}</div>
+          </div>
+          <div style="font-size: 11px; font-weight: bold; color: var(--secondary)">★ ${loc.rating}</div>
+        `;
+
+        if (loc.type === 'activity') {
+          actList.appendChild(item);
+        } else {
+          hotList.appendChild(item);
+        }
+      });
+    }
+
+    // Focus map and highlight card on click
+    function focusLocation(id, lat, lng) {
+      // Highlight list item
+      document.querySelectorAll('.location-list-item').forEach(el => el.classList.remove('selected'));
+      const activeEl = document.getElementById(`item-${id}`);
+      if (activeEl) activeEl.classList.add('selected');
+
+      // Focus map if loaded
+      if (map) {
+        map.setView([lat, lng], 14);
+        const match = mapMarkers.find(m => m.id === id);
+        if (match) match.markerObj.openPopup();
+      }
+
+      // Highlight accommodation grid card if it's a hotel
+      const card = document.getElementById(`accomm-card-${id}`);
+      if (card) {
+        document.querySelectorAll('.accomm-card').forEach(c => c.classList.remove('highlighted'));
+        card.classList.add('highlighted');
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    // Render detailed hotel cards in the lower grid
+    function renderAccomCards() {
+      const container = document.getElementById('accomm-cards-container');
+      container.innerHTML = '';
+
+      locations.filter(l => l.type === 'hotel').forEach(hotel => {
+        const card = document.createElement('article');
+        card.className = 'accomm-card';
+        card.setAttribute('id', `accomm-card-${hotel.id}`);
+
+        let featuresHtml = '';
+        hotel.features.forEach(f => {
+          featuresHtml += `<span class="accomm-badge">${f}</span>`;
+        });
+
+        card.innerHTML = `
+          <div class="accomm-header">
+            <span class="accomm-tag">${hotel.tag}</span>
+            <h3 class="accomm-title-ko">${hotel.nameKo}</h3>
+            <div class="accomm-title-en">${hotel.nameEn}</div>
+          </div>
+          <div class="accomm-body">
+            <p class="accomm-desc">${hotel.desc}</p>
+            <div class="accomm-details">
+              ${featuresHtml}
+            </div>
+          </div>
+          <div class="accomm-footer">
+            <div class="accomm-rating">
+              <span class="star-icon">★</span> ${hotel.rating}
+            </div>
+            <div class="accomm-price">${hotel.price}</div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Run custom Travel Style Quiz
+    function runQuiz(style) {
+      document.querySelectorAll('.quiz-option').forEach(el => el.classList.remove('active'));
+      document.getElementById(`quiz-opt-${style}`).classList.add('active');
+
+      const resultBox = document.getElementById('quiz-result-box');
+      const resultTitle = document.getElementById('quiz-result-title');
+      const resultDesc = document.getElementById('quiz-result-desc');
+
+      resultBox.classList.add('active');
+
+      // Reset card highlights
+      document.querySelectorAll('.accomm-card').forEach(c => c.classList.remove('highlighted'));
+
+      let recommendation = '';
+      let hotelIds = [];
+
+      switch (style) {
+        case 'couple':
+          recommendation = "<strong>[리츠칼튼 랑카위]</strong> 및 <strong>[더 단나 랑카위]</strong>를 추천합니다! 조용한 만에 자리 잡은 프라이빗한 풀빌라와 클래식한 야외 인피니티 풀이 신혼여행이나 커플 여행의 품격을 배가시켜 줍니다.";
+          hotelIds = [1, 5];
+          break;
+        case 'family':
+          recommendation = "<strong>[포시즌스 랑카위]</strong> 및 <strong>[웨스틴 랑카위]</strong>를 추천합니다! 1.5km에 이르는 넓은 전용 백사장과 조경, 가족 친화적 키즈 프로그램, 공항 및 교통 중심지 접근성까지 고루 갖추고 있습니다.";
+          hotelIds = [4, 7];
+          break;
+        case 'active':
+          recommendation = "<strong>[파크로열 랑카위]</strong> 및 <strong>[프랑지파니 랑카위]</strong>를 추천합니다! 판타이 체낭/텡가의 중심가 도보권에 위치해 번거로운 이동 없이 각종 제트스키, 비치 불쇼, 맛집 투어와 면세 쇼핑을 매일 즐기기에 최적입니다.";
+          hotelIds = [3, 6];
+          break;
+        case 'healing':
+          recommendation = "<strong>[더 다타이 랑카위]</strong>를 강력 추천합니다! 1000만년 역사를 가진 울창한 열대우림에 감싸여 외부 소음이 완벽히 차단된 정적 속에서 최고급 프라이빗 힐링을 선사합니다.";
+          hotelIds = [2];
+          break;
+      }
+
+      resultTitle.innerHTML = `🌟 추천 지역 및 최적의 숙소`;
+      resultDesc.innerHTML = recommendation + "<br><br><span style='font-size:11px; color:var(--text-muted);'>추천된 호텔 카드들이 하단 목록에 주황색 테두리로 강조 표시되었습니다!</span>";
+
+      // Highlight recommended hotel cards
+      hotelIds.forEach(id => {
+        const card = document.getElementById(`accomm-card-${id}`);
+        if (card) card.classList.add('highlighted');
+      });
+      
+      // Auto scroll to first highlighted card
+      if (hotelIds.length > 0) {
+        const firstCard = document.getElementById(`accomm-card-${hotelIds[0]}`);
+        if (firstCard) {
+          firstCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    }
+
+    // Switch Day in Itinerary
+    function switchDay(dayNum) {
+      // Update day buttons
+      document.querySelectorAll('.day-tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(`day-btn-${dayNum}`).classList.add('active');
+
+      // Update day content displays
+      document.querySelectorAll('.day-content').forEach(content => content.classList.remove('active'));
+      document.getElementById(`day-content-${dayNum}`).classList.add('active');
+    }
+  </script>
+</body>
+</html>
