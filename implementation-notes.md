@@ -29,3 +29,4 @@ This project delivers a comprehensive, interactive travel planner and accommodat
 ## Update Log & Changes
 - **Mobile Responsive Enhancements**: Added comprehensive media queries for screen sizes <= 768px. Adjusted map height to 280px, scaled headers, removed internal scrollbars in panels (which caused nested scroll frustrations on mobile), and stacked checklist columns vertically.
 - **Transportation Adjustment**: Replaced all mentions of rental cars with Grab (ride-sharing). Day 1 arrival, Day 4 departure, general tips, and pre-travel checklists were updated to align with the new transit strategy (e.g., advising pre-installation and credit card linking in the Grab app).
+- **Section Repositioning**: Moved the 3박 4일 itinerary section immediately below the map/explorer section, shifting the recommended hotel cards grid further down. This allows the user to see their day-by-day itinerary directly after interacting with the map, improving the primary user flow.
