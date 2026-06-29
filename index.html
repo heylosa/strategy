@@ -1092,6 +1092,24 @@
             <!-- SVG Fallback -->
             <div id="svg-map-fallback">
               <svg class="svg-fallback-content" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <marker id="arrow-1" viewBox="0 0 10 10" refX="5" refY="5"
+                    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#0d9488" />
+                  </marker>
+                  <marker id="arrow-2" viewBox="0 0 10 10" refX="5" refY="5"
+                    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#f59e0b" />
+                  </marker>
+                  <marker id="arrow-3" viewBox="0 0 10 10" refX="5" refY="5"
+                    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#3b82f6" />
+                  </marker>
+                  <marker id="arrow-4" viewBox="0 0 10 10" refX="5" refY="5"
+                    markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#ec4899" />
+                  </marker>
+                </defs>
                 <!-- Water Background implicitly covers viewport -->
                 <!-- Stylized Outline of Langkawi Island -->
                 <path class="svg-island" d="M 120 180 C 150 140, 200 130, 260 120 C 320 110, 390 80, 480 90 C 570 100, 680 120, 710 170 C 740 220, 750 290, 700 350 C 650 410, 580 430, 500 440 C 420 450, 350 420, 280 430 C 210 440, 160 410, 130 380 C 100 350, 80 300, 90 250 C 100 200, 90 220, 120 180 Z" />
@@ -1117,21 +1135,25 @@
                 
                 <!-- SVG Routes (display: none by default) -->
                 <polyline id="svg-route-1"
-                  points="220,340 155,380"
+                  points="220,340 160,375 155,380"
                   fill="none" stroke="#0d9488" stroke-width="4"
-                  stroke-dasharray="6,6" style="display:none;" />
+                  stroke-dasharray="6,6" style="display:none;"
+                  marker-mid="url(#arrow-1)" marker-end="url(#arrow-1)" />
                 <polyline id="svg-route-2"
-                  points="130,250 125,240 145,265 620,370 580,360"
+                  points="160,375 130,250 125,240 145,265 620,370 580,360 160,375"
                   fill="none" stroke="#f59e0b" stroke-width="4"
-                  stroke-dasharray="6,6" style="display:none;" />
+                  stroke-dasharray="6,6" style="display:none;"
+                  marker-mid="url(#arrow-2)" marker-end="url(#arrow-2)" />
                 <polyline id="svg-route-3"
-                  points="550,150 500,120 600,390"
+                  points="160,375 550,150 500,120 600,390 160,375"
                   fill="none" stroke="#3b82f6" stroke-width="4"
-                  stroke-dasharray="6,6" style="display:none;" />
+                  stroke-dasharray="6,6" style="display:none;"
+                  marker-mid="url(#arrow-3)" marker-end="url(#arrow-3)" />
                 <polyline id="svg-route-4"
-                  points="155,380 220,340"
+                  points="160,375 155,380 220,340"
                   fill="none" stroke="#ec4899" stroke-width="4"
-                  stroke-dasharray="6,6" style="display:none;" />
+                  stroke-dasharray="6,6" style="display:none;"
+                  marker-mid="url(#arrow-4)" marker-end="url(#arrow-4)" />
 
                 <!-- Hot markers (Interactively rendered via JS or basic inline SVGs) -->
                 <!-- In fallback mode, we notify the user with text overlay -->
@@ -1205,13 +1227,13 @@
           <div class="timeline-item">
             <div class="time-slot">15:30 ~ 16:30</div>
             <div class="event-card">
-              <div class="event-title">🏨 숙소 체크인 & 휴식</div>
+              <div class="event-title">🏨 더 리야즈 라반야 리조트 체크인 & 휴식</div>
               <div class="event-desc">
-                첫날은 시내 접근성이 우수한 판타이 체낭 또는 콕 지역의 숙소로 체크인합니다.
-                가볍게 짐을 정리하고 옷을 갈아입은 후 수영장이나 객실 뷰를 감상하며 비행 피로를 풉니다.
+                첫날은 판타이 체낭/텡가 해변에 위치한 5성급 숙소인 더 리야즈 라반야 리조트(The RIYAZ Lavanya)에 체크인합니다.
+                가볍게 짐을 정리하고 옷을 갈아입은 후 루프탑 수영장이나 객실에서 비행 피로를 풉니다.
               </div>
               <div class="event-meta">
-                <span class="meta-tag">🏨 추천: <span class="meta-tag-highlight">파크로열 랑카위 (체낭) / 더 단나 (판타이 콕)</span></span>
+                <span class="meta-tag">🏨 지정 숙소: <span class="meta-tag-highlight">더 리야즈 라반야 랑카위 (The RIYAZ Lavanya)</span></span>
               </div>
             </div>
           </div>
@@ -1474,6 +1496,17 @@
     // Data structures
     const locations = [
       {
+        id: 1,
+        nameKo: "더 리야즈 라반야 랑카위",
+        nameEn: "The Riyaz Lavanya Langkawi",
+        lat: 6.2861,
+        lng: 99.7282,
+        type: "hotel",
+        tag: "체낭 해변 숙소",
+        desc: "판타이 텡가와 체낭 해변 사이의 세련된 5성급 리조트. 이번 여행의 베이스캠프.",
+        rating: "4.8"
+      },
+      {
         id: 8,
         nameKo: "랑카위 스카이캡 (케이블카)",
         nameEn: "Langkawi SkyCab",
@@ -1615,7 +1648,7 @@
       }).addTo(map);
 
       locations.forEach(loc => {
-        const markerColor = '#f59e0b';
+        const markerColor = loc.type === 'hotel' ? '#0d9488' : '#f59e0b';
         const markerHtml = `
           <div style="
             background-color: ${markerColor};
@@ -1653,7 +1686,7 @@
       const zoneToIds = {
         'Tanjung Rhu': [11],
         'Pantai Kok': [8, 9, 13],
-        'Pantai Cenang': [12],
+        'Pantai Cenang': [1, 12],
         'Kuah Town': [10, 14, 15]
       };
 
@@ -1673,7 +1706,7 @@
       const actList = document.getElementById('list-activities');
       actList.innerHTML = '';
 
-      locations.forEach(loc => {
+      locations.filter(l => l.type === 'activity').forEach(loc => {
         const item = document.createElement('div');
         item.className = 'location-list-item';
         item.setAttribute('id', `item-${loc.id}`);
@@ -1709,22 +1742,28 @@
     const routes = {
       1: [
         [6.3300, 99.7280], // 공항
+        [6.2861, 99.7282], // 리야즈 라반야 숙소
         [6.2942, 99.7288]  // 판타이 체낭
       ],
       2: [
+        [6.2861, 99.7282], // 리야즈 라반야 숙소
         [6.3714, 99.6716], // 스카이캡
         [6.3705, 99.6708], // 스카이브릿지
         [6.3804, 99.6721], // 세븐웰스 폭포
         [6.3683, 99.6828], // 텔라가 하버 (점심)
         [6.3086, 99.8521], // 독수리광장
-        [6.3215, 99.8458]  // 쿠아 야시장
+        [6.3215, 99.8458], // 쿠아 야시장
+        [6.2861, 99.7282]  // 리야즈 라반야 숙소
       ],
       3: [
+        [6.2861, 99.7282], // 리야즈 라반야 숙소
         [6.4032, 99.8606], // 킬림 맹그로브
         [6.4497, 99.7892], // 탄중루 비치
-        [6.3032, 99.8421]  // 선셋 요트 크루즈
+        [6.3032, 99.8421], // 선셋 요트 크루즈
+        [6.2861, 99.7282]  // 리야즈 라반야 숙소
       ],
       4: [
+        [6.2861, 99.7282], // 리야즈 라반야 숙소
         [6.2942, 99.7288], // 체낭 쇼핑
         [6.3300, 99.7280]  // 공항
       ]
@@ -1770,7 +1809,8 @@
 
       if (day === 'all') {
         Object.keys(routes).forEach(d => {
-          const line = L.polyline(routes[d], {
+          const coords = routes[d];
+          const line = L.polyline(coords, {
             color: colors[d],
             weight: 3,
             opacity: 0.6,
@@ -1778,6 +1818,32 @@
             lineJoin: 'round'
           }).addTo(map);
           activeRouteLines.push(line);
+
+          // Add arrows at segment midpoints
+          for (let i = 0; i < coords.length - 1; i++) {
+            const p1 = coords[i];
+            const p2 = coords[i+1];
+            const mid = [(p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2];
+            const dy = p2[0] - p1[0];
+            const dx = p2[1] - p1[1];
+            const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+            const angleDeg = -angle;
+
+            const arrowIcon = L.divIcon({
+              html: `<div style="
+                transform: rotate(${angleDeg}deg);
+                color: ${colors[d]};
+                font-size: 14px;
+                line-height: 1;
+                text-shadow: 0 0 2px #fff;
+              ">➤</div>`,
+              className: 'custom-arrow-icon',
+              iconSize: [14, 14],
+              iconAnchor: [7, 7]
+            });
+            const arrowMarker = L.marker(mid, { icon: arrowIcon }).addTo(map);
+            activeRouteLines.push(arrowMarker);
+          }
         });
         map.setView([6.36, 99.77], 11);
       } else {
@@ -1791,6 +1857,33 @@
             lineJoin: 'round'
           }).addTo(map);
           activeRouteLines.push(line);
+
+          // Add arrows at segment midpoints
+          for (let i = 0; i < coords.length - 1; i++) {
+            const p1 = coords[i];
+            const p2 = coords[i+1];
+            const mid = [(p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2];
+            const dy = p2[0] - p1[0];
+            const dx = p2[1] - p1[1];
+            const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+            const angleDeg = -angle;
+
+            const arrowIcon = L.divIcon({
+              html: `<div style="
+                transform: rotate(${angleDeg}deg);
+                color: ${colors[day]};
+                font-size: 18px;
+                line-height: 1;
+                text-shadow: 0 0 3px #fff;
+              ">➤</div>`,
+              className: 'custom-arrow-icon',
+              iconSize: [18, 18],
+              iconAnchor: [9, 9]
+            });
+            const arrowMarker = L.marker(mid, { icon: arrowIcon }).addTo(map);
+            activeRouteLines.push(arrowMarker);
+          }
+
           map.fitBounds(line.getBounds(), { padding: [40, 40] });
         }
       }
