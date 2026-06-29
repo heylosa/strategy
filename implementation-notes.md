@@ -23,5 +23,9 @@ This project delivers a comprehensive, interactive travel planner and accommodat
 - **Micro-interactions**: Scale-ups on hover, smooth scroll, tab transitions, day timeline expanders, and instant theme toggling.
 
 ### 3. Trip Itinerary (July 17 - July 20, 2026)
-- **Structure**: Visual timeline design utilizing details/summary native components styled to act as smooth accordions.
+- **Structure**: Day-based tab navigation with structured time-sequenced timeline cards.
 - Includes estimated times, local dining recommendations, and travel advisories.
+
+## Update Log & Changes
+- **Mobile Responsive Enhancements**: Added comprehensive media queries for screen sizes <= 768px. Adjusted map height to 280px, scaled headers, removed internal scrollbars in panels (which caused nested scroll frustrations on mobile), and stacked checklist columns vertically.
+- **Transportation Adjustment**: Replaced all mentions of rental cars with Grab (ride-sharing). Day 1 arrival, Day 4 departure, general tips, and pre-travel checklists were updated to align with the new transit strategy (e.g., advising pre-installation and credit card linking in the Grab app).
