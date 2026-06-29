@@ -823,9 +823,149 @@
       gap: 10px;
     }
 
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      font-size: 14px;
+    }
+
     @media (max-width: 768px) {
       .tip-list {
         grid-template-columns: 1fr;
+      }
+      
+      .checklist-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+      
+      /* Mobile optimization rules */
+      .container {
+        padding: 0 12px;
+      }
+      
+      section {
+        padding: 20px 14px;
+        margin-bottom: 20px;
+        border-radius: 12px;
+      }
+      
+      h1 {
+        font-size: 26px !important;
+      }
+      
+      .hero-content p {
+        font-size: 14px !important;
+        margin-bottom: 16px;
+      }
+      
+      .section-title {
+        font-size: 20px !important;
+        margin-bottom: 16px;
+      }
+      
+      header {
+        padding: 30px 0 50px 0;
+        border-bottom-left-radius: 24px;
+        border-bottom-right-radius: 24px;
+      }
+      
+      .header-nav {
+        margin-bottom: 20px;
+      }
+      
+      .logo {
+        font-size: 18px;
+      }
+      
+      .theme-toggle {
+        padding: 6px 12px;
+        font-size: 11px;
+      }
+      
+      .quick-stats {
+        gap: 8px;
+        margin-top: 16px;
+      }
+      
+      .stat-item {
+        padding: 8px 12px;
+        border-radius: 8px;
+        flex: 1 1 calc(50% - 8px);
+        min-width: 100px;
+      }
+      
+      .stat-val {
+        font-size: 14px;
+      }
+      
+      .stat-lbl {
+        font-size: 10px;
+      }
+      
+      .map-wrapper {
+        height: 280px;
+      }
+      
+      .panel-wrapper {
+        max-height: none !important;
+      }
+      
+      .panel-content-area {
+        overflow-y: visible !important;
+      }
+      
+      .panel-tab-btn {
+        padding: 10px 4px;
+        font-size: 13px;
+      }
+      
+      .accomm-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+      }
+      
+      .day-tab-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+      }
+      
+      .timeline-container {
+        padding-left: 15px;
+      }
+      
+      .timeline-item {
+        padding-left: 15px;
+        margin-bottom: 20px;
+      }
+      
+      .timeline-item::before {
+        left: -15px;
+        width: 8px;
+        height: 8px;
+        top: 6px;
+        border-width: 2px;
+      }
+      
+      .event-card {
+        padding: 12px;
+      }
+      
+      .event-title {
+        font-size: 14px;
+        gap: 4px;
+      }
+      
+      .event-desc {
+        font-size: 12.5px;
+        line-height: 1.4;
+      }
+      
+      .event-meta {
+        gap: 6px;
+        font-size: 11px;
+        margin-top: 6px;
       }
     }
 
@@ -1311,7 +1451,7 @@
     <!-- Checklist section -->
     <section aria-labelledby="checklist-title">
       <h2 class="section-title" id="checklist-title">🎒 랑카위 여행 출발 전 체크리스트</h2>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 14px;">
+      <div class="checklist-grid">
         <div style="background-color: var(--bg-primary); padding: 20px; border-radius: 12px; border: 1px solid var(--border);">
           <h4 style="font-weight: 700; margin-bottom: 12px; color: var(--primary);">필수 지참 서류 & 전자기기</h4>
           <ul style="list-style-type: none; display: flex; flex-direction: column; gap: 8px;">
