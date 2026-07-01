@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>랑카위 완벽 여행 플래너 및 숙소 지도 가이드</title>
-  <meta name="description" content="2026년 7월 17일~20일 랑카위 3박 4일 최적 경로 계획, 추천 명소 및 테마별 숙소 정보가 담긴 대화형 지도 보고서">
+  <title>쿠알라룸푸르 + 랑카위 완벽 여행 플래너 및 지도 가이드</title>
+  <meta name="description" content="2026년 7월 17일~20일 쿠알라룸푸르와 랑카위 최적 경로 계획, 추천 명소 정보가 담긴 대화형 지도 보고서">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1030,12 +1030,12 @@
         </button>
       </div>
       <div class="hero-content">
-        <h1>랑카위 완벽 여행 계획 & 숙소 가이드</h1>
-        <p>말레이시아의 청정 보석 랑카위! 2026년 7월 17일부터 20일까지 3박 4일 일정을 한눈에 파악하고, 최적의 명소와 엄선된 숙소를 대화형 지도로 살펴보세요.</p>
+        <h1>쿠알라룸푸르 + 랑카위 완벽 여행 계획</h1>
+        <p>2026년 7월 17일부터 20일까지 쿠알라룸푸르(1박)와 랑카위(2박) 일정을 한눈에 파악하고, 최적의 경로를 대화형 지도로 살펴보세요.</p>
         <div class="quick-stats">
           <div class="stat-item">
             <div class="stat-val">July 17 - 20</div>
-            <div class="stat-lbl">여행 일정 (3박 4일)</div>
+            <div class="stat-lbl">KL 1박 + 랑카위 2박</div>
           </div>
           <div class="stat-item">
             <div class="stat-val">Tax Free</div>
@@ -1076,10 +1076,10 @@
               <span class="loc-desc" style="font-weight: 700; color: var(--primary);">📍 여행 동선(Route) 표시:</span>
               <div class="map-filter-group" role="group" aria-label="동선 필터">
                 <button class="map-filter-btn active" onclick="selectRoute('off')" id="btn-route-off">끄기</button>
-                <button class="map-filter-btn" onclick="selectRoute(1)" id="btn-route-1">1일차</button>
-                <button class="map-filter-btn" onclick="selectRoute(2)" id="btn-route-2">2일차</button>
-                <button class="map-filter-btn" onclick="selectRoute(3)" id="btn-route-3">3일차</button>
-                <button class="map-filter-btn" onclick="selectRoute(4)" id="btn-route-4">4일차</button>
+                <button class="map-filter-btn" onclick="selectRoute(1)" id="btn-route-1">7/17 (KL)</button>
+                <button class="map-filter-btn" onclick="selectRoute(2)" id="btn-route-2">7/18 (1일차)</button>
+                <button class="map-filter-btn" onclick="selectRoute(3)" id="btn-route-3">7/19 (2일차)</button>
+                <button class="map-filter-btn" onclick="selectRoute(4)" id="btn-route-4">7/20 (3일차)</button>
                 <button class="map-filter-btn" onclick="selectRoute('all')" id="btn-route-all">전체</button>
               </div>
             </div>
@@ -1135,22 +1135,22 @@
                 
                 <!-- SVG Routes (display: none by default) -->
                 <polyline id="svg-route-1"
-                  points="220,340 160,375 155,380"
+                  points=""
                   fill="none" stroke="#0d9488" stroke-width="4"
                   stroke-dasharray="6,6" style="display:none;"
                   marker-mid="url(#arrow-1)" marker-end="url(#arrow-1)" />
                 <polyline id="svg-route-2"
-                  points="160,375 550,150 620,370 600,390 580,360 160,375"
+                  points="220,340 155,380 130,250 125,240 145,265 155,380 160,375 155,380"
                   fill="none" stroke="#f59e0b" stroke-width="4"
                   stroke-dasharray="6,6" style="display:none;"
                   marker-mid="url(#arrow-2)" marker-end="url(#arrow-2)" />
                 <polyline id="svg-route-3"
-                  points="160,375 130,250 125,240 145,265 160,375 155,380 160,375"
+                  points="155,380 550,150 620,370 600,390 155,380"
                   fill="none" stroke="#3b82f6" stroke-width="4"
                   stroke-dasharray="6,6" style="display:none;"
                   marker-mid="url(#arrow-3)" marker-end="url(#arrow-3)" />
                 <polyline id="svg-route-4"
-                  points="160,375 155,380 220,340"
+                  points="155,380 160,375 220,340"
                   fill="none" stroke="#ec4899" stroke-width="4"
                   stroke-dasharray="6,6" style="display:none;"
                   marker-mid="url(#arrow-4)" marker-end="url(#arrow-4)" />
@@ -1195,14 +1195,30 @@
 
     <!-- Itinerary Section -->
     <section aria-labelledby="itinerary-title">
-      <h2 class="section-title" id="itinerary-title">📅 랑카위 3박 4일 추천 상세 일정표</h2>
+      <h2 class="section-title" id="itinerary-title">📅 쿠알라룸푸르 + 랑카위 추천 상세 일정표</h2>
       <span class="loc-desc" style="display: block; margin-top: -16px; margin-bottom: 20px;">각 일차를 클릭하여 동선과 상세 시간대별 계획을 확인해 보세요.</span>
       
       <div class="day-selector" role="tablist" aria-label="일차 선택">
-        <button class="day-tab-btn active" onclick="switchDay(1)" id="day-btn-1" role="tab" aria-selected="true" aria-controls="day-content-1">7/17 (1일차)</button>
-        <button class="day-tab-btn" onclick="switchDay(2)" id="day-btn-2" role="tab" aria-selected="false" aria-controls="day-content-2">7/18 (2일차)</button>
-        <button class="day-tab-btn" onclick="switchDay(3)" id="day-btn-3" role="tab" aria-selected="false" aria-controls="day-content-3">7/19 (3일차)</button>
-        <button class="day-tab-btn" onclick="switchDay(4)" id="day-btn-4" role="tab" aria-selected="false" aria-controls="day-content-4">7/20 (4일차)</button>
+        <button class="day-tab-btn active"
+          onclick="switchDay(1)" id="day-btn-1" role="tab"
+          aria-selected="true" aria-controls="day-content-1">
+          7/17 (KL 도착)
+        </button>
+        <button class="day-tab-btn"
+          onclick="switchDay(2)" id="day-btn-2" role="tab"
+          aria-selected="false" aria-controls="day-content-2">
+          7/18 (랑카위 1일차)
+        </button>
+        <button class="day-tab-btn"
+          onclick="switchDay(3)" id="day-btn-3" role="tab"
+          aria-selected="false" aria-controls="day-content-3">
+          7/19 (랑카위 2일차)
+        </button>
+        <button class="day-tab-btn"
+          onclick="switchDay(4)" id="day-btn-4" role="tab"
+          aria-selected="false" aria-controls="day-content-4">
+          7/20 (랑카위 3일차)
+        </button>
       </div>
 
       <!-- Day 1 Content -->
@@ -1210,16 +1226,16 @@
         <div class="timeline-container">
           
           <div class="timeline-item">
-            <div class="time-slot">14:00 ~ 15:00</div>
+            <div class="time-slot">14:00 ~ 15:30</div>
             <div class="event-card">
-              <div class="event-title">🛬 랑카위 공항 도착 및 그랩(Grab) 탑승</div>
+              <div class="event-title">🛬 쿠알라룸푸르 국제공항(KLIA) 도착 & 그랩 이동</div>
               <div class="event-desc">
-                랑카위 국제공항(LGK)에 도착 후 수하물을 찾고 그랩(Grab)을 호출하여 숙소로 이동합니다. 
-                랑카위는 그랩 서비스가 매우 활성화되어 있고 비용도 합리적이어서 렌터카 없이도 편안하게 다닐 수 있습니다.
+                현지 시간 오후 2시에 쿠알라룸푸르 공항에 도착합니다. 입국 수속을 마치고 수하물을 수거한 후,
+                그랩(Grab) 또는 KLIA Ekspres 고속열차를 탑승해 쿠알라룸푸르 시내 호텔로 이동합니다.
               </div>
               <div class="event-meta">
-                <span class="meta-tag">📍 위치: <span class="meta-tag-highlight">랑카위 국제공항</span></span>
-                <span class="meta-tag">⚠️ 팁: 공항 로비에서 그랩 앱을 열어 목적지를 입력하고 호출하세요.</span>
+                <span class="meta-tag">📍 도착지: <span class="meta-tag-highlight">KLIA 1 또는 2 터미널</span></span>
+                <span class="meta-tag">⚠️ 팁: 말레이시아 입국 전 MDAC(전자 입국카드) 등록 여부를 재확인하세요.</span>
               </div>
             </div>
           </div>
@@ -1227,13 +1243,13 @@
           <div class="timeline-item">
             <div class="time-slot">15:30 ~ 16:30</div>
             <div class="event-card">
-              <div class="event-title">🏨 더 리야즈 라반야 리조트 체크인 & 휴식</div>
+              <div class="event-title">🏨 쿠알라룸푸르 시내 호텔 체크인 & 휴식</div>
               <div class="event-desc">
-                첫날은 판타이 체낭/텡가 해변에 위치한 5성급 숙소인 더 리야즈 라반야 리조트(The RIYAZ Lavanya)에 체크인합니다.
-                가볍게 짐을 정리하고 옷을 갈아입은 후 루프탑 수영장이나 객실에서 비행 피로를 풉니다.
+                부킷 빈탕(Bukit Bintang) 또는 KLCC 인근에 위치한 시내 중심가 호텔에 체크인하고 짐을 정리합니다.
+                긴 비행 후 가벼운 샤워와 정비를 통해 피로를 풉니다.
               </div>
               <div class="event-meta">
-                <span class="meta-tag">🏨 지정 숙소: <span class="meta-tag-highlight">더 리야즈 라반야 랑카위 (The RIYAZ Lavanya)</span></span>
+                <span class="meta-tag">📍 추천 투숙 구역: <span class="meta-tag-highlight">쇼핑과 이동이 편리한 부킷 빈탕 또는 KLCC 지역</span></span>
               </div>
             </div>
           </div>
@@ -1241,29 +1257,27 @@
           <div class="timeline-item">
             <div class="time-slot">16:30 ~ 18:30</div>
             <div class="event-card">
-              <div class="event-title">🏖️ 판타이 체낭 해변 자유 산책</div>
+              <div class="event-title">🏙️ KLCC 페트로나스 트윈 타워 & 수리아 몰 구경</div>
               <div class="event-desc">
-                랑카위에서 가장 번화하고 활기찬 판타이 체낭 해변을 걷습니다. 
-                해변가에는 모래사장을 따라 트렌디한 선셋 바와 면세점이 밀집해 있어 랑카위 고유의 자유로운 분위기를 즐기기에 완벽합니다.
+                쿠알라룸푸르의 대표 랜드마크인 페트로나스 트윈 타워와 내부의 수리아 KLCC 쇼핑몰을 구경합니다.
+                타워 바로 앞의 KLCC 공원에서 분수 뷰를 감상하고 타워 배경으로 인증샷을 촬영하기 좋습니다.
               </div>
               <div class="event-meta">
-                <span class="meta-tag">📍 위치: <span class="meta-tag-highlight">판타이 체낭 해변</span></span>
-                <span class="meta-tag">🛍️ 추천: 체낭 몰 및 코코밸리 면세점 구경 (초콜릿 및 음료 저렴)</span>
+                <span class="meta-tag">📍 위치: <span class="meta-tag-highlight">KLCC Petronas Twin Towers</span></span>
               </div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="time-slot">18:30 ~ 22:00</div>
+            <div class="time-slot">18:30 ~ 21:30</div>
             <div class="event-card">
-              <div class="event-title">🔥 옐로우 비치 선셋 디너 & 판타이 체낭 파이어 쇼</div>
+              <div class="event-title">🍢 Jalan Alor 야시장 저녁식사 & 로컬 푸드</div>
               <div class="event-desc">
-                노랗게 물드는 선셋을 바라보며 해변 노천 레스토랑에서 저녁 식사와 음료를 즐깁니다. 
-                밤 8시 30분부터는 판타이 체낭 해변의 여러 바 앞에서 화려하고 아찔한 불쇼(Fire Show)가 무료로 펼쳐집니다.
+                부킷 빈탕 근처에 있는 잘란 알로 야시장으로 이동하여 활기 넘치는 야식 투어를 즐깁니다.
+                말레이시아 로컬 꼬치 요리인 사테, 칠리 크랩, 딤섬, 열대 과일(망고, 두리안 등)을 다채롭게 맛봅니다.
               </div>
               <div class="event-meta">
-                <span class="meta-tag">🍽️ 추천 식당: <span class="meta-tag-highlight">Yellow Beach Cafe 또는 Thirstday Bar</span></span>
-                <span class="meta-tag">🔥 팁: 불쇼 명당 선점을 위해 20시 전에 음료를 주문해 모래사장 자리를 잡아두세요.</span>
+                <span class="meta-tag">🍽️ 추천 식당: <span class="meta-tag-highlight">Sai Woo Restaurant (야시장 내 유명 맛집)</span></span>
               </div>
             </div>
           </div>
@@ -1276,86 +1290,84 @@
         <div class="timeline-container">
           
           <div class="timeline-item">
-            <div class="time-slot">09:30 ~ 12:30</div>
+            <div class="time-slot">08:30 ~ 10:30</div>
             <div class="event-card">
-              <div class="event-title">🛶 유네스코 킬림 맹그로브 생태 투어</div>
+              <div class="event-title">✈️ 국내선 항공 이동 (KL ➔ 랑카위)</div>
               <div class="event-desc">
-                북동부 킬림 지질공원에서 보트를 타고 울창한 맹그로브 숲 수림 사잇길을 달립니다.
-                박쥐 동굴 탐사, 강 위에 비치는 악어 절벽 감상, 붉은독수리 떼의 먹이 사냥을 생생하게 목격합니다.
+                쿠알라룸푸르 국제공항에서 랑카위(LGK)행 국내선 비행기에 탑승합니다.
+                약 1시간의 비행 후 에메랄드빛 바다로 둘러싸인 랑카위 섬에 도착합니다.
               </div>
               <div class="event-meta">
-                <span class="meta-tag">📍 출발지: <span class="meta-tag-highlight">킬림 제티 (Kilim Jetty)</span></span>
-                <span class="meta-tag">⚠️ 예약: 플랫폼 사전 예약 또는 현지 제티 직접 흥정</span>
+                <span class="meta-tag">🛫 출발공항: <span class="meta-tag-highlight">KLIA2 (에어아시아) 또는 KLIA1 (말레이시아항공)</span></span>
               </div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="time-slot">12:30 ~ 14:30</div>
+            <div class="time-slot">10:30 ~ 11:30</div>
             <div class="event-card">
-              <div class="event-title">🍽️ 쿠아 타운 이동 및 현지 시푸드 점심식사</div>
+              <div class="event-title">🚕 랑카위 도착 및 리조트 짐 보관</div>
               <div class="event-desc">
-                킬림 제티에서 남쪽 쿠아 타운으로 이동하여, 현지인들과 관광객들 사이에서 가장 평판이 좋은 해산물 전문점에서 점심 식사를 즐깁니다.
+                랑카위 공항에 도착한 후 그랩(Grab)을 불러 숙소인 '더 리야즈 라반야'로 향합니다.
+                아직 체크인 전이므로 리조트 로비에 짐을 보관하고 홀가분하게 서부 투어를 떠납니다.
               </div>
               <div class="event-meta">
-                <span class="meta-tag">🍽️ 추천 식당: <span class="meta-tag-highlight">Wonderland Food Store (가성비 시푸드 맛집)</span></span>
+                <span class="meta-tag">🏨 숙소: <span class="meta-tag-highlight">더 리야즈 라반야 리조트 (The RIYAZ Lavanya)</span></span>
               </div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="time-slot">14:30 ~ 15:30</div>
+            <div class="time-slot">11:30 ~ 14:00</div>
             <div class="event-card">
-              <div class="event-title">☕ 쿠아 타운 카페 휴식 및 디저트 타임</div>
+              <div class="event-title">🚠 랑카위 스카이캡 & 스카이브릿지</div>
               <div class="event-desc">
-                한낮의 무더운 열기를 식히기 위해 쿠아 타운의 분위기 좋은 카페에서 시원한 음료와 디저트를 맛보며 여유로운 휴식을 취합니다.
+                세계적인 급경사 케이블카를 타고 머친창 산 정상에 올라 스카이브릿지를 건넢니다.
+                360도 해안 절경과 초록빛 원생림이 자아내는 랑카위의 비현실적인 대자연 뷰를 감상합니다.
               </div>
               <div class="event-meta">
-                <span class="meta-tag">☕ 추천 장소: <span class="meta-tag-highlight">쿠아 타운 내 디저트 카페 또는 로컬 카페</span></span>
+                <span class="meta-tag">📍 위치: <span class="meta-tag-highlight">오리엔탈 빌리지 (Oriental Village)</span></span>
               </div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="time-slot">15:30 ~ 16:15</div>
+            <div class="time-slot">14:00 ~ 15:00</div>
             <div class="event-card">
-              <div class="event-title">🦅 독수리 광장 인증샷 (Eagle Square)</div>
+              <div class="event-title">💦 세븐 웰스 폭포 산책 & 발 담그기</div>
               <div class="event-desc">
-                선셋 요트 크루즈 선착장이 있는 쿠아 제티 바로 옆, 랑카위의 랜드마크인 12미터 높이의 거대 독수리상이 있는 광장입니다.
-                시원하게 탁 트인 바다 전망을 배경으로 기념사진을 찍기에 좋습니다.
+                스카이캡 하부 역에서 도보 거리에 있는 세븐 웰스 폭포의 시원한 계곡 풀장에서 한낮의 더위를 날려 보냅니다.
               </div>
               <div class="event-meta">
-                <span class="meta-tag">📍 위치: <span class="meta-tag-highlight">독수리 광장 (Dataran Lang)</span></span>
+                <span class="meta-tag">📍 위치: <span class="meta-tag-highlight">세븐 웰스 폭포 (Seven Wells)</span></span>
               </div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="time-slot">16:30 ~ 20:00</div>
+            <div class="time-slot">15:00 ~ 16:30</div>
             <div class="event-card">
-              <div class="event-title">🌅 럭셔리 선셋 요트 크루즈 투어</div>
+              <div class="event-title">⛵ 텔라가 하버 점심식사 및 복귀</div>
               <div class="event-desc">
-                오후 4시 반경 쿠아 항구에서 화려한 요트에 승선합니다. 
-                그물망 자쿠지에서 맥주를 마시며 파도에 떠다니는 이색 바다 수영을 즐기고, 바비큐 뷔페 식사와 주류/음료를 무제한으로 즐깁니다.
+                요트가 가득 정박한 유럽풍 마리나인 텔라가 하버에서 여유로운 지중해식이나 카페 베이커리로 늦은 점심을 해결합니다.
+                이후 리조트로 돌아와 방을 안내받습니다.
               </div>
               <div class="event-meta">
-                <span class="meta-tag">📍 집결지: <span class="meta-tag-highlight">Royal Langkawi Yacht Club (독수리광장 옆)</span></span>
-                <span class="meta-tag">👙 필수 준비물: 수영복, 선크림, 비치 타월 및 여벌 옷</span>
+                <span class="meta-tag">🍽️ 추천 식당: <span class="meta-tag-highlight">The Loaf (카페/베이커리) 또는 Tapaz (타파스)</span></span>
               </div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="time-slot">20:15 ~ 21:30</div>
+            <div class="time-slot">18:30 ~ 22:00</div>
             <div class="event-card">
-              <div class="event-title">🍢 토요 쿠아 야시장 로컬 푸드 투어</div>
+              <div class="event-title">🔥 체낭 해변 자유 산책 & 비치 파이어 쇼 저녁식사</div>
               <div class="event-desc">
-                매주 토요일 저녁 쿠아 타운에서 성대하게 열리는 야시장입니다.
-                사테(말레이식 꼬치), 로티 차나이, 나시고렝 등 가성비 높은 로컬 야식들을 다양하게 맛보며 현지 야시장의 에너지를 만끽합니다.
+                판타이 체낭 해변을 산책한 후 모래사장 위에 차려진 노천 테이블에서 일몰을 보며 저녁 식사를 합니다.
+                밤 8시 30분부터 해변가 바들 앞에서 무료로 진행되는 짜릿한 불쇼를 감상합니다.
               </div>
               <div class="event-meta">
-                <span class="meta-tag">📍 야시장 장소: <span class="meta-tag-highlight">Kuah Town Night Market (토요일 운영)</span></span>
-                <span class="meta-tag">⚠️ 팁: 현금을 반드시 넉넉히 준비해 가세요 (카드 결제 불가).</span>
+                <span class="meta-tag">🍽️ 추천 식당: <span class="meta-tag-highlight">Yellow Beach Cafe 또는 Thirstday Bar</span></span>
               </div>
             </div>
           </div>
@@ -1368,74 +1380,63 @@
         <div class="timeline-container">
           
           <div class="timeline-item">
-            <div class="time-slot">09:00 ~ 12:00</div>
+            <div class="time-slot">09:30 ~ 12:30</div>
             <div class="event-card">
-              <div class="event-title">🚠 랑카위 스카이캡(케이블카) & 스카이브릿지</div>
+              <div class="event-title">🛶 유네스코 킬림 맹그로브 생태 투어</div>
               <div class="event-desc">
-                세계에서 가장 가파른 경사각 중 하나를 자랑하는 랑카위 스카이캡을 타고 머친창 산(708m) 정상에 오릅니다.
-                봉우리 사이에 공중부양하듯 떠 있는 125m 길이의 곡선 보행교 '스카이브릿지'에서 바라보는 360도 해안 절경은 단연 일품입니다.
+                보트를 타고 강과 바다가 만나는 맹그로브 숲 사이를 달립니다.
+                악어 절벽, 석회암 동굴 속 박쥐 무리 관찰, 랑카위의 붉은독수리 떼가 하늘을 가르고 사냥하는 장관을 마주합니다.
               </div>
               <div class="event-meta">
-                <span class="meta-tag">📍 위치: <span class="meta-tag-highlight">오리엔탈 빌리지 내 스카이캡 매표소</span></span>
-                <span class="meta-tag">⚠️ 주의: 대기 시간이 길어질 수 있으므로 주말 오전 9시 전 조기 방문을 적극 추천합니다.</span>
+                <span class="meta-tag">📍 출발지: <span class="meta-tag-highlight">킬림 제티 (Kilim Jetty)</span></span>
               </div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="time-slot">12:00 ~ 13:30</div>
+            <div class="time-slot">12:30 ~ 14:30</div>
             <div class="event-card">
-              <div class="event-title">💦 세븐 웰스 폭포 (Seven Wells) 하이킹</div>
+              <div class="event-title">🍽️ 쿠아 타운 이동 및 현지 시푸드 점심식사</div>
               <div class="event-desc">
-                스카이캡 하부 정류장에서 도보로 접근 가능한 대자연 계곡입니다. 
-                울창한 정글 계곡을 따라 물이 흘러내리며 자연적으로 만들어진 7개의 물웅덩이(풀장)가 있어 시원하게 발을 담그고 가벼운 산책을 하기 좋습니다.
+                남쪽 쿠아 타운으로 20분간 이동하여 현지 최고 맛집인 원더랜드에서 신선하고 푸짐한 시푸드를 맛봅니다.
               </div>
               <div class="event-meta">
-                <span class="meta-tag">📍 위치: <span class="meta-tag-highlight">세븐 웰스 폭포 주차장</span></span>
-                <span class="meta-tag">🐒 주의: 야생 원숭이가 많아 귀중품 보관에 주의하세요.</span>
+                <span class="meta-tag">🍽️ 추천 식당: <span class="meta-tag-highlight">Wonderland Food Store (갈릭 타이거 새우 등 강력 추천)</span></span>
               </div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="time-slot">13:30 ~ 15:30</div>
+            <div class="time-slot">14:30 ~ 15:30</div>
             <div class="event-card">
-              <div class="event-title">⛵ 텔라가 하버 마리나 점심 식사 및 호텔 복귀</div>
+              <div class="event-title">☕ 쿠아 타운 카페 휴식 및 디저트 타임</div>
               <div class="event-desc">
-                유럽식 요트 정박지가 펼쳐진 텔라가 하버로 이동하여 요트 정박지 뷰를 배경으로 여유로운 점심을 먹습니다.
-                식사 후 한낮의 열기를 피하고 수영장에서 쉬기 위해 숙소인 더 리야즈 라반야 리조트로 복귀합니다.
-              </div>
-              <div class="event-meta">
-                <span class="meta-tag">🍽️ 추천 식당: <span class="meta-tag-highlight">The Loaf (카페/베이커리) 또는 Tapaz (타파스 요리)</span></span>
+                한낮의 뜨거운 햇볕을 피해 세련된 로컬 카페에서 시원한 코코넛 커피나 디저트를 맛보며 힐링 시간을 보냅니다.
               </div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="time-slot">17:30 ~ 19:30</div>
+            <div class="time-slot">15:30 ~ 16:15</div>
             <div class="event-card">
-              <div class="event-title">🏖️ 판타이 Tengah 해변 선셋 감상 또는 마사지/스파 휴식</div>
+              <div class="event-title">🦅 독수리 광장 인증샷 (Eagle Square)</div>
               <div class="event-desc">
-                숙소 바로 앞의 차분하고 한적한 판타이 텡가(Pantai Tengah) 해변을 거닐며 랑카위의 낭만적인 일몰을 감상합니다.
-                또는 근처의 유명 마사지 숍에서 스파 트리트먼트를 받으며 여유로운 힐링 시간을 보냅니다.
-              </div>
-              <div class="event-meta">
-                <span class="meta-tag">📍 위치: <span class="meta-tag-highlight">판타이 텡가 해변 및 근처 스파 숍</span></span>
-                <span class="meta-tag">💆 추천 스파: Alun-Alun Spa 또는 Ishan Malaysian Spa</span>
+                선셋 요트 선착장 바로 옆에 위치한 랑카위의 랜드마크 12m 높이 거대 독수리상 앞에서 드넓은 바다를 배경으로 인증샷을 남깁니다.
               </div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="time-slot">19:30 ~ 21:30</div>
+            <div class="time-slot">16:30 ~ 20:00</div>
             <div class="event-card">
-              <div class="event-title">🍽️ 판타이 체낭 시푸드 맛집 저녁 식사</div>
+              <div class="event-title">🌅 럭셔리 선셋 요트 크루즈 투어</div>
               <div class="event-desc">
-                랑카위에서 가장 평판이 좋은 해산물 요리 전문점에서 신선한 타이거 크랩, 버터 갈릭 타이거 새우 등 다채로운 시푸드 만찬을 즐깁니다.
-                식사 후 체낭 중심가의 야시장을 구경하거나 카페에서 달콤한 디저트를 맛봅니다.
+                쿠아 선착장에서 요트에 승선합니다. 
+                파도에 매달린 그물망 해수 자쿠지 수영, 맥주/칵테일 무제한 파티, 맛있는 선상 바비큐 뷔페와 함께 바다 너머로 타오르는 환상적인 선셋을 만끽합니다.
               </div>
               <div class="event-meta">
-                <span class="meta-tag">🍽️ 추천 식당: <span class="meta-tag-highlight">Orkid Ria Seafood Restaurant 또는 Qiang Shi Fu (강사부)</span></span>
+                <span class="meta-tag">📍 집결지: <span class="meta-tag-highlight">Royal Langkawi Yacht Club</span></span>
+                <span class="meta-tag">👙 필수 준비물: 수영복, 선크림, 개인 비치 타월 및 여벌 옷</span>
               </div>
             </div>
           </div>
@@ -1450,14 +1451,12 @@
           <div class="timeline-item">
             <div class="time-slot">09:30 ~ 11:30</div>
             <div class="event-card">
-              <div class="event-title">🛍️ 마지막 면세점 싹쓸이 쇼핑 & 기념품 구매</div>
+              <div class="event-title">🛍️ 체낭 면세 몰 싹쓸이 쇼핑 & 초콜릿/기념품 구매</div>
               <div class="event-desc">
-                랑카위 섬 전체가 면세 특구인 만큼, 술과 수입 초콜릿 가격이 말레이시아 본토의 절반 이하 수준으로 매우 저렴합니다. 
-                가족과 지인들에게 선물할 초콜릿 세트와 랑카위 면세점에서만 싸게 살 수 있는 물품들을 쇼핑합니다.
+                면세 전역인 랑카위의 최고 장점을 살려 수입 초콜릿, 주류, 아로마 마사지 오일 등 선물을 저렴하게 면세 쇼핑합니다.
               </div>
               <div class="event-meta">
-                <span class="meta-tag">📍 쇼핑 명소: <span class="meta-tag-highlight">The Zone Duty Free 또는 Coco Valley (체낭 위치)</span></span>
-                <span class="meta-tag">⚠️ 팁: 랑카위 면세 쇼핑 시 결제를 위해 여권 원본 또는 사진 촬영본을 제시해야 할 수 있습니다.</span>
+                <span class="meta-tag">🛍️ 쇼핑 명소: <span class="meta-tag-highlight">The Zone Duty Free 또는 Coco Valley (체낭 위치)</span></span>
               </div>
             </div>
           </div>
@@ -1465,12 +1464,12 @@
           <div class="timeline-item">
             <div class="time-slot">11:30 ~ 13:00</div>
             <div class="event-card">
-              <div class="event-title">🍽️ 현지 정통 브런치 & 호텔 체크아웃</div>
+              <div class="event-title">🍽️ Smiling Buffalo 숲속 브런치 & 호텔 체크아웃</div>
               <div class="event-desc">
-                호텔로 돌아와 짐을 모두 챙겨 체크아웃한 뒤, 체낭 근처에서 말레이시아 정통 로컬 면 요리나 트렌디한 브런치 카페에서 든든한 식사를 합니다.
+                리조트로 복귀하여 짐을 챙겨 체크아웃한 뒤, 야자수 숲으로 둘러싸인 빈티지 정원 카페에서 여유로운 브런치 식사를 즐깁니다.
               </div>
               <div class="event-meta">
-                <span class="meta-tag">🍽️ 추천 식당: <span class="meta-tag-highlight">Smiling Buffalo (빈티지 숲속 카페)</span></span>
+                <span class="meta-tag">🍽️ 추천 카페: <span class="meta-tag-highlight">Smiling Buffalo Cafe (와플, 커피, 에그 베네딕트 명가)</span></span>
               </div>
             </div>
           </div>
@@ -1480,8 +1479,7 @@
             <div class="event-card">
               <div class="event-title">🚕 그랩(Grab) 이동 및 공항 출국 수속</div>
               <div class="event-desc">
-                체크아웃 후 그랩(Grab)을 호출하여 공항으로 편하게 이동합니다. 
-                별도의 대기나 정산 과정이 없어 공항 도착 후 곧바로 탑승 수속을 진행할 수 있으므로, 출국 일정이 매우 여유롭습니다.
+                그랩(Grab)을 타고 랑카위 국제공항으로 이동하여 출국 수속 및 경유 항공편 수속을 진행하고 여행을 마무리합니다.
               </div>
               <div class="event-meta">
                 <span class="meta-tag">📍 목적지: <span class="meta-tag-highlight">랑카위 국제공항 (LGK)</span></span>
@@ -1816,20 +1814,9 @@
     }
 
     const routes = {
-      1: [
-        [6.3300, 99.7280], // 공항
-        [6.2861, 99.7282], // 리야즈 라반야 숙소
-        [6.2942, 99.7288]  // 판타이 체낭
-      ],
+      1: [],
       2: [
-        [6.2861, 99.7282], // 리야즈 라반야 숙소
-        [6.4032, 99.8606], // 킬림 맹그로브
-        [6.3086, 99.8521], // 독수리광장
-        [6.3032, 99.8421], // 선셋 요트 크루즈
-        [6.3215, 99.8458], // 쿠아 야시장
-        [6.2861, 99.7282]  // 리야즈 라반야 숙소
-      ],
-      3: [
+        [6.3300, 99.7280], // 공항
         [6.2861, 99.7282], // 리야즈 라반야 숙소
         [6.3714, 99.6716], // 스카이캡
         [6.3705, 99.6708], // 스카이브릿지
@@ -1837,6 +1824,13 @@
         [6.3683, 99.6828], // 텔라가 하버 (점심)
         [6.2861, 99.7282], // 리야즈 라반야 숙소
         [6.2942, 99.7288], // 판타이 체낭 저녁 식사
+        [6.2861, 99.7282]  // 리야즈 라반야 숙소
+      ],
+      3: [
+        [6.2861, 99.7282], // 리야즈 라반야 숙소
+        [6.4032, 99.8606], // 킬림 맹그로브
+        [6.3086, 99.8521], // 독수리광장
+        [6.3032, 99.8421], // 선셋 요트 크루즈
         [6.2861, 99.7282]  // 리야즈 라반야 숙소
       ],
       4: [

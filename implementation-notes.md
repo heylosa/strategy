@@ -1,7 +1,7 @@
 # Implementation Notes: Langkawi Travel Planner & Accommodation Map
 
 ## Project Overview
-This project delivers a comprehensive, interactive travel planner and accommodation map for a 4-day trip to Langkawi, Malaysia (July 17 - July 20, 2026). It combines rich local recommendations for accommodations and activities with an interactive geographic map and a detailed day-by-day itinerary.
+This project delivers a comprehensive, interactive travel planner and accommodation map for a 4-day trip to Kuala Lumpur (1 night) and Langkawi (2 nights) from July 17 to July 20, 2026. It combines rich local recommendations for activities and dining with an interactive geographic map and a detailed day-by-day itinerary.
 
 ## Technical Requirements & Constraints
 - **Format**: Single self-contained HTML file (`index.html`) containing all structure (HTML), styling (CSS), and logic (JS).
@@ -22,7 +22,7 @@ This project delivers a comprehensive, interactive travel planner and accommodat
   - Dark Theme: Deep marine midnight background (`#0a0f1d`), Slate-gray borders (`#1e293b`), vibrant cyan/yellow accents.
 - **Micro-interactions**: Scale-ups on hover, smooth scroll, tab transitions, day timeline expanders, and instant theme toggling.
 
-### 3. Trip Itinerary (July 17 - July 20, 2026)
+### 3. Trip Itinerary (July 17 - July 20, 2026 - KL & Langkawi)
 - **Structure**: Day-based tab navigation with structured time-sequenced timeline cards.
 - Includes estimated times, local dining recommendations, and travel advisories.
 
@@ -37,4 +37,5 @@ This project delivers a comprehensive, interactive travel planner and accommodat
 - **Geographic Route Optimization**: Swapped Day 2 and Day 3 itineraries to eliminate redundant cross-island travel. Day 2 (Saturday) now clusters all East/North-East activities (Kilim Mangrove, Tanjung Rhu, Kuah Town Eagle Square, Sunset Cruise, and Saturday Night Market) into one loop. Day 3 (Sunday) clusters all West/South-West activities (SkyCab, SkyBridge, Seven Wells, Telaga Harbour Marina, Pantai Tengah sunset, and Pantai Cenang seafood dinner), keeping all evening travel local.
 - **Tanjung Rhu Beach Exclusion**: Completely removed Tanjung Rhu Beach and the Tanjung Rhu Seafood lunch (Scarborough Fish & Chips) from the Day 2 active travel routes and timeline. Replaced it with a route directly connecting Kilim Mangrove to Kuah Town, adding a local seafood lunch stop (Wonderland Food Store) and cafe break in Kuah Town. This saves the traveler from driving to the far north end of the island, further streamlining the schedule.
 - **Tanjung Rhu Attraction List Removal**: Deleted Tanjung Rhu Beach from the `locations` array and `selectZone()` mapping. It no longer appears as a recommended attraction card in the sidebar or as a pin on the map.
+- **Schedule Restructuring (KL 1박 + 랑카위 2박)**: Updated the plan to spend July 17 in Kuala Lumpur (arriving at 14:00 local time) and July 18-20 in Langkawi. Restructured the 4-day itinerary: Day 1 (KL arrival & city tour), Day 2 (domestic flight to Langkawi, West/South-West attractions), Day 3 (Langkawi East/South-East attractions & Sunset Cruise), Day 4 (Cenang shopping & departure). Adjusted Javascript coordinates and SVG fallback polyline coordinates accordingly.
 
