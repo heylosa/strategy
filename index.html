@@ -1500,32 +1500,6 @@
             </div>
           </div>
 
-          <div class="timeline-item">
-            <div class="time-slot">18:30 ~ 20:00</div>
-            <div class="event-card">
-              <div class="event-title">🚕 KL 공항 도착 및 시내(도심 더블타워) 이동</div>
-              <div class="event-desc">
-                KL 공항 도착 후 그랩이나 KLIA 익스프레스 고속열차를 이용해 페트로나스 트윈 타워(더블 타워)가 있는 KLCC 도심 지역으로 이동합니다.
-              </div>
-              <div class="event-meta">
-                <span class="meta-tag">📍 목적지: <span class="meta-tag-highlight">쿠알라룸푸르 도심 KLCC 지역</span></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="time-slot">20:00 ~ 22:30</div>
-            <div class="event-card">
-              <div class="event-title">🌃 KLCC 더블타워 야경 감상 & 루프탑 디너/바</div>
-              <div class="event-desc">
-                밤하늘 아래 화려하게 빛나는 페트로나스 트윈타워(더블타워)의 야경을 감상합니다. 수리아 몰 근처에서 디너를 하거나 루프탑 바에서 휴식을 취합니다.
-              </div>
-              <div class="event-meta">
-                <span class="meta-tag">🍸 루프탑: <span class="meta-tag-highlight">WET Deck (W Hotel) 또는 Marini's on 57</span></span>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
 
@@ -1713,6 +1687,41 @@
         tag: "교통 허브",
         desc: "랑카위 여행의 시작과 끝이 되는 국제공항. 공항 로비에서 그랩(Grab) 차량 호출이 용이합니다.",
         rating: "4.2"
+      },
+      {
+        id: 19,
+        nameKo: "쿠알라룸푸르 국제공항",
+        nameEn: "Kuala Lumpur International Airport (KLIA)",
+        lat: 2.7456,
+        lng: 101.7072,
+        type: "transit",
+        tag: "교통 허브",
+        desc: "쿠알라룸푸르 여행의 관문이자 허브 공항.",
+        rating: "4.3"
+      },
+      {
+        id: 20,
+        nameKo: "페트로나스 트윈 타워",
+        nameEn: "Petronas Twin Towers (KLCC)",
+        lat: 3.1578,
+        lng: 101.7120,
+        type: "activity",
+        category: "active",
+        tag: "대표 랜드마크",
+        desc: "쿠알라룸푸르의 상징적인 초고층 쌍둥이 빌딩.",
+        rating: "4.9"
+      },
+      {
+        id: 21,
+        nameKo: "잘란 알로 야시장",
+        nameEn: "Jalan Alor Night Market",
+        lat: 3.1456,
+        lng: 101.7088,
+        type: "activity",
+        category: "active",
+        tag: "로컬 야식 천국",
+        desc: "부킷 빈탕 인근의 활기찬 맛집 골목 야시장.",
+        rating: "4.5"
       }
     ];
 
@@ -1728,6 +1737,7 @@
 
       if (typeof L !== 'undefined') {
         initLeafletMap();
+        selectRoute(1);
       }
 
       renderLists();
@@ -1852,7 +1862,11 @@
     }
 
     const routes = {
-      1: [],
+      1: [
+        [2.7456, 101.7072], // KLIA
+        [3.1578, 101.7120], // 페트로나스 트윈 타워
+        [3.1456, 101.7088]  // 잘란 알로 야시장
+      ],
       2: [
         [6.3300, 99.7280], // 공항
         [6.2861, 99.7282], // 리야즈 라반야 숙소
