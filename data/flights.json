@@ -1,6 +1,6 @@
 {
   "queried_at": "2026-08-24T12:55:00+09:00",
-  "source": "Google Flights · 성인 4명 · NRT+HND",
+  "source": "Google Flights · 성인 4명 · NRT",
   "trip": {
     "out": "2026-11-07",
     "out_dow": "토",
@@ -9,16 +9,6 @@
     "passengers": 4,
     "cabin": "이코노미",
     "filter": "직항 · 가는날 아침 출발 · 점심 이후(12:00+) 도착 우선"
-  },
-  "compare": {
-    "headline": "하네다가 항상 더 비싼 건 아님. 다만 아침·점심이후 선택지가 나리타보다 훨씬 적음.",
-    "nrt_best_match_krw": 1695448,
-    "nrt_best_label": "제주항공 ICN→NRT 09:50→12:15 / 복편 08:55→11:35",
-    "hnd_best_match_krw": 1661284,
-    "hnd_best_label": "피치 ICN→HND 10:50→12:55 / 복편 새벽 01:55→04:40",
-    "hnd_vs_nrt": "조건맞는 최저만 보면 HND 피치가 NRT 제주보다 약 ₩3.4만 저렴. 대신 복편이 심야·새벽.",
-    "why_nrt_first": "나리타는 LCC 아침편(제주·티웨이·이스타 등)이 많아 ‘아침 출발+점심 이후 도착+낮 귀국’ 조합이 쉬움. 하네다 11/7 주간 직항은 Google 기준 사실상 피치·대한·JAL/아시아나 소수.",
-    "hnd_fullservice": "대한 09:30→11:25 왕복 약 ₩2,020,485 · 아시아나 08:40→10:50 왕복 약 ₩2,301,285 (풀서비스는 확실히 비쌈)."
   },
   "airports": {
     "NRT": {
@@ -35,8 +25,21 @@
           "airport": "NRT",
           "match": "아침 출발 + 점심 직후 도착 + 낮 귀국",
           "airline": "제주항공",
-          "out": { "dep": "09:50", "arr": "12:15", "from": "ICN", "to": "NRT", "duration": "2h25m" },
-          "ret": { "dep": "08:55", "arr": "11:35", "from": "NRT", "to": "ICN", "duration": "2h40m", "airline": "복편(왕복 묶음)" },
+          "out": {
+            "dep": "09:50",
+            "arr": "12:15",
+            "from": "ICN",
+            "to": "NRT",
+            "duration": "2h25m"
+          },
+          "ret": {
+            "dep": "08:55",
+            "arr": "11:35",
+            "from": "NRT",
+            "to": "ICN",
+            "duration": "2h40m",
+            "airline": "복편(왕복 묶음)"
+          },
           "price_krw": 1695448,
           "price_per_person_krw": 423862,
           "price_label": "₩1,695,448~ (4인)",
@@ -48,8 +51,21 @@
           "airport": "NRT",
           "match": "같은 요금 · 가는편만 늦춤",
           "airline": "제주항공",
-          "out": { "dep": "10:25", "arr": "12:50", "from": "ICN", "to": "NRT", "duration": "2h25m" },
-          "ret": { "dep": "08:55", "arr": "11:35", "from": "NRT", "to": "ICN", "duration": "2h40m", "airline": "복편(왕복 묶음)" },
+          "out": {
+            "dep": "10:25",
+            "arr": "12:50",
+            "from": "ICN",
+            "to": "NRT",
+            "duration": "2h25m"
+          },
+          "ret": {
+            "dep": "08:55",
+            "arr": "11:35",
+            "from": "NRT",
+            "to": "ICN",
+            "duration": "2h40m",
+            "airline": "복편(왕복 묶음)"
+          },
           "price_krw": 1695448,
           "price_per_person_krw": 423862,
           "price_label": "₩1,695,448~ (4인)",
@@ -61,8 +77,21 @@
           "airport": "NRT",
           "match": "늦은 아침 · 점심 이후",
           "airline": "제주항공",
-          "out": { "dep": "11:30", "arr": "14:10", "from": "ICN", "to": "NRT", "duration": "2h40m" },
-          "ret": { "dep": "11:35", "arr": "14:30", "from": "NRT", "to": "ICN", "duration": "2h55m", "airline": "제주항공" },
+          "out": {
+            "dep": "11:30",
+            "arr": "14:10",
+            "from": "ICN",
+            "to": "NRT",
+            "duration": "2h40m"
+          },
+          "ret": {
+            "dep": "11:35",
+            "arr": "14:30",
+            "from": "NRT",
+            "to": "ICN",
+            "duration": "2h55m",
+            "airline": "제주항공"
+          },
           "price_krw": 1775448,
           "price_per_person_krw": 443862,
           "price_label": "₩1,775,448~ (4인)",
@@ -74,8 +103,21 @@
           "airport": "NRT",
           "match": "티웨이",
           "airline": "티웨이항공",
-          "out": { "dep": "10:20", "arr": "12:50", "from": "ICN", "to": "NRT", "duration": "2h30m" },
-          "ret": { "dep": "11:55", "arr": "14:55", "from": "NRT", "to": "ICN", "duration": "3h00m", "airline": "티웨이항공" },
+          "out": {
+            "dep": "10:20",
+            "arr": "12:50",
+            "from": "ICN",
+            "to": "NRT",
+            "duration": "2h30m"
+          },
+          "ret": {
+            "dep": "11:55",
+            "arr": "14:55",
+            "from": "NRT",
+            "to": "ICN",
+            "duration": "3h00m",
+            "airline": "티웨이항공"
+          },
           "price_krw": 1800647,
           "price_per_person_krw": 450162,
           "price_label": "₩1,800,647~ (4인)",
@@ -87,8 +129,19 @@
         {
           "airport": "NRT",
           "airline": "에어프레미아",
-          "out": { "dep": "08:45", "arr": "11:20", "from": "ICN", "to": "NRT" },
-          "ret": { "dep": "12:30", "arr": "15:20", "from": "NRT", "to": "ICN", "airline": "에어프레미아" },
+          "out": {
+            "dep": "08:45",
+            "arr": "11:20",
+            "from": "ICN",
+            "to": "NRT"
+          },
+          "ret": {
+            "dep": "12:30",
+            "arr": "15:20",
+            "from": "NRT",
+            "to": "ICN",
+            "airline": "에어프레미아"
+          },
           "price_krw": 1623448,
           "price_per_person_krw": 405862,
           "price_label": "₩1,623,448~ (4인)",
@@ -98,8 +151,19 @@
         {
           "airport": "NRT",
           "airline": "피치항공",
-          "out": { "dep": "12:40", "arr": "15:15", "from": "ICN", "to": "NRT" },
-          "ret": { "dep": "08:30", "arr": "11:50", "from": "NRT", "to": "ICN", "airline": "피치항공" },
+          "out": {
+            "dep": "12:40",
+            "arr": "15:15",
+            "from": "ICN",
+            "to": "NRT"
+          },
+          "ret": {
+            "dep": "08:30",
+            "arr": "11:50",
+            "from": "NRT",
+            "to": "ICN",
+            "airline": "피치항공"
+          },
           "price_krw": 1549848,
           "price_per_person_krw": 387462,
           "price_label": "₩1,549,848~ (4인)",
@@ -108,73 +172,66 @@
         }
       ],
       "return_options": [
-        { "airline": "최저가 묶음", "dep": "08:55", "arr": "11:35", "from": "NRT", "to": "ICN", "ow_price_4": 787447, "notes": "오전 귀국" },
-        { "airline": "피치항공", "dep": "08:30", "arr": "11:50", "from": "NRT", "to": "ICN", "ow_price_4": 838183, "notes": "오전" },
-        { "airline": "에어부산", "dep": "11:10", "arr": "14:00", "from": "NRT", "to": "ICN", "ow_price_4": 943825, "notes": "낮" },
-        { "airline": "티웨이항공", "dep": "11:55", "arr": "14:55", "from": "NRT", "to": "ICN", "ow_price_4": 1023750, "notes": "낮" },
-        { "airline": "제주항공", "dep": "11:35", "arr": "14:30", "from": "NRT", "to": "ICN", "ow_price_4": 1069274, "notes": "낮" },
-        { "airline": "제주항공", "dep": "07:50", "arr": "10:50", "from": "NRT", "to": "ICN", "ow_price_4": 1069274, "notes": "아침" }
-      ]
-    },
-    "HND": {
-      "name": "하네다",
-      "market_summary": {
-        "route_min_krw_total4": 1661284,
-        "route_max_krw_total4": 2301285,
-        "best_match_krw": 1661284,
-        "note": "주간 직항 선택지 적음. 조건맞는 최저 ≈ 피치 ₩1,661,284(복편 심야)."
-      },
-      "recommended": [
         {
-          "rank": 1,
-          "airport": "HND",
-          "match": "아침~늦은아침 출발 + 점심 직후 도착 · 시내 가까움",
-          "airline": "피치항공",
-          "out": { "dep": "10:50", "arr": "12:55", "from": "ICN", "to": "HND", "duration": "2h05m" },
-          "ret": { "dep": "01:55", "arr": "04:40", "from": "HND", "to": "ICN", "duration": "2h45m", "airline": "피치항공" },
-          "price_krw": 1661284,
-          "price_per_person_krw": 415321,
-          "price_label": "₩1,661,284~ (4인)",
-          "price_pp_label": "1인 약 ₩415,321",
-          "notes": "가는편은 조건 최적. 오는편은 새벽(01:55→04:40). 시내·숙소는 신주쿠·시부야·도쿄역쪽이 유리."
-        }
-      ],
-      "also_consider": [
-        {
-          "airport": "HND",
-          "airline": "대한항공",
-          "out": { "dep": "09:30", "arr": "11:25", "from": "ICN", "to": "HND" },
-          "ret": { "dep": "01:30", "arr": "04:10", "from": "HND", "to": "ICN", "airline": "대한/심야대" },
-          "price_krw": 2020485,
-          "price_per_person_krw": 505121,
-          "price_label": "₩2,020,485~ (4인)",
-          "price_pp_label": "1인 약 ₩505,121",
-          "notes": "도착 11:25(점심 전). 풀서비스 · NRT 제주보다 약 +32만."
+          "airline": "최저가 묶음",
+          "dep": "08:55",
+          "arr": "11:35",
+          "from": "NRT",
+          "to": "ICN",
+          "ow_price_4": 787447,
+          "notes": "오전 귀국"
         },
         {
-          "airport": "HND",
-          "airline": "아시아나항공",
-          "out": { "dep": "08:40", "arr": "10:50", "from": "ICN", "to": "HND" },
-          "ret": { "dep": "—", "arr": "—", "from": "HND", "to": "ICN" },
-          "price_krw": 2301285,
-          "price_per_person_krw": 575321,
-          "price_label": "₩2,301,285~ (4인)",
-          "price_pp_label": "1인 약 ₩575,321",
-          "notes": "아침 도착. 가장 비쌈."
+          "airline": "피치항공",
+          "dep": "08:30",
+          "arr": "11:50",
+          "from": "NRT",
+          "to": "ICN",
+          "ow_price_4": 838183,
+          "notes": "오전"
+        },
+        {
+          "airline": "에어부산",
+          "dep": "11:10",
+          "arr": "14:00",
+          "from": "NRT",
+          "to": "ICN",
+          "ow_price_4": 943825,
+          "notes": "낮"
+        },
+        {
+          "airline": "티웨이항공",
+          "dep": "11:55",
+          "arr": "14:55",
+          "from": "NRT",
+          "to": "ICN",
+          "ow_price_4": 1023750,
+          "notes": "낮"
+        },
+        {
+          "airline": "제주항공",
+          "dep": "11:35",
+          "arr": "14:30",
+          "from": "NRT",
+          "to": "ICN",
+          "ow_price_4": 1069274,
+          "notes": "낮"
+        },
+        {
+          "airline": "제주항공",
+          "dep": "07:50",
+          "arr": "10:50",
+          "from": "NRT",
+          "to": "ICN",
+          "ow_price_4": 1069274,
+          "notes": "아침"
         }
-      ],
-      "return_options": [
-        { "airline": "피치항공", "dep": "01:55", "arr": "04:40", "from": "HND", "to": "ICN", "ow_price_4": 830885, "notes": "새벽 귀국(왕복 최저와 세트)" },
-        { "airline": "대한항공", "dep": "01:30", "arr": "04:10", "from": "HND", "to": "ICN", "ow_price_4": 1568291, "notes": "심야" },
-        { "airline": "일본항공", "dep": "02:00", "arr": "04:50", "from": "HND", "to": "ICN", "ow_price_4": 1707293, "notes": "심야" }
       ]
     }
   },
   "links": {
     "google_nrt_4p": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
-    "google_hnd_4p": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.HND.2026-11-07*HND.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
-    "naver_nrt_4p": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true",
-    "naver_hnd_4p": "https://flight.naver.com/flights/international/ICN-HND-20261107/HND-ICN-20261110?adult=4&fareType=Y&isDirect=true"
+    "naver_nrt_4p": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true"
   },
   "ssl_note": "Corporate HTTPS MITM (ePrism/SOOSAN). Push via SSH only."
 }

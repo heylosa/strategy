@@ -278,39 +278,7 @@
     }
     .view { display: none; }
     .view.on { display: block; }
-    .apt-bar {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 0.4rem;
-      margin: 0.75rem 1rem 0;
-    }
-    .apt-bar button {
-      border: 1px solid var(--line);
-      background: var(--card);
-      border-radius: 12px;
-      min-height: 2.6rem;
-      font-family: inherit;
-      font-size: 0.86rem;
-      font-weight: 800;
-      color: var(--muted);
-      cursor: pointer;
-    }
-    .apt-bar button.on {
-      background: var(--ink);
-      color: #fff;
-      border-color: var(--ink);
-    }
-    .compare-box {
-      margin: 0.75rem 1rem;
-      padding: 0.85rem 1rem;
-      background: #eef6f9;
-      border: 1px solid #cfe0e8;
-      border-radius: 12px;
-      font-size: 0.86rem;
-      color: #1a4454;
-    }
-    .compare-box strong { display: block; margin-bottom: 0.35rem; font-size: 0.92rem; }
-  .map-wrap {
+    .map-wrap {
       margin: 0.85rem 1rem 0;
       border: 1px solid var(--line);
       border-radius: 14px;
@@ -363,22 +331,14 @@
   <header class="top">
     <div class="eyebrow">Tokyo · 4인</div>
     <h1>11/7(토)–11/10(화)<br>항공 · 숙소</h1>
-    <p class="sub">인천↔도쿄(나리타·하네다) · 성인 4 · 아침 출발·점심 이후 도착 우선</p>
+    <p class="sub">인천↔나리타 · 성인 4 · 아침 출발·점심 이후 도착 우선</p>
     <div class="chips">
       <span class="chip">조회 <b id="queried">—</b></span>
-      <span class="chip">NRT 맞춤 <b>₩1.70M~</b></span>
-      <span class="chip">HND 맞춤 <b>₩1.66M~</b></span>
+      <span class="chip">조건맞춤 <b>₩1.70M~</b></span>
     </div>
   </header>
 
-  <div class="apt-bar" role="tablist" aria-label="공항">
-    <button type="button" class="on" data-apt="ALL">비교</button>
-    <button type="button" data-apt="NRT">나리타</button>
-    <button type="button" data-apt="HND">하네다</button>
-  </div>
-
   <section id="view-flights" class="view on">
-    <div class="compare-box" id="compareBox"></div>
     <div class="panel">
       <h2 id="summaryTitle">항공 요약 (4인 왕복)</h2>
       <div class="stats">
@@ -435,7 +395,6 @@
   <script>
     const won = (n) => "₩" + Number(n).toLocaleString("ko-KR");
     let FLIGHTS = null;
-    let aptFilter = "ALL";
 
     function flightCard(item, i, alt) {
       const out = item.out || {};
@@ -502,58 +461,26 @@
 
     function renderFlights() {
       const f = FLIGHTS;
-      const c = f.compare || {};
-      const box = document.getElementById("compareBox");
-      box.innerHTML = `<strong>NRT vs HND</strong>${c.headline || ""}<br><br>
-        <b>NRT</b> ${won(c.nrt_best_match_krw)} · ${c.nrt_best_label || ""}<br>
-        <b>HND</b> ${won(c.hnd_best_match_krw)} · ${c.hnd_best_label || ""}<br><br>
-        ${c.hnd_vs_nrt || ""}<br><br>${c.why_nrt_first || ""}<br><br>${c.hnd_fullservice || ""}`;
-      box.style.display = aptFilter === "ALL" ? "block" : "none";
+      const block = f.airports.NRT;
+      if (!block) return;
 
-      const keys = aptFilter === "ALL" ? ["NRT", "HND"] : [aptFilter];
-      let rec = [];
-      let alt = [];
-      let ret = [];
-      keys.forEach((k) => {
-        const block = f.airports[k];
-        if (!block) return;
-        rec = rec.concat(block.recommended || []);
-        alt = alt.concat(block.also_consider || []);
-        (block.return_options || []).forEach((r) => {
-          ret.push({ ...r, _apt: k });
-        });
-      });
+      const rec = [...(block.recommended || [])];
+      const alt = block.also_consider || [];
+      const ret = (block.return_options || []).map((r) => ({ ...r, _apt: "NRT" }));
       rec.sort((a, b) => (a.price_krw || 0) - (b.price_krw || 0));
-      // re-rank visually
       rec.forEach((x, i) => { x.rank = i + 1; });
 
       const best = rec[0];
+      const ms = block.market_summary || {};
       document.getElementById("best").textContent = best ? won(best.price_krw) : "—";
-      if (aptFilter === "NRT") {
-        document.getElementById("min").textContent = "LCC 많음";
-        document.getElementById("max").textContent = won(f.airports.NRT.market_summary.route_max_krw_total4);
-        document.getElementById("marketNote").textContent = f.airports.NRT.market_summary.note;
-        document.getElementById("googleLink").href = f.links.google_nrt_4p;
-        document.getElementById("naverLink").href = f.links.naver_nrt_4p;
-        document.getElementById("recTitle").textContent = "나리타 · 조건 맞춤";
-        document.getElementById("retTitle").textContent = "나리타 오는편 후보";
-      } else if (aptFilter === "HND") {
-        document.getElementById("min").textContent = "주간편 적음";
-        document.getElementById("max").textContent = won(f.airports.HND.market_summary.route_max_krw_total4);
-        document.getElementById("marketNote").textContent = f.airports.HND.market_summary.note;
-        document.getElementById("googleLink").href = f.links.google_hnd_4p;
-        document.getElementById("naverLink").href = f.links.naver_hnd_4p;
-        document.getElementById("recTitle").textContent = "하네다 · 조건 맞춤";
-        document.getElementById("retTitle").textContent = "하네다 오는편 후보";
-      } else {
-        document.getElementById("min").textContent = "HND≈NRT±3만";
-        document.getElementById("max").textContent = "HND 풀서비스↑";
-        document.getElementById("marketNote").textContent = c.hnd_vs_nrt || "";
-        document.getElementById("googleLink").href = f.links.google_nrt_4p;
-        document.getElementById("naverLink").href = f.links.naver_nrt_4p;
-        document.getElementById("recTitle").textContent = "조건 맞춤 (가격순 · NRT+HND)";
-        document.getElementById("retTitle").textContent = "오는편 후보";
-      }
+      document.getElementById("min").textContent = "LCC 많음";
+      document.getElementById("max").textContent = won(ms.route_max_krw_total4);
+      document.getElementById("marketNote").textContent = ms.note || "";
+      document.getElementById("googleLink").href = f.links.google_nrt_4p;
+      document.getElementById("naverLink").href = f.links.naver_nrt_4p;
+      document.getElementById("recTitle").textContent = "나리타 · 조건 맞춤";
+      document.getElementById("retTitle").textContent = "나리타 오는편 후보";
+      document.getElementById("altTitle").textContent = "조건 완화 / 참고";
 
       document.getElementById("recommended").innerHTML =
         rec.map((x, i) => flightCard(x, i, false)).join("") || `<p class="note">없음</p>`;
@@ -648,13 +575,6 @@
 
     document.querySelectorAll(".tabbar button").forEach((btn) => {
       btn.addEventListener("click", () => switchTab(btn.dataset.tab));
-    });
-    document.querySelectorAll(".apt-bar button").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        aptFilter = btn.dataset.apt;
-        document.querySelectorAll(".apt-bar button").forEach((b) => b.classList.toggle("on", b === btn));
-        if (FLIGHTS) renderFlights();
-      });
     });
 
     async function boot() {
