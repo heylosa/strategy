@@ -1,0 +1,107 @@
+{
+  "queried_at": "2026-08-24T12:05:00+09:00",
+  "source": "Naver Flights (flight.naver.com)",
+  "trip": {
+    "out": "2026-11-07",
+    "out_dow": "토",
+    "back": "2026-11-10",
+    "back_dow": "화",
+    "origin": "ICN",
+    "destination": "NRT",
+    "passengers": 1,
+    "cabin": "이코노미",
+    "filter": "직항 · 가는날 아침 출발 · 점심 이후(12:00+) 도착 우선"
+  },
+  "market_summary": {
+    "route_min_krw": 184000,
+    "route_max_krw": 431600,
+    "route_avg_krw": 360419,
+    "note": "검색일 기준 해당 일정 최저가는 최근 2주 평균보다 약 5% 높음"
+  },
+  "recommended": [
+    {
+      "rank": 1,
+      "match": "조건 최적 (아침 출발 + 점심 직후 도착) + 가격",
+      "airline": "제주항공",
+      "out": { "dep": "09:50", "arr": "12:15", "from": "ICN", "to": "NRT", "duration": "2h25m" },
+      "ret": { "dep": "08:55", "arr": "11:35", "from": "NRT", "to": "ICN", "duration": "2h40m" },
+      "price_krw": 412903,
+      "price_label": "₩412,903~",
+      "notes": "가는날 점심 직후 도착. 오는날도 오전 귀국으로 당일 일정 여유."
+    },
+    {
+      "rank": 2,
+      "match": "조건 최적 · 같은 가격대 · 조금 더 늦은 도착",
+      "airline": "제주항공",
+      "out": { "dep": "10:25", "arr": "12:50", "from": "ICN", "to": "NRT", "duration": "2h25m" },
+      "ret": { "dep": "08:55", "arr": "11:35", "from": "NRT", "to": "ICN", "duration": "2h40m" },
+      "price_krw": 412903,
+      "price_label": "₩412,903~",
+      "notes": "10시반 출발 → 12:50 도착. 체크인/이동 여유."
+    },
+    {
+      "rank": 3,
+      "match": "아침~늦은아침 출발 · 점심 이후 도착",
+      "airline": "티웨이항공",
+      "out": { "dep": "10:20", "arr": "12:50", "from": "ICN", "to": "NRT", "duration": "2h30m" },
+      "ret": { "dep": "08:55", "arr": "11:35", "from": "NRT", "to": "ICN", "duration": "2h40m" },
+      "price_krw": 421020,
+      "price_label": "₩421,020~",
+      "notes": "제주항공 대비 약 8천원 비쌈."
+    },
+    {
+      "rank": 4,
+      "match": "인기편 · 점심 직후 도착 · 오후 귀국",
+      "airline": "파라타항공",
+      "out": { "dep": "09:50", "arr": "12:05", "from": "ICN", "to": "NRT", "duration": "2h15m" },
+      "ret": { "dep": "13:25", "arr": "16:15", "from": "NRT", "to": "ICN", "duration": "2h50m" },
+      "price_krw": 458400,
+      "price_label": "₩458,400~",
+      "notes": "네이버 '예약 많은' 추천. 오는날 오후 귀국."
+    },
+    {
+      "rank": 5,
+      "match": "늦은 아침 출발 · 점심 이후 여유 도착",
+      "airline": "파라타항공",
+      "out": { "dep": "11:20", "arr": "13:40", "from": "ICN", "to": "NRT", "duration": "2h20m" },
+      "ret": { "dep": "13:25", "arr": "16:15", "from": "NRT", "to": "ICN", "duration": "2h50m" },
+      "price_krw": 430200,
+      "price_label": "₩430,200~",
+      "notes": "도착 후 시내 이동까지 포함하면 오후 일정에 편함."
+    }
+  ],
+  "also_consider_morning_arrive": [
+    {
+      "airline": "이스타항공",
+      "out": { "dep": "07:15", "arr": "10:10", "from": "ICN", "to": "NRT" },
+      "ret": { "dep": "11:50", "arr": "14:45", "from": "NRT", "to": "ICN" },
+      "price_krw": 396100,
+      "price_label": "₩396,100~",
+      "notes": "더 저렴하지만 도착이 오전(점심 이전). 조건 완화 시."
+    },
+    {
+      "airline": "에어부산",
+      "out": { "dep": "07:35", "arr": "10:15", "from": "ICN", "to": "NRT" },
+      "ret": { "dep": "11:10", "arr": "14:00", "from": "NRT", "to": "ICN" },
+      "price_krw": 399500,
+      "price_label": "₩399,500~",
+      "notes": "아침 일찍 도착. 시내까지 이동 시간 필요."
+    },
+    {
+      "airline": "에어프레미아",
+      "out": { "dep": "08:45", "arr": "11:20", "from": "ICN", "to": "NRT" },
+      "ret": { "dep": "08:55", "arr": "11:35", "from": "NRT", "to": "ICN" },
+      "price_krw": 408556,
+      "price_label": "₩408,556~",
+      "notes": "도착 11:20 — 점심 직전."
+    }
+  ],
+  "hnd_note": "같은 날짜 ICN↔HND 직항은 네이버 기준 저녁·심야 위주(예: 피치 22:50→00:55, 왕복 ₩402,277~). 아침 출발+점심 이후 도착 조건에는 NRT가 맞음.",
+  "links": {
+    "naver_icn_nrt": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=1&fareType=Y&isDirect=true",
+    "naver_icn_hnd": "https://flight.naver.com/flights/international/ICN-HND-20261107/HND-ICN-20261110?adult=1&fareType=Y&isDirect=true",
+    "google_flights": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10"
+  },
+
+  "ssl_note": "Corporate HTTPS MITM detected (Issuer: ePrism SSL / SOOSAN INT). Git push must use SSH (git@github.com)."
+}
