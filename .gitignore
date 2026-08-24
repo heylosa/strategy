@@ -7,4 +7,11 @@ __pycache__/
 data/google_raw.html
 data/google_raw_4p.html
 data/price_snips.txt
+data/*_nov*.html
+data/hnd_*.html
+data/out_*.html
+data/ret_*.html
+data/hnd_out_all.html
+data/rt_parse.json
+
 .venv/
