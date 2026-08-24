@@ -1,0 +1,85 @@
+{
+  "queried_at": "2026-08-24T12:40:00+09:00",
+  "trip_nights": "2026-11-07 ~ 2026-11-10 (3박)",
+  "guests": 4,
+  "priority": "나리타(NRT) 도착 후 짐 이동 부담↓ · 4인 1룸/아파트형 · 전철 환승 단순",
+  "areas": [
+    {
+      "rank": 1,
+      "name": "아사쿠사 · 구라마에",
+      "name_en": "Asakusa / Kuramae",
+      "tag": "4인 최우선",
+      "why": "센소지·스미다강 도보권. 관광·식사 밀집. 아파트형(주방) 숙소가 많아 4인이 한 방에 머무르기 좋음.",
+      "nrt_access": "케이세이 스카이라이너 → 우에노 환승 후 긴자선/도영 등 · 또는 케이세이→아사쿠사 방면. 짐 캐리어 기준 약 70–90분.",
+      "for4": "트윈×2보다 ‘4인실·아파트·코코슈쿠형’ 검색. 세탁기·주방이 있으면 3박에 유리.",
+      "budget_hint": "11월 주말 포함 3박, 4인 1룸 기준 대략 ₩ 25–55만(숙소·시즌에 따라 크게 변동)",
+      "map": "https://maps.google.com/?q=Asakusa+Tokyo",
+      "search": "https://www.google.com/travel/hotels/Asakusa?q=Asakusa%20Tokyo%20hotel%204%20guests&dates=2026-11-07,2026-11-10",
+      "examples": [
+        { "name": "illi Haku Asakusa", "note": "아파트형·최대 6인급 룸", "url": "https://illi-stays.com/rooms/illi-haku-asakusa/" },
+        { "name": "COCOSHUKU 아사쿠사 구라마에", "note": "키친·4–5인 프라이빗", "url": "https://cocoshuku.com/asakusa-kuramae" }
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "우에노",
+      "name_en": "Ueno",
+      "tag": "공항 접근",
+      "why": "스카이라이너 종착권·JR 허브. 박물관·공원·야시장. 첫날 짐 풀고 쉬기 좋음.",
+      "nrt_access": "케이세이 스카이라이너 직통(우에노)이 가장 단순. 약 40–50분 + 도보.",
+      "for4": "역 동쪽(공원·아메요코)보다 역 주변 비즈니스 호텔은 4인실 부족 → ‘패밀리룸/아파트’ 필터 필수.",
+      "budget_hint": "3박 4인 합쳐 대략 ₩28–60만대 흔함",
+      "map": "https://maps.google.com/?q=Ueno+Tokyo",
+      "search": "https://www.google.com/travel/hotels/Ueno?q=Ueno%20Tokyo%20hotel%204%20guests&dates=2026-11-07,2026-11-10",
+      "examples": []
+    },
+    {
+      "rank": 3,
+      "name": "아사쿠사바시 · 아키하바라",
+      "name_en": "Asakusabashi / Akihabara",
+      "tag": "가성비 4인룸",
+      "why": "JR·지하철 환승 좋음. 아사쿠사·도쿄역·시부야 이동 무난. 아파트 호텔 선택지 많음.",
+      "nrt_access": "스카이라이너 우에노 → JR 1–2정거장, 또는 케이세이+도영선.",
+      "for4": "MONday Apart 등 4인 정원이 명시된 객실을 먼저 볼 것.",
+      "budget_hint": "3박 4인 대략 ₩22–45만대부터 나오는 경우 많음",
+      "map": "https://maps.google.com/?q=Asakusabashi+Tokyo",
+      "search": "https://www.google.com/travel/hotels/Asakusabashi?q=Asakusabashi%20apartment%20hotel%204%20guests&dates=2026-11-07,2026-11-10",
+      "examples": [
+        { "name": "MONday Apart 아사쿠사바시-아키하바라", "note": "최대 4인·키친·세탁", "url": "https://hotel-monday.com/apartment/asakusabashi2/" }
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "긴시초",
+      "name_en": "Kinshicho",
+      "tag": "저예산",
+      "why": "JR 주오·소부 직통으로 도쿄역·아사쿠사 접근. 숙박비가 핵심 번화가보다 낮은 편.",
+      "nrt_access": "버스/케이세이 후 JR 환승. 아사쿠사·우에노보다 환승 1회 더 감수.",
+      "for4": "트윈 2개(방 2개) vs 패밀리 1룸 가격 비교 추천.",
+      "budget_hint": "3박 4인 대략 ₩20–40만대 노려볼 만함",
+      "map": "https://maps.google.com/?q=Kinshicho+Tokyo",
+      "search": "https://www.google.com/travel/hotels/Kinshicho?q=Kinshicho%20Tokyo%20hotel&dates=2026-11-07,2026-11-10",
+      "examples": []
+    },
+    {
+      "rank": 5,
+      "name": "신주쿠",
+      "name_en": "Shinjuku",
+      "tag": "야간·쇼핑",
+      "why": "먹거리·쇼핑·심야 이동 최고. 다만 4인 1룸 가격이 비싸고 방 크기가 작은 편.",
+      "nrt_access": "림 버스 또는 스카이라이너+JR. 첫날 짐 들고는 피곤할 수 있음.",
+      "for4": "일반 더블/트윈만으로는 부족. 아파트형(예: illi Nuto) 또는 방 2개 확보.",
+      "budget_hint": "3박 4인 대략 ₩40–80만+ 흔함",
+      "map": "https://maps.google.com/?q=Shinjuku+Tokyo",
+      "search": "https://www.google.com/travel/hotels/Shinjuku?q=Shinjuku%20apartment%20hotel%204%20guests&dates=2026-11-07,2026-11-10",
+      "examples": [
+        { "name": "illi Nuto Shinjuku", "note": "6–8인급 아파트형", "url": "https://illi-stays.com/rooms/illi-nuto-shinjuku/" }
+      ]
+    }
+  ],
+  "tips": [
+    "체크인 15:00 전후가 많음 → 11/7 점심 이후 나리타 도착이면 당일 체크인 타이밍 맞춤.",
+    "4명은 ‘1룸 4인’이 짐·비용·동선에서 보통 유리. 트윈 2개는 총액이 더 나갈 수 있음.",
+    "가격은 시즌·취소정책에 따라 급변. 아래 검색 링크로 11/7–11/10 · 투숙객 4 재확인."
+  ]
+}

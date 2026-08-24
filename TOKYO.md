@@ -1,16 +1,8 @@
-# Tokyo flights (2026-11-07 ~ 11-10)
+# Tokyo trip (mobile)
 
-Added `tokyo.html` + `data/flights.json` for morning-depart / after-lunch-arrive
-ICN↔NRT round-trip options with live Naver snapshot prices.
+- Live page: https://heylosa.github.io/strategy/
+- Tabs: 항공편 / 숙소 위치
+- Data: `data/flights.json`, `data/stays.json`
+- Langkawi planner removed from this site.
 
-## SSL / Git
-
-Corporate HTTPS MITM: issuer `ePrism SSL, O=SOOSAN INT, C=KR`.
-Use SSH remote only: `git@github.com:heylosa/strategy.git`.
-
-## Update loop
-
-1. Re-check Naver / Google for dates
-2. Edit `data/flights.json`
-3. `git add` / commit / `git push origin main` (SSH)
-4. Pages: `https://heylosa.github.io/strategy/tokyo.html`
+Push with SSH only (corp HTTPS MITM).
