@@ -311,6 +311,9 @@
     <h2 class="sec-title">조건 맞춤</h2>
     <div class="cards" id="recommended"></div>
 
+    <h2 class="sec-title">11/10 오는편 후보 (NRT→ICN · 4인 편도 참고)</h2>
+    <div class="cards" id="returns"></div>
+
     <h2 class="sec-title">조건 완화 (더 저렴·아침 도착)</h2>
     <div class="cards" id="alts"></div>
 
@@ -349,9 +352,9 @@
             <div class="airports">${out.from || "ICN"} → ${out.to || "NRT"}${out.duration ? " · " + out.duration : ""}</div>
           </div>
           <div class="leg">
-            <div class="when">오는편 11/10(화)</div>
+            <div class="when">오는편 11/10(화)${ret.airline ? " · " + ret.airline : ""}</div>
             <div class="time">${ret.dep || "—"} → ${ret.arr || "—"}</div>
-            <div class="airports">${ret.from || "NRT"} → ${ret.to || "ICN"}</div>
+            <div class="airports">${ret.from || "NRT"} → ${ret.to || "ICN"}${ret.duration ? " · " + ret.duration : ""}</div>
           </div>
         </div>
         <div class="price-block">
