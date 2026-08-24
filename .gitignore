@@ -13,5 +13,6 @@ data/out_*.html
 data/ret_*.html
 data/hnd_out_all.html
 data/rt_parse.json
+data/airbnb_fetch.json
 
 .venv/

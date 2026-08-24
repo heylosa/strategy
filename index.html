@@ -351,6 +351,28 @@
     }
     .maplibregl-ctrl-group button { width: 2rem; height: 2rem; }
     .card.map-hl { box-shadow: 0 0 0 2px var(--accent); }
+    .pick {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: #eef6f9;
+      border-radius: 10px;
+      padding: 0.65rem 0.75rem;
+      margin-top: 0.45rem;
+    }
+    .pick b { font-size: 0.9rem; }
+    .pick .meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+    .pick .price {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--good);
+      margin-top: 0.35rem;
+    }
+    .pick .stars { color: var(--warn); font-weight: 800; font-size: 0.82rem; }
   </style>
 </head>
 <body>
@@ -407,6 +429,8 @@
         <span>MapLibre · OSM (무료)</span>
       </div>
     </div>
+    <h2 class="sec-title">에어비엔비 추천 (평점 4+)</h2>
+    <div class="cards" id="featuredAirbnb"></div>
     <h2 class="sec-title">권역별 상세</h2>
     <div class="cards" id="stayCards"></div>
     <ul class="tips" id="stayTips"></ul>
@@ -451,10 +475,16 @@
       </article>`;
     }
 
+    function airbnbPick(p) {
+      return `<a class="pick" href="${p.url}" target="_blank" rel="noopener">
+        <b>${p.name}</b>
+        <div class="meta"><span class="stars">★ ${p.rating}</span> · 최대 ${p.guests_max}인 · ${p.note || ""}</div>
+        <div class="price">${p.price_label || won(p.price_krw_total) + " (3박)"}</div>
+      </a>`;
+    }
+
     function stayCard(a) {
-      const ex = (a.examples || []).map((e) =>
-        `<a href="${e.url}" target="_blank" rel="noopener">${e.name}<br><span style="font-weight:500;color:#5a6272">${e.note || ""}</span></a>`
-      ).join("");
+      const picks = (a.airbnb_picks || []).map(airbnbPick).join("");
       return `<article class="card ${a.rank === 1 ? "top" : ""}" data-rank="${a.rank}">
         <h3><span class="rank">${a.rank}</span>${a.name}
           ${a.tag ? `<span class="tag">${a.tag}</span>` : ""}</h3>
@@ -462,13 +492,24 @@
         <div class="stay-row"><strong>왜 여기</strong>${a.why}</div>
         <div class="stay-row"><strong>공항 접근</strong>${a.nrt_access}</div>
         <div class="stay-row"><strong>4인 팁</strong>${a.for4}</div>
-        <div class="stay-row"><strong>예산 감</strong>${a.budget_hint}</div>
-        <div class="btns" style="margin-top:0.75rem;grid-template-columns:1fr 1fr 1fr">
-          <a class="btn" href="${a.airbnb || a.search}" target="_blank" rel="noopener">에어비엔비</a>
-          <a class="btn ghost" href="${a.search}" target="_blank" rel="noopener">호텔</a>
+        ${picks ? `<div class="stay-row"><strong>에어비엔비 (4+)</strong>${picks}</div>` : ""}
+        <div class="btns" style="margin-top:0.75rem;grid-template-columns:1fr 1fr">
+          <a class="btn" href="${a.airbnb || a.search}" target="_blank" rel="noopener">더 검색</a>
           <a class="btn ghost" href="${a.map}" target="_blank" rel="noopener">지도</a>
         </div>
-        ${ex ? `<div class="ex">${ex}</div>` : ""}
+      </article>`;
+    }
+
+    function featuredCard(p) {
+      return `<article class="card">
+        <h3>${p.name} <span class="tag">${p.area || ""}</span></h3>
+        <p class="match"><span class="stars">★ ${p.rating}</span> · 최대 ${p.guests_max}인</p>
+        <p class="note">${p.note || ""}</p>
+        <div class="price-block" style="margin-top:0.5rem;padding-top:0.5rem">
+          <div class="price">${p.price_label || won(p.price_krw_total)}</div>
+          <div class="pp">1박 약 ${won(p.price_per_night_krw || Math.round(p.price_krw_total / 3))}</div>
+        </div>
+        <a class="btn" style="margin-top:0.65rem" href="${p.url}" target="_blank" rel="noopener">에어비엔비에서 보기</a>
       </article>`;
     }
 
@@ -539,9 +580,15 @@
     }
 
     function popupHtml(a) {
+      const top = (a.airbnb_picks || [])[0];
       return (
-        `<b>${a.rank}. ${a.name}</b><br>${a.tag || ""}<br>${a.budget_hint || ""}` +
-        (a.airbnb ? `<br><a href="${a.airbnb}" target="_blank" rel="noopener">에어비엔비 검색 →</a>` : "")
+        `<b>${a.rank}. ${a.name}</b><br>${a.tag || ""}` +
+        (top
+          ? `<br><span class="stars">★ ${top.rating}</span> ${top.price_label || ""}` +
+            `<br><a href="${top.url}" target="_blank" rel="noopener">${top.name} →</a>`
+          : a.airbnb
+            ? `<br><a href="${a.airbnb}" target="_blank" rel="noopener">에어비엔비 검색 →</a>`
+            : "")
       );
     }
 
@@ -658,6 +705,8 @@
       document.getElementById("stayNights").textContent =
         `일정 ${stays.trip_nights || ""} · 투숙 ${stays.guests || 4}명`;
       document.getElementById("airbnbNote").textContent = stays.airbnb_note || "";
+      document.getElementById("featuredAirbnb").innerHTML =
+        (stays.featured_airbnb || []).map(featuredCard).join("");
       document.getElementById("stayCards").innerHTML =
         (stays.areas || []).map(stayCard).join("");
       document.getElementById("stayTips").innerHTML =
