@@ -1,0 +1,161 @@
+[
+  {
+    "airline": "피치항공",
+    "price_total_4": 1549848,
+    "price_per_person": 387462,
+    "times_near_price": [
+      "12:40",
+      "03:15"
+    ],
+    "hint": {
+      "out_dep": "12:40",
+      "out_arr": "15:15",
+      "note": "오후 출발"
+    }
+  },
+  {
+    "airline": "에어프레미아",
+    "price_total_4": 1623448,
+    "price_per_person": 405862,
+    "times_near_price": [
+      "08:45",
+      "11:20"
+    ],
+    "hint": {
+      "out_dep": "08:45",
+      "out_arr": "11:20",
+      "note": "아침 도착(점심 전)"
+    }
+  },
+  {
+    "airline": "제주항공",
+    "price_total_4": 1695448,
+    "price_per_person": 423862,
+    "times_near_price": [
+      "08:10",
+      "10:35"
+    ],
+    "hint": {
+      "variants": [
+        {
+          "out_dep": "09:50",
+          "out_arr": "12:15"
+        },
+        {
+          "out_dep": "10:25",
+          "out_arr": "12:50"
+        },
+        {
+          "out_dep": "08:10",
+          "out_arr": "10:35"
+        }
+      ]
+    }
+  },
+  {
+    "airline": "에어부산",
+    "price_total_4": 1727048,
+    "price_per_person": 431762,
+    "times_near_price": [
+      "07:35",
+      "10:15"
+    ],
+    "hint": {
+      "out_dep": "07:35",
+      "out_arr": "10:15",
+      "note": "아침 도착"
+    }
+  },
+  {
+    "airline": "제주항공",
+    "price_total_4": 1775448,
+    "price_per_person": 443862,
+    "times_near_price": [
+      "11:30",
+      "02:10"
+    ],
+    "hint": {
+      "out_dep": "11:30",
+      "out_arr": "14:10"
+    }
+  },
+  {
+    "airline": "티웨이항공",
+    "price_total_4": 1800647,
+    "price_per_person": 450162,
+    "times_near_price": [
+      "10:20",
+      "12:50"
+    ],
+    "hint": {
+      "out_dep": "10:20",
+      "out_arr": "12:50"
+    }
+  },
+  {
+    "airline": "티웨이항공",
+    "price_total_4": 1880647,
+    "price_per_person": 470162,
+    "times_near_price": [
+      "08:35",
+      "10:55"
+    ],
+    "hint": {
+      "out_dep": "08:35",
+      "out_arr": "10:55",
+      "note": "아침 도착"
+    }
+  },
+  {
+    "airline": "에어서울",
+    "price_total_4": 1992648,
+    "price_per_person": 498162,
+    "times_near_price": [
+      "08:10",
+      "10:25"
+    ],
+    "hint": {
+      "out_dep": "09:20",
+      "out_arr": "11:50",
+      "note": "점심 직전"
+    }
+  },
+  {
+    "airline": "진에어",
+    "price_total_4": 1994247,
+    "price_per_person": 498562,
+    "times_near_price": [
+      "07:30",
+      "09:55"
+    ],
+    "hint": {
+      "out_dep": "07:30",
+      "out_arr": "09:55",
+      "note": "아침 도착"
+    }
+  },
+  {
+    "airline": "아시아나항공",
+    "price_total_4": 2153047,
+    "price_per_person": 538262,
+    "times_near_price": [
+      "09:00",
+      "11:20"
+    ],
+    "hint": {
+      "out_dep": "09:00",
+      "out_arr": "11:20",
+      "note": "점심 전"
+    }
+  },
+  {
+    "airline": "아시아나항공",
+    "price_total_4": 2425847,
+    "price_per_person": 606462,
+    "times_near_price": [
+      "09:55",
+      "12:25"
+    ],
+    "hint": null
+  }
+]

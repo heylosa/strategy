@@ -205,26 +205,28 @@
       <div class="eyebrow">Strategy · Tokyo Trip</div>
       <h1>도쿄 왕복 항공편<br>아침 출발 · 점심 이후 도착</h1>
       <p class="sub">
-        2026년 11월 7일(토) → 11월 10일(화) · 인천(ICN) ↔ 나리타(NRT) · 성인 1 · 직항.
-        네이버 항공권 기준 스냅샷이며, 예약 전 가격을 다시 확인하세요.
+        2026년 11월 7일(토) → 11월 10일(화) · 인천(ICN) ↔ 나리타(NRT) · 성인 4 · 직항.
+        Google Flights 4인 왕복 합계 스냅샷이며, 예약 전 가격을 다시 확인하세요.
       </p>
       <div class="meta">
         <span class="chip">조회 <strong id="queried">—</strong></span>
+        <span class="chip">인원 <strong>성인 4명</strong></span>
         <span class="chip">조건 <strong>오전 출발 · 12:00+ 도착</strong></span>
-        <span class="chip">추천 1순위 <strong>제주항공 ₩412,903~</strong></span>
+        <span class="chip">추천 1순위 <strong>제주항공 ₩1,695,448~</strong></span>
       </div>
     </header>
 
     <section class="panel">
       <h2>시장 요약 (같은 일정 · 직항)</h2>
       <div class="stats">
-        <div class="stat"><div class="n" id="min">—</div><div class="l">검색 최저</div></div>
-        <div class="stat"><div class="n" id="avg">—</div><div class="l">평균</div></div>
-        <div class="stat"><div class="n" id="max">—</div><div class="l">최고</div></div>
+        <div class="stat"><div class="n" id="min">—</div><div class="l">4인 합계 최저(조건 무시)</div></div>
+        <div class="stat"><div class="n" id="best">—</div><div class="l">조건맞춤 최저(제주)</div></div>
+        <div class="stat"><div class="n" id="max">—</div><div class="l">관측 최고</div></div>
       </div>
       <p class="sub" style="margin-top:0.85rem" id="marketNote"></p>
       <div class="links">
-        <a class="btn" id="naverLink" href="#" target="_blank" rel="noopener">네이버에서 다시 검색</a>
+        <a class="btn" id="googleLink" href="#" target="_blank" rel="noopener">Google에서 다시 검색(4인)</a>
+        <a class="btn ghost" id="naverLink" href="#" target="_blank" rel="noopener">네이버(4인)</a>
         <a class="btn ghost" href="./index.html">랑카위 플래너</a>
         <a class="btn ghost" href="https://github.com/heylosa/strategy" target="_blank" rel="noopener">GitHub</a>
       </div>
@@ -239,7 +241,7 @@
     <footer>
       <p>데이터: <code>data/flights.json</code> · 갱신 스크립트: <code>scripts/search_flights.py</code> (fast-flights / 수동 스냅샷)</p>
       <p style="margin-top:0.4rem">사내망 HTTPS 가로채기(ePrism SSL / SOOSAN) 감지됨 → GitHub는 <strong>SSH만</strong> 사용 (<code>git@github.com:heylosa/strategy.git</code>).</p>
-      <p style="margin-top:0.4rem">가격은 성인 1인 왕복 세금 포함 표시가이며 카드/로그인 특가에 따라 달라질 수 있습니다.</p>
+      <p style="margin-top:0.4rem">가격은 성인 4인 왕복 합계(세금 포함 표시가)이며, 복편 조합·카드/로그인 특가에 따라 달라질 수 있습니다.</p>
     </footer>
   </div>
   <script>
@@ -262,7 +264,10 @@
             ${leg("오는편 11/10(화)", item.ret)}
           </div>
           <div class="footer-row">
-            <div class="price">${item.price_label || won(item.price_krw)}</div>
+            <div>
+              <div class="price">${item.price_label || won(item.price_krw) + " (4인)"}</div>
+              <div class="note">${item.price_pp_label || (item.price_per_person_krw ? "1인 약 " + won(item.price_per_person_krw) : "")}</div>
+            </div>
             <div class="note">${item.notes || ""}</div>
           </div>
         </article>`;
@@ -272,11 +277,13 @@
       const res = await fetch("./data/flights.json", { cache: "no-store" });
       const data = await res.json();
       document.getElementById("queried").textContent = data.queried_at.slice(0, 16).replace("T", " ");
-      document.getElementById("min").textContent = won(data.market_summary.route_min_krw);
-      document.getElementById("avg").textContent = won(data.market_summary.route_avg_krw);
-      document.getElementById("max").textContent = won(data.market_summary.route_max_krw);
-      document.getElementById("marketNote").textContent = data.market_summary.note;
-      document.getElementById("naverLink").href = data.links.naver_icn_nrt;
+      const ms = data.market_summary;
+      document.getElementById("min").textContent = won(ms.route_min_krw_total4 || ms.cheapest_observed_total4);
+      document.getElementById("best").textContent = won(data.recommended[0].price_krw);
+      document.getElementById("max").textContent = won(ms.route_max_krw_total4);
+      document.getElementById("marketNote").textContent = ms.note;
+      document.getElementById("naverLink").href = data.links.naver_icn_nrt_4p || data.links.naver_icn_nrt;
+      document.getElementById("googleLink").href = data.links.google_flights_4p || data.links.google_flights;
       document.getElementById("recommended").innerHTML =
         data.recommended.map((x, i) => card(x, i, false)).join("");
       document.getElementById("alts").innerHTML =
