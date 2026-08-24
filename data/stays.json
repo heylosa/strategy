@@ -1,5 +1,5 @@
 {
-  "queried_at": "2026-08-24T12:40:00+09:00",
+  "queried_at": "2026-08-24T14:10:00+09:00",
   "trip_nights": "2026-11-07 ~ 2026-11-10 (3박)",
   "guests": 4,
   "priority": "공항(NRT/HND)에 따라 숙소 권역이 갈림. 4인 1룸·전철 단순 동선.",
@@ -16,9 +16,20 @@
       "map": "https://maps.google.com/?q=Asakusa+Tokyo",
       "search": "https://www.google.com/travel/hotels/Asakusa?q=Asakusa%20Tokyo%20hotel%204%20guests&dates=2026-11-07,2026-11-10",
       "examples": [
-        { "name": "illi Haku Asakusa", "note": "아파트형·최대 6인급 룸", "url": "https://illi-stays.com/rooms/illi-haku-asakusa/" },
-        { "name": "COCOSHUKU 아사쿠사 구라마에", "note": "키친·4–5인 프라이빗", "url": "https://cocoshuku.com/asakusa-kuramae" }
-      ]
+        {
+          "name": "illi Haku Asakusa",
+          "note": "아파트형·최대 6인급 룸",
+          "url": "https://illi-stays.com/rooms/illi-haku-asakusa/"
+        },
+        {
+          "name": "COCOSHUKU 아사쿠사 구라마에",
+          "note": "키친·4–5인 프라이빗",
+          "url": "https://cocoshuku.com/asakusa-kuramae"
+        }
+      ],
+      "lat": 35.714,
+      "lng": 139.7967,
+      "airbnb": "https://www.airbnb.com/s/Asakusa-Tokyo-Japan/homes?checkin=2026-11-07&checkout=2026-11-10&adults=4&min_bedrooms=1&room_types%5B%5D=Entire%20home%2Fapt"
     },
     {
       "rank": 2,
@@ -31,7 +42,10 @@
       "budget_hint": "3박 4인 합쳐 대략 ₩28–60만대 흔함",
       "map": "https://maps.google.com/?q=Ueno+Tokyo",
       "search": "https://www.google.com/travel/hotels/Ueno?q=Ueno%20Tokyo%20hotel%204%20guests&dates=2026-11-07,2026-11-10",
-      "examples": []
+      "examples": [],
+      "lat": 35.7141,
+      "lng": 139.7774,
+      "airbnb": "https://www.airbnb.com/s/Ueno-Tokyo-Japan/homes?checkin=2026-11-07&checkout=2026-11-10&adults=4&min_bedrooms=1&room_types%5B%5D=Entire%20home%2Fapt"
     },
     {
       "rank": 3,
@@ -45,8 +59,15 @@
       "map": "https://maps.google.com/?q=Asakusabashi+Tokyo",
       "search": "https://www.google.com/travel/hotels/Asakusabashi?q=Asakusabashi%20apartment%20hotel%204%20guests&dates=2026-11-07,2026-11-10",
       "examples": [
-        { "name": "MONday Apart 아사쿠사바시-아키하바라", "note": "최대 4인·키친·세탁", "url": "https://hotel-monday.com/apartment/asakusabashi2/" }
-      ]
+        {
+          "name": "MONday Apart 아사쿠사바시-아키하바라",
+          "note": "최대 4인·키친·세탁",
+          "url": "https://hotel-monday.com/apartment/asakusabashi2/"
+        }
+      ],
+      "lat": 35.697,
+      "lng": 139.7835,
+      "airbnb": "https://www.airbnb.com/s/Asakusabashi-Tokyo-Japan/homes?checkin=2026-11-07&checkout=2026-11-10&adults=4&min_bedrooms=1&room_types%5B%5D=Entire%20home%2Fapt"
     },
     {
       "rank": 4,
@@ -59,7 +80,10 @@
       "budget_hint": "3박 4인 대략 ₩20–40만대 노려볼 만함",
       "map": "https://maps.google.com/?q=Kinshicho+Tokyo",
       "search": "https://www.google.com/travel/hotels/Kinshicho?q=Kinshicho%20Tokyo%20hotel&dates=2026-11-07,2026-11-10",
-      "examples": []
+      "examples": [],
+      "lat": 35.6964,
+      "lng": 139.8141,
+      "airbnb": "https://www.airbnb.com/s/Kinshicho-Tokyo-Japan/homes?checkin=2026-11-07&checkout=2026-11-10&adults=4&min_bedrooms=1&room_types%5B%5D=Entire%20home%2Fapt"
     },
     {
       "rank": 5,
@@ -73,14 +97,46 @@
       "map": "https://maps.google.com/?q=Shinjuku+Tokyo",
       "search": "https://www.google.com/travel/hotels/Shinjuku?q=Shinjuku%20apartment%20hotel%204%20guests&dates=2026-11-07,2026-11-10",
       "examples": [
-        { "name": "illi Nuto Shinjuku", "note": "6–8인급 아파트형", "url": "https://illi-stays.com/rooms/illi-nuto-shinjuku/" }
-      ]
+        {
+          "name": "illi Nuto Shinjuku",
+          "note": "6–8인급 아파트형",
+          "url": "https://illi-stays.com/rooms/illi-nuto-shinjuku/"
+        }
+      ],
+      "lat": 35.6895,
+      "lng": 139.7006,
+      "airbnb": "https://www.airbnb.com/s/Shinjuku-Tokyo-Japan/homes?checkin=2026-11-07&checkout=2026-11-10&adults=4&min_bedrooms=1&room_types%5B%5D=Entire%20home%2Fapt"
     }
   ],
   "tips": [
+    "지도 핀 탭 → 에어비엔비 링크로 4인·집 전체 검색. 1순위 아사쿠사·구라마에 권장.",
     "나리타면 아사쿠사·우에노·아사쿠사바시가 짐 이동에 유리(스카이라이너).",
     "하네다면 신주쿠·시부야·도쿄역 쪽이 모노레일/케이큐로 더 가깝다.",
     "체크인 15:00 전후 → 11/7 점심 이후 도착이면 당일 체크인 타이밍 맞춤.",
     "4명은 ‘1룸 4인’이 보통 유리. 가격은 시즌에 따라 급변하니 링크에서 재검색."
-  ]
+  ],
+  "airports": [
+    {
+      "id": "NRT",
+      "name": "나리타",
+      "lat": 35.7647,
+      "lng": 140.3864,
+      "color": "#5a6272"
+    },
+    {
+      "id": "HND",
+      "name": "하네다",
+      "lat": 35.5494,
+      "lng": 139.7798,
+      "color": "#5a6272"
+    }
+  ],
+  "map": {
+    "center": [
+      35.695,
+      139.78
+    ],
+    "zoom": 11
+  },
+  "airbnb_note": "에어비엔비: 4인·11/7–11/10·집 전체 필터. 실제 예약 전 호스트 규정(최대 인원·유아 포함) 확인."
 }
