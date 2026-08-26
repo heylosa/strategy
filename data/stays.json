@@ -1,5 +1,5 @@
 {
-  "queried_at": "2026-08-24T16:33:29+09:00",
+  "queried_at": "2026-08-26T14:47:56+09:00",
   "trip_nights": "2026-11-07 ~ 2026-11-10 (3박)",
   "guests": 4,
   "priority": "나리타 도착 기준. 4인 1룸·스카이라이너 동선 단순한 권역 우선.",
@@ -28,7 +28,9 @@
           "note": "38㎡ 2DK · 4인 · 스카이트리·센소지",
           "url": "https://www.airbnb.co.kr/rooms/1533243967437545257?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
           "price_label": "₩850,000 (3박·4인)",
-          "price_per_night_krw": 283333
+          "price_per_night_krw": 283333,
+          "available": true,
+          "checked_at": "2026-08-26T14:47:43+09:00"
         },
         {
           "name": "아사쿠사 전통 가옥 2BR",
@@ -38,7 +40,9 @@
           "note": "80㎡ · 최대 7인 · 다다미·주방",
           "url": "https://www.airbnb.co.kr/rooms/48258253?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
           "price_label": "₩950,000 (3박·4인)",
-          "price_per_night_krw": 316667
+          "price_per_night_krw": 316667,
+          "available": true,
+          "checked_at": "2026-08-26T14:47:44+09:00"
         },
         {
           "name": "스미다 5인 아파트",
@@ -48,7 +52,9 @@
           "note": "나리타 직통·오시아게·아사쿠사",
           "url": "https://www.airbnb.co.kr/rooms/1493873270422901329?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
           "price_label": "₩720,000 (3박·4인)",
-          "price_per_night_krw": 240000
+          "price_per_night_krw": 240000,
+          "available": true,
+          "checked_at": "2026-08-26T14:47:45+09:00"
         }
       ]
     },
@@ -76,7 +82,9 @@
           "note": "신축급 · 스카이라이너 동선",
           "url": "https://www.airbnb.co.kr/rooms/1571380479616308486?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
           "price_label": "₩780,000 (3박·4인)",
-          "price_per_night_krw": 260000
+          "price_per_night_krw": 260000,
+          "available": true,
+          "checked_at": "2026-08-26T14:47:47+09:00"
         },
         {
           "name": "우에노역 도보권 4–5인",
@@ -86,7 +94,9 @@
           "note": "우에노·아사쿠사 접근",
           "url": "https://www.airbnb.co.kr/rooms/1202730915202585525?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
           "price_label": "₩750,000 (3박·4인)",
-          "price_per_night_krw": 250000
+          "price_per_night_krw": 250000,
+          "available": true,
+          "checked_at": "2026-08-26T14:47:48+09:00"
         }
       ]
     },
@@ -114,7 +124,9 @@
           "note": "浅草橋·秋葉原 · 퀸+소파",
           "url": "https://www.airbnb.co.kr/rooms/1289827399476238359?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
           "price_label": "₩680,000 (3박·4인)",
-          "price_per_night_krw": 226667
+          "price_per_night_krw": 226667,
+          "available": true,
+          "checked_at": "2026-08-26T14:47:49+09:00"
         },
         {
           "name": "아사쿠사바시 대형 4LDK",
@@ -124,7 +136,9 @@
           "note": "최대 10인 · 가족·친구",
           "url": "https://www.airbnb.co.kr/rooms/1241926614031562339?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
           "price_label": "₩920,000 (3박·4인)",
-          "price_per_night_krw": 306667
+          "price_per_night_krw": 306667,
+          "available": true,
+          "checked_at": "2026-08-26T14:47:50+09:00"
         }
       ]
     },
@@ -152,7 +166,9 @@
           "note": "스카이트리·역 5분 · 최대 8인",
           "url": "https://www.airbnb.co.kr/rooms/1215868303472065960?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
           "price_label": "₩800,000 (3박·4인)",
-          "price_per_night_krw": 266667
+          "price_per_night_krw": 266667,
+          "available": true,
+          "checked_at": "2026-08-26T14:47:51+09:00"
         },
         {
           "name": "킨시초 스카이트리 뷰",
@@ -162,7 +178,9 @@
           "note": "4인 · 프로젝터 · 역 6분",
           "url": "https://www.airbnb.co.kr/rooms/1557587056002785328?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
           "price_label": "₩650,000 (3박·4인)",
-          "price_per_night_krw": 216667
+          "price_per_night_krw": 216667,
+          "available": true,
+          "checked_at": "2026-08-26T14:47:52+09:00"
         }
       ]
     },
@@ -190,7 +208,9 @@
           "note": "신주쿠 접근 · 넓은 평형",
           "url": "https://www.airbnb.co.kr/rooms/1519608489554903734?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
           "price_label": "₩980,000 (3박·4인)",
-          "price_per_night_krw": 326667
+          "price_per_night_krw": 326667,
+          "available": true,
+          "checked_at": "2026-08-26T14:47:54+09:00"
         },
         {
           "name": "신주쿠·다인실",
@@ -200,7 +220,9 @@
           "note": "최대 9인 · 역 근접",
           "url": "https://www.airbnb.co.kr/rooms/33316313?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
           "price_label": "₩900,000 (3박·4인)",
-          "price_per_night_krw": 300000
+          "price_per_night_krw": 300000,
+          "available": true,
+          "checked_at": "2026-08-26T14:47:56+09:00"
         }
       ]
     }
@@ -227,7 +249,7 @@
     ],
     "zoom": 11
   },
-  "airbnb_note": "평점 4.0+ · 4인 · 11/7–11/10 · 3박 ₩60–100만 검색·검증. ‘날짜 이용 불가’ 숙소는 제외. 링크에서 최종 가격 확인.",
+  "airbnb_note": "평점 4.0+ · 4인 · 11/7–11/10 · 3박 ₩60–100만. 예약 가능 숙소만 표시 (검증 2026-08-26 14:47). 링크에서 최종 가격·예약 확인.",
   "featured_airbnb": [
     {
       "name": "신주쿠 프리미엄 4–7인",
@@ -238,6 +260,8 @@
       "url": "https://www.airbnb.co.kr/rooms/1519608489554903734?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
       "price_label": "₩980,000 (3박·4인)",
       "price_per_night_krw": 326667,
+      "available": true,
+      "checked_at": "2026-08-26T14:47:54+09:00",
       "area": "신주쿠"
     },
     {
@@ -249,6 +273,8 @@
       "url": "https://www.airbnb.co.kr/rooms/1241926614031562339?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
       "price_label": "₩920,000 (3박·4인)",
       "price_per_night_krw": 306667,
+      "available": true,
+      "checked_at": "2026-08-26T14:47:50+09:00",
       "area": "아사쿠사바시 · 아키하바라"
     },
     {
@@ -260,6 +286,8 @@
       "url": "https://www.airbnb.co.kr/rooms/1571380479616308486?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
       "price_label": "₩780,000 (3박·4인)",
       "price_per_night_krw": 260000,
+      "available": true,
+      "checked_at": "2026-08-26T14:47:47+09:00",
       "area": "우에노"
     },
     {
@@ -271,6 +299,8 @@
       "url": "https://www.airbnb.co.kr/rooms/1215868303472065960?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
       "price_label": "₩800,000 (3박·4인)",
       "price_per_night_krw": 266667,
+      "available": true,
+      "checked_at": "2026-08-26T14:47:51+09:00",
       "area": "긴시초"
     },
     {
@@ -282,6 +312,8 @@
       "url": "https://www.airbnb.co.kr/rooms/33316313?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
       "price_label": "₩900,000 (3박·4인)",
       "price_per_night_krw": 300000,
+      "available": true,
+      "checked_at": "2026-08-26T14:47:56+09:00",
       "area": "신주쿠"
     },
     {
@@ -293,6 +325,8 @@
       "url": "https://www.airbnb.co.kr/rooms/1202730915202585525?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
       "price_label": "₩750,000 (3박·4인)",
       "price_per_night_krw": 250000,
+      "available": true,
+      "checked_at": "2026-08-26T14:47:48+09:00",
       "area": "우에노"
     },
     {
@@ -304,6 +338,8 @@
       "url": "https://www.airbnb.co.kr/rooms/1289827399476238359?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
       "price_label": "₩680,000 (3박·4인)",
       "price_per_night_krw": 226667,
+      "available": true,
+      "checked_at": "2026-08-26T14:47:49+09:00",
       "area": "아사쿠사바시 · 아키하바라"
     },
     {
@@ -315,6 +351,8 @@
       "url": "https://www.airbnb.co.kr/rooms/1533243967437545257?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
       "price_label": "₩850,000 (3박·4인)",
       "price_per_night_krw": 283333,
+      "available": true,
+      "checked_at": "2026-08-26T14:47:43+09:00",
       "area": "아사쿠사 · 구라마에"
     }
   ]

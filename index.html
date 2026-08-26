@@ -382,7 +382,7 @@
     <p class="sub">인천↔나리타 · 성인 4 · 아침 출발·점심 이후 도착 우선</p>
     <div class="chips">
       <span class="chip">조회 <b id="queried">—</b></span>
-      <span class="chip">조건맞춤 <b>₩1.70M~</b></span>
+      <span class="chip">조건맞춤 <b>₩1.72M~</b></span>
     </div>
   </header>
 
@@ -471,13 +471,18 @@
           <div class="price">${item.price_label || won(item.price_krw) + " (4인)"}</div>
           <div class="pp">${item.price_pp_label || (item.price_per_person_krw ? "1인 ≈ " + won(item.price_per_person_krw) : "")}</div>
           <p class="note">${item.notes || ""}</p>
+          ${item.book_google ? `<div class="btns" style="margin-top:0.55rem;grid-template-columns:1fr 1fr">
+            <a class="btn" href="${item.book_google}" target="_blank" rel="noopener">Google 예약</a>
+            <a class="btn ghost" href="${item.book_naver}" target="_blank" rel="noopener">네이버</a>
+          </div>` : ""}
         </div>
       </article>`;
     }
 
     function airbnbPick(p) {
+      const ok = p.available !== false ? '<span class="tag" style="background:#e8f6ee;color:#1a7a4d">예약가능</span>' : "";
       return `<a class="pick" href="${p.url}" target="_blank" rel="noopener">
-        <b>${p.name}</b>
+        <b>${p.name}</b> ${ok}
         <div class="meta"><span class="stars">★ ${p.rating}</span> · 최대 ${p.guests_max}인 · ${p.note || ""}</div>
         <div class="price">${p.price_label || won(p.price_krw_total) + " (3박)"}</div>
       </a>`;
@@ -501,15 +506,16 @@
     }
 
     function featuredCard(p) {
+      const ok = p.available !== false ? '<span class="tag" style="background:#e8f6ee;color:#1a7a4d">예약가능</span>' : "";
       return `<article class="card">
-        <h3>${p.name} <span class="tag">${p.area || ""}</span></h3>
+        <h3>${p.name} ${ok} <span class="tag">${p.area || ""}</span></h3>
         <p class="match"><span class="stars">★ ${p.rating}</span> · 최대 ${p.guests_max}인</p>
         <p class="note">${p.note || ""}</p>
         <div class="price-block" style="margin-top:0.5rem;padding-top:0.5rem">
           <div class="price">${p.price_label || won(p.price_krw_total)}</div>
           <div class="pp">1박 약 ${won(p.price_per_night_krw || Math.round(p.price_krw_total / 3))}</div>
         </div>
-        <a class="btn" style="margin-top:0.65rem" href="${p.url}" target="_blank" rel="noopener">에어비엔비에서 보기</a>
+        <a class="btn" style="margin-top:0.65rem;display:flex" href="${p.url}" target="_blank" rel="noopener">에어비엔비에서 보기</a>
       </article>`;
     }
 
@@ -524,6 +530,10 @@
           </div>
         </div>
         <p class="note">${r.notes || ""}</p>
+        ${r.book_google ? `<div class="btns" style="margin-top:0.5rem;grid-template-columns:1fr 1fr">
+          <a class="btn" href="${r.book_google}" target="_blank" rel="noopener">Google</a>
+          <a class="btn ghost" href="${r.book_naver}" target="_blank" rel="noopener">네이버</a>
+        </div>` : ""}
       </article>`;
     }
 

@@ -1,6 +1,6 @@
 {
-  "queried_at": "2026-08-24T12:55:00+09:00",
-  "source": "Google Flights · 성인 4명 · NRT",
+  "queried_at": "2026-08-26T14:47:41+09:00",
+  "source": "Google Flights · 성인 4명 · NRT · 2026-08-26",
   "trip": {
     "out": "2026-11-07",
     "out_dow": "토",
@@ -14,146 +14,130 @@
     "NRT": {
       "name": "나리타",
       "market_summary": {
-        "route_min_krw_total4": 1549848,
-        "route_max_krw_total4": 2425847,
-        "best_match_krw": 1695448,
-        "note": "LCC 선택지 많음. 조건맞춤 최저 ≈ 제주 ₩1,695,448."
+        "route_min_krw_total4": 1513644,
+        "route_max_krw_total4": 2417600,
+        "best_match_krw": 1722844,
+        "note": "직항 16건 · 조건맞춤 3건 (조회 2026-08-26 14:47)"
       },
       "recommended": [
         {
           "rank": 1,
           "airport": "NRT",
-          "match": "아침 출발 + 점심 직후 도착 + 낮 귀국",
-          "airline": "제주항공",
-          "out": {
-            "dep": "09:50",
-            "arr": "12:15",
-            "from": "ICN",
-            "to": "NRT",
-            "duration": "2h25m"
-          },
-          "ret": {
-            "dep": "08:55",
-            "arr": "11:35",
-            "from": "NRT",
-            "to": "ICN",
-            "duration": "2h40m",
-            "airline": "복편(왕복 묶음)"
-          },
-          "price_krw": 1695448,
-          "price_per_person_krw": 423862,
-          "price_label": "₩1,695,448~ (4인)",
-          "price_pp_label": "1인 약 ₩423,862",
-          "notes": "복편 낮 시간대. 숙소는 아사쿠사·우에노이 유리."
-        },
-        {
-          "rank": 2,
-          "airport": "NRT",
-          "match": "같은 요금 · 가는편만 늦춤",
-          "airline": "제주항공",
-          "out": {
-            "dep": "10:25",
-            "arr": "12:50",
-            "from": "ICN",
-            "to": "NRT",
-            "duration": "2h25m"
-          },
-          "ret": {
-            "dep": "08:55",
-            "arr": "11:35",
-            "from": "NRT",
-            "to": "ICN",
-            "duration": "2h40m",
-            "airline": "복편(왕복 묶음)"
-          },
-          "price_krw": 1695448,
-          "price_per_person_krw": 423862,
-          "price_label": "₩1,695,448~ (4인)",
-          "price_pp_label": "1인 약 ₩423,862",
-          "notes": "체크인 여유."
-        },
-        {
-          "rank": 3,
-          "airport": "NRT",
-          "match": "늦은 아침 · 점심 이후",
-          "airline": "제주항공",
-          "out": {
-            "dep": "11:30",
-            "arr": "14:10",
-            "from": "ICN",
-            "to": "NRT",
-            "duration": "2h40m"
-          },
-          "ret": {
-            "dep": "11:35",
-            "arr": "14:30",
-            "from": "NRT",
-            "to": "ICN",
-            "duration": "2h55m",
-            "airline": "제주항공"
-          },
-          "price_krw": 1775448,
-          "price_per_person_krw": 443862,
-          "price_label": "₩1,775,448~ (4인)",
-          "price_pp_label": "1인 약 ₩443,862",
-          "notes": "동일 항공 복편."
-        },
-        {
-          "rank": 4,
-          "airport": "NRT",
-          "match": "티웨이",
+          "match": "아침 출발·점심 이후 도착",
           "airline": "티웨이항공",
           "out": {
             "dep": "10:20",
             "arr": "12:50",
             "from": "ICN",
-            "to": "NRT",
-            "duration": "2h30m"
+            "to": "NRT"
           },
           "ret": {
-            "dep": "11:55",
-            "arr": "14:55",
+            "dep": "06:55",
+            "arr": "09:50",
             "from": "NRT",
             "to": "ICN",
-            "duration": "3h00m",
             "airline": "티웨이항공"
           },
-          "price_krw": 1800647,
-          "price_per_person_krw": 450162,
-          "price_label": "₩1,800,647~ (4인)",
-          "price_pp_label": "1인 약 ₩450,162",
-          "notes": "제주 대비 +약 10만/4인."
-        }
-      ],
-      "also_consider": [
+          "price_krw": 1722844,
+          "price_per_person_krw": 430711,
+          "price_label": "₩1,722,844 (4인)",
+          "price_pp_label": "1인 약 ₩430,711",
+          "notes": "2026-08-26 Google Flights 스냅샷",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true",
+          "available": true
+        },
         {
+          "rank": 2,
           "airport": "NRT",
-          "airline": "에어프레미아",
+          "match": "아침 출발·점심 이후 도착",
+          "airline": "제주항공",
           "out": {
-            "dep": "08:45",
-            "arr": "11:20",
+            "dep": "09:50",
+            "arr": "12:15",
             "from": "ICN",
             "to": "NRT"
           },
           "ret": {
-            "dep": "12:30",
-            "arr": "15:20",
+            "dep": "06:15",
+            "arr": "09:15",
             "from": "NRT",
             "to": "ICN",
-            "airline": "에어프레미아"
+            "airline": "제주항공"
           },
-          "price_krw": 1623448,
-          "price_per_person_krw": 405862,
-          "price_label": "₩1,623,448~ (4인)",
-          "price_pp_label": "1인 약 ₩405,862",
-          "notes": "도착 11:20(점심 전)."
+          "price_krw": 1776444,
+          "price_per_person_krw": 444111,
+          "price_label": "₩1,776,444 (4인)",
+          "price_pp_label": "1인 약 ₩444,111",
+          "notes": "2026-08-26 Google Flights 스냅샷",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true",
+          "available": true
         },
         {
+          "rank": 3,
           "airport": "NRT",
+          "match": "아침 출발·점심 이후 도착",
+          "airline": "아시아나항공",
+          "out": {
+            "dep": "09:55",
+            "arr": "12:25",
+            "from": "ICN",
+            "to": "NRT"
+          },
+          "ret": {
+            "dep": "08:40",
+            "arr": "11:25",
+            "from": "NRT",
+            "to": "ICN",
+            "airline": "아시아나항공"
+          },
+          "price_krw": 2260044,
+          "price_per_person_krw": 565011,
+          "price_label": "₩2,260,044 (4인)",
+          "price_pp_label": "1인 약 ₩565,011",
+          "notes": "2026-08-26 Google Flights 스냅샷",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true",
+          "available": true
+        }
+      ],
+      "also_consider": [
+        {
+          "rank": 1,
+          "airport": "NRT",
+          "match": "조건 완화 / 참고",
+          "airline": "항공사",
+          "out": {
+            "dep": "01:05",
+            "arr": "03:30",
+            "from": "ICN",
+            "to": "NRT"
+          },
+          "ret": {
+            "dep": "—",
+            "arr": "—",
+            "from": "NRT",
+            "to": "ICN",
+            "airline": "항공사"
+          },
+          "price_krw": 1513644,
+          "price_per_person_krw": 378411,
+          "price_label": "₩1,513,644 (4인)",
+          "price_pp_label": "1인 약 ₩378,411",
+          "notes": "2026-08-26 Google Flights 스냅샷",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true",
+          "available": true
+        },
+        {
+          "rank": 2,
+          "airport": "NRT",
+          "match": "조건 완화 / 참고",
           "airline": "피치항공",
           "out": {
             "dep": "12:40",
-            "arr": "15:15",
+            "arr": "03:15",
             "from": "ICN",
             "to": "NRT"
           },
@@ -164,58 +148,135 @@
             "to": "ICN",
             "airline": "피치항공"
           },
-          "price_krw": 1549848,
-          "price_per_person_krw": 387462,
-          "price_label": "₩1,549,848~ (4인)",
-          "price_pp_label": "1인 약 ₩387,462",
-          "notes": "오후 출발(조건 완화)."
+          "price_krw": 1552044,
+          "price_per_person_krw": 388011,
+          "price_label": "₩1,552,044 (4인)",
+          "price_pp_label": "1인 약 ₩388,011",
+          "notes": "2026-08-26 Google Flights 스냅샷",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true",
+          "available": true
+        },
+        {
+          "rank": 3,
+          "airport": "NRT",
+          "match": "조건 완화 / 참고",
+          "airline": "에어부산",
+          "out": {
+            "dep": "07:35",
+            "arr": "10:15",
+            "from": "ICN",
+            "to": "NRT"
+          },
+          "ret": {
+            "dep": "07:05",
+            "arr": "10:05",
+            "from": "NRT",
+            "to": "ICN",
+            "airline": "에어부산"
+          },
+          "price_krw": 1729244,
+          "price_per_person_krw": 432311,
+          "price_label": "₩1,729,244 (4인)",
+          "price_pp_label": "1인 약 ₩432,311",
+          "notes": "2026-08-26 Google Flights 스냅샷",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true",
+          "available": true
+        },
+        {
+          "rank": 4,
+          "airport": "NRT",
+          "match": "조건 완화 / 참고",
+          "airline": "에어프레미아",
+          "out": {
+            "dep": "08:45",
+            "arr": "11:20",
+            "from": "ICN",
+            "to": "NRT"
+          },
+          "ret": {
+            "dep": "—",
+            "arr": "—",
+            "from": "NRT",
+            "to": "ICN",
+            "airline": "에어프레미아"
+          },
+          "price_krw": 1783644,
+          "price_per_person_krw": 445911,
+          "price_label": "₩1,783,644 (4인)",
+          "price_pp_label": "1인 약 ₩445,911",
+          "notes": "2026-08-26 Google Flights 스냅샷",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true",
+          "available": true
+        },
+        {
+          "rank": 5,
+          "airport": "NRT",
+          "match": "조건 완화 / 참고",
+          "airline": "티웨이항공",
+          "out": {
+            "dep": "03:30",
+            "arr": "05:55",
+            "from": "ICN",
+            "to": "NRT"
+          },
+          "ret": {
+            "dep": "06:55",
+            "arr": "09:50",
+            "from": "NRT",
+            "to": "ICN",
+            "airline": "티웨이항공"
+          },
+          "price_krw": 1802844,
+          "price_per_person_krw": 450711,
+          "price_label": "₩1,802,844 (4인)",
+          "price_pp_label": "1인 약 ₩450,711",
+          "notes": "2026-08-26 Google Flights 스냅샷",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true",
+          "available": true
+        },
+        {
+          "rank": 6,
+          "airport": "NRT",
+          "match": "조건 완화 / 참고",
+          "airline": "대한항공",
+          "out": {
+            "dep": "06:40",
+            "arr": "09:00",
+            "from": "ICN",
+            "to": "NRT"
+          },
+          "ret": {
+            "dep": "07:35",
+            "arr": "10:25",
+            "from": "NRT",
+            "to": "ICN",
+            "airline": "대한항공"
+          },
+          "price_krw": 1859244,
+          "price_per_person_krw": 464811,
+          "price_label": "₩1,859,244 (4인)",
+          "price_pp_label": "1인 약 ₩464,811",
+          "notes": "2026-08-26 Google Flights 스냅샷",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true",
+          "available": true
         }
       ],
       "return_options": [
-        {
-          "airline": "최저가 묶음",
-          "dep": "08:55",
-          "arr": "11:35",
-          "from": "NRT",
-          "to": "ICN",
-          "ow_price_4": 787447,
-          "notes": "오전 귀국"
-        },
         {
           "airline": "피치항공",
           "dep": "08:30",
           "arr": "11:50",
           "from": "NRT",
           "to": "ICN",
-          "ow_price_4": 838183,
-          "notes": "오전"
-        },
-        {
-          "airline": "에어부산",
-          "dep": "11:10",
-          "arr": "14:00",
-          "from": "NRT",
-          "to": "ICN",
-          "ow_price_4": 943825,
-          "notes": "낮"
-        },
-        {
-          "airline": "티웨이항공",
-          "dep": "11:55",
-          "arr": "14:55",
-          "from": "NRT",
-          "to": "ICN",
-          "ow_price_4": 1023750,
-          "notes": "낮"
-        },
-        {
-          "airline": "제주항공",
-          "dep": "11:35",
-          "arr": "14:30",
-          "from": "NRT",
-          "to": "ICN",
-          "ow_price_4": 1069274,
-          "notes": "낮"
+          "ow_price_4": 840522,
+          "notes": "편도 4인 참고",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true"
         },
         {
           "airline": "제주항공",
@@ -223,8 +284,76 @@
           "arr": "10:50",
           "from": "NRT",
           "to": "ICN",
-          "ow_price_4": 1069274,
-          "notes": "아침"
+          "ow_price_4": 943322,
+          "notes": "편도 4인 참고",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true"
+        },
+        {
+          "airline": "에어부산",
+          "dep": "07:05",
+          "arr": "10:05",
+          "from": "NRT",
+          "to": "ICN",
+          "ow_price_4": 981306,
+          "notes": "편도 4인 참고",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true"
+        },
+        {
+          "airline": "티웨이항공",
+          "dep": "06:55",
+          "arr": "09:50",
+          "from": "NRT",
+          "to": "ICN",
+          "ow_price_4": 1026607,
+          "notes": "편도 4인 참고",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true"
+        },
+        {
+          "airline": "제주항공",
+          "dep": "06:15",
+          "arr": "09:15",
+          "from": "NRT",
+          "to": "ICN",
+          "ow_price_4": 1072257,
+          "notes": "편도 4인 참고",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true"
+        },
+        {
+          "airline": "아시아나항공",
+          "dep": "08:40",
+          "arr": "11:25",
+          "from": "NRT",
+          "to": "ICN",
+          "ow_price_4": 1084105,
+          "notes": "편도 4인 참고",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true"
+        },
+        {
+          "airline": "에어서울",
+          "dep": "08:00",
+          "arr": "10:30",
+          "from": "NRT",
+          "to": "ICN",
+          "ow_price_4": 1113726,
+          "notes": "편도 4인 참고",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true"
+        },
+        {
+          "airline": "진에어",
+          "dep": "06:55",
+          "arr": "09:40",
+          "from": "NRT",
+          "to": "ICN",
+          "ow_price_4": 1120695,
+          "notes": "편도 4인 참고",
+          "book_google": "https://www.google.com/travel/flights?hl=ko&curr=KRW#flt=ICN.NRT.2026-11-07*NRT.ICN.2026-11-10;c:KRW;e:1;px:4;s:0;sd:1;t:f",
+          "book_naver": "https://flight.naver.com/flights/international/ICN-NRT-20261107/NRT-ICN-20261110?adult=4&fareType=Y&isDirect=true"
         }
       ]
     }

@@ -113,6 +113,8 @@ def pick_item(rid: str) -> dict | None:
         "url": meta["url"],
         "price_label": f"₩{total:,} (3박·4인)",
         "price_per_night_krw": round(total / 3),
+        "available": True,
+        "checked_at": datetime.now(KST).isoformat(timespec="seconds"),
     }
 
 
@@ -144,8 +146,9 @@ def main() -> None:
     data["featured_airbnb"] = featured[:8]
     data["queried_at"] = datetime.now(KST).isoformat(timespec="seconds")
     data["airbnb_note"] = (
-        "평점 4.0+ · 4인 · 11/7–11/10 · 3박 ₩60–100만 검색·검증. "
-        "‘날짜 이용 불가’ 숙소는 제외. 링크에서 최종 가격 확인."
+        f"평점 4.0+ · 4인 · 11/7–11/10 · 3박 ₩60–100만. "
+        f"예약 가능 숙소만 표시 (검증 {data['queried_at'][:16].replace('T', ' ')}). "
+        "링크에서 최종 가격·예약 확인."
     )
     data["tips"][0] = "에어비엔비 ₩60–100만(3박) · 평점 4+만. 예약 불가 숙소는 목록에서 뺌."
 
