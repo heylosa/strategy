@@ -1,5 +1,5 @@
 {
-  "queried_at": "2026-08-26T16:07:10+09:00",
+  "queried_at": "2026-08-26T16:54:13+09:00",
   "trip_nights": "2026-11-07 ~ 2026-11-10 (3박)",
   "guests": 4,
   "priority": "나리타 도착 기준. 4인 1룸·스카이라이너 동선 단순한 권역 우선.",
@@ -31,7 +31,7 @@
           "price_per_night_krw": 268743,
           "available": true,
           "price_source": "airbnb_ui_total",
-          "checked_at": "2026-08-26T16:07:10+09:00"
+          "checked_at": "2026-08-26T16:54:13+09:00"
         },
         {
           "name": "스카이트리 도보 6분 · 5인",
@@ -44,7 +44,7 @@
           "price_per_night_krw": 242154,
           "available": true,
           "price_source": "airbnb_ui_total",
-          "checked_at": "2026-08-26T16:07:10+09:00"
+          "checked_at": "2026-08-26T16:54:13+09:00"
         },
         {
           "name": "Tokyo Wafu 2DK",
@@ -57,7 +57,7 @@
           "price_per_night_krw": 262028,
           "available": true,
           "price_source": "airbnb_ui_total",
-          "checked_at": "2026-08-26T16:07:10+09:00"
+          "checked_at": "2026-08-26T16:54:13+09:00"
         }
       ]
     },
@@ -88,7 +88,7 @@
           "price_per_night_krw": 246604,
           "available": true,
           "price_source": "airbnb_ui_total",
-          "checked_at": "2026-08-26T16:07:10+09:00"
+          "checked_at": "2026-08-26T16:54:13+09:00"
         },
         {
           "name": "헤밍웨이 아파트 (아키하바라)",
@@ -101,7 +101,7 @@
           "price_per_night_krw": 257941,
           "available": true,
           "price_source": "airbnb_ui_total",
-          "checked_at": "2026-08-26T16:07:10+09:00"
+          "checked_at": "2026-08-26T16:54:13+09:00"
         },
         {
           "name": "【彩 Sai】다와라마치 2분 · 4인",
@@ -114,7 +114,7 @@
           "price_per_night_krw": 255737,
           "available": true,
           "price_source": "airbnb_ui_total",
-          "checked_at": "2026-08-26T16:07:10+09:00"
+          "checked_at": "2026-08-26T16:54:13+09:00"
         }
       ]
     },
@@ -145,7 +145,7 @@
           "price_per_night_krw": 252413,
           "available": true,
           "price_source": "airbnb_ui_total",
-          "checked_at": "2026-08-26T16:07:10+09:00"
+          "checked_at": "2026-08-26T16:54:13+09:00"
         },
         {
           "name": "Japandi Studio 아사쿠사바시",
@@ -158,20 +158,7 @@
           "price_per_night_krw": 250555,
           "available": true,
           "price_source": "airbnb_ui_total",
-          "checked_at": "2026-08-26T16:07:10+09:00"
-        },
-        {
-          "name": "아사쿠사바시 3LDK 층 전체",
-          "rating": 4.86,
-          "guests_max": 4,
-          "price_krw_total": 647571,
-          "note": "역 도보 2분 · 초고속 Wi-Fi",
-          "url": "https://www.airbnb.co.kr/rooms/790917007219797685?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
-          "price_label": "₩647,571 (3박·4인·총액)",
-          "price_per_night_krw": 215857,
-          "available": true,
-          "price_source": "airbnb_ui_total",
-          "checked_at": "2026-08-26T16:07:10+09:00"
+          "checked_at": "2026-08-26T16:54:13+09:00"
         }
       ]
     },
@@ -202,7 +189,7 @@
           "price_per_night_krw": 237939,
           "available": true,
           "price_source": "airbnb_ui_total",
-          "checked_at": "2026-08-26T16:07:10+09:00"
+          "checked_at": "2026-08-26T16:54:13+09:00"
         },
         {
           "name": "긴시초 도보 6분 · 6인",
@@ -215,7 +202,7 @@
           "price_per_night_krw": 255737,
           "available": true,
           "price_source": "airbnb_ui_total",
-          "checked_at": "2026-08-26T16:07:10+09:00"
+          "checked_at": "2026-08-26T16:54:13+09:00"
         },
         {
           "name": "오픈키친 · 니시키노이토초",
@@ -228,7 +215,7 @@
           "price_per_night_krw": 233904,
           "available": true,
           "price_source": "airbnb_ui_total",
-          "checked_at": "2026-08-26T16:07:10+09:00"
+          "checked_at": "2026-08-26T16:54:13+09:00"
         }
       ]
     },
@@ -249,32 +236,6 @@
       "airbnb": "https://www.airbnb.co.kr/s/Shinjuku-Tokyo-Japan/homes?checkin=2026-11-07&checkout=2026-11-10&adults=4&min_bedrooms=1&room_types%5B%5D=Entire%20home%2Fapt&currency=KRW&price_min=180000&price_max=350000",
       "airbnb_picks": [
         {
-          "name": "신오쿠보 5분 · 가부키초 401",
-          "rating": 5.0,
-          "guests_max": 4,
-          "price_krw_total": 646538,
-          "note": "신주쿠 1정거장 · 욕실 1.5",
-          "url": "https://www.airbnb.co.kr/rooms/1602928576421473692?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
-          "price_label": "₩646,538 (3박·4인·총액)",
-          "price_per_night_krw": 215513,
-          "available": true,
-          "price_source": "airbnb_ui_total",
-          "checked_at": "2026-08-26T16:07:10+09:00"
-        },
-        {
-          "name": "아케보노바시 1분 · 4인",
-          "rating": 4.98,
-          "guests_max": 4,
-          "price_krw_total": 634856,
-          "note": "신주쿠역 직통 · 세탁건조",
-          "url": "https://www.airbnb.co.kr/rooms/1573471454354125004?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
-          "price_label": "₩634,856 (3박·4인·총액)",
-          "price_per_night_krw": 211619,
-          "available": true,
-          "price_source": "airbnb_ui_total",
-          "checked_at": "2026-08-26T16:07:10+09:00"
-        },
-        {
           "name": "신주쿠 근처 넓은 숙소",
           "rating": 4.96,
           "guests_max": 4,
@@ -285,7 +246,20 @@
           "price_per_night_krw": 259891,
           "available": true,
           "price_source": "airbnb_ui_total",
-          "checked_at": "2026-08-26T16:07:10+09:00"
+          "checked_at": "2026-08-26T16:54:13+09:00"
+        },
+        {
+          "name": "unito 신주쿠 와카마츠",
+          "rating": 4.81,
+          "guests_max": 4,
+          "price_krw_total": 768338,
+          "note": "와카마츠역 도보 5분 · 아파트 선택",
+          "url": "https://www.airbnb.co.kr/rooms/1521036993938688598?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
+          "price_label": "₩768,338 (3박·4인·총액)",
+          "price_per_night_krw": 256113,
+          "available": true,
+          "price_source": "airbnb_ui_total",
+          "checked_at": "2026-08-26T16:54:13+09:00"
         }
       ]
     }
@@ -312,22 +286,8 @@
     ],
     "zoom": 11
   },
-  "airbnb_note": "가격은 에어비엔비 화면의 ‘총액’(3박·4인, 11/7–11/10)을 브라우저로 확인한 값. 평점 4+ · ₩60–100만 총액만 표시 (검증 2026-08-26 16:07). 이전 추정가(1박/가상 카탈로그)는 폐기. 예약 직전 링크에서 재확인.",
+  "airbnb_note": "가격은 에어비엔비 화면의 ‘총액’(3박·4인, 11/7–11/10)을 브라우저로 확인한 값. 평점 4+ · ₩60–100만 총액만 표시 (검증 2026-08-26 16:54). 이전 추정가(1박/가상 카탈로그)는 폐기. 예약 직전 링크에서 재확인.",
   "featured_airbnb": [
-    {
-      "name": "신오쿠보 5분 · 가부키초 401",
-      "rating": 5.0,
-      "guests_max": 4,
-      "price_krw_total": 646538,
-      "note": "신주쿠 1정거장 · 욕실 1.5",
-      "url": "https://www.airbnb.co.kr/rooms/1602928576421473692?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
-      "price_label": "₩646,538 (3박·4인·총액)",
-      "price_per_night_krw": 215513,
-      "available": true,
-      "price_source": "airbnb_ui_total",
-      "checked_at": "2026-08-26T16:07:10+09:00",
-      "area": "신주쿠"
-    },
     {
       "name": "우에노·아키하바라 더블 욕실",
       "rating": 5.0,
@@ -339,7 +299,7 @@
       "price_per_night_krw": 246604,
       "available": true,
       "price_source": "airbnb_ui_total",
-      "checked_at": "2026-08-26T16:07:10+09:00",
+      "checked_at": "2026-08-26T16:54:13+09:00",
       "area": "우에노"
     },
     {
@@ -353,22 +313,8 @@
       "price_per_night_krw": 268743,
       "available": true,
       "price_source": "airbnb_ui_total",
-      "checked_at": "2026-08-26T16:07:10+09:00",
+      "checked_at": "2026-08-26T16:54:13+09:00",
       "area": "아사쿠사 · 구라마에"
-    },
-    {
-      "name": "아케보노바시 1분 · 4인",
-      "rating": 4.98,
-      "guests_max": 4,
-      "price_krw_total": 634856,
-      "note": "신주쿠역 직통 · 세탁건조",
-      "url": "https://www.airbnb.co.kr/rooms/1573471454354125004?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
-      "price_label": "₩634,856 (3박·4인·총액)",
-      "price_per_night_krw": 211619,
-      "available": true,
-      "price_source": "airbnb_ui_total",
-      "checked_at": "2026-08-26T16:07:10+09:00",
-      "area": "신주쿠"
     },
     {
       "name": "스카이트리 도보 6분 · 5인",
@@ -381,7 +327,7 @@
       "price_per_night_krw": 242154,
       "available": true,
       "price_source": "airbnb_ui_total",
-      "checked_at": "2026-08-26T16:07:10+09:00",
+      "checked_at": "2026-08-26T16:54:13+09:00",
       "area": "아사쿠사 · 구라마에"
     },
     {
@@ -395,7 +341,7 @@
       "price_per_night_krw": 259891,
       "available": true,
       "price_source": "airbnb_ui_total",
-      "checked_at": "2026-08-26T16:07:10+09:00",
+      "checked_at": "2026-08-26T16:54:13+09:00",
       "area": "신주쿠"
     },
     {
@@ -409,7 +355,7 @@
       "price_per_night_krw": 252413,
       "available": true,
       "price_source": "airbnb_ui_total",
-      "checked_at": "2026-08-26T16:07:10+09:00",
+      "checked_at": "2026-08-26T16:54:13+09:00",
       "area": "아사쿠사바시 · 아키하바라"
     },
     {
@@ -423,8 +369,36 @@
       "price_per_night_krw": 262028,
       "available": true,
       "price_source": "airbnb_ui_total",
-      "checked_at": "2026-08-26T16:07:10+09:00",
+      "checked_at": "2026-08-26T16:54:13+09:00",
       "area": "아사쿠사 · 구라마에"
+    },
+    {
+      "name": "60㎡ 넓은 공간 · 최대 6인",
+      "rating": 4.91,
+      "guests_max": 4,
+      "price_krw_total": 713818,
+      "note": "아사쿠사·스카이트리·스모 관광 편리",
+      "url": "https://www.airbnb.co.kr/rooms/859687024625850143?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
+      "price_label": "₩713,818 (3박·4인·총액)",
+      "price_per_night_krw": 237939,
+      "available": true,
+      "price_source": "airbnb_ui_total",
+      "checked_at": "2026-08-26T16:54:13+09:00",
+      "area": "긴시초"
+    },
+    {
+      "name": "긴시초 도보 6분 · 6인",
+      "rating": 4.91,
+      "guests_max": 4,
+      "price_krw_total": 767210,
+      "note": "침대 3 · 최대 6인",
+      "url": "https://www.airbnb.co.kr/rooms/1636928716969586108?check_in=2026-11-07&check_out=2026-11-10&adults=4&currency=KRW",
+      "price_label": "₩767,210 (3박·4인·총액)",
+      "price_per_night_krw": 255737,
+      "available": true,
+      "price_source": "airbnb_ui_total",
+      "checked_at": "2026-08-26T16:54:13+09:00",
+      "area": "긴시초"
     }
   ]
 }
