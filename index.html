@@ -429,7 +429,8 @@
         <span>MapLibre · OSM (무료)</span>
       </div>
     </div>
-    <h2 class="sec-title">에어비엔비 (평점 4+ · ₩60–100만/3박)</h2>
+    <h2 class="sec-title">에어비엔비 (평점 4+ · 목표 ₩60–100만/3박)</h2>
+    <p class="note" style="margin:0 0 0.75rem">표시 금액은 참고 스냅샷입니다. 계정·시점에 따라 달라질 수 있으니 <b>링크에서 총액</b>을 확인하세요.</p>
     <div class="cards" id="featuredAirbnb"></div>
     <h2 class="sec-title">권역별 상세</h2>
     <div class="cards" id="stayCards"></div>
@@ -512,10 +513,10 @@
         <p class="match"><span class="stars">★ ${p.rating}</span> · 최대 ${p.guests_max}인</p>
         <p class="note">${p.note || ""}</p>
         <div class="price-block" style="margin-top:0.5rem;padding-top:0.5rem">
-          <div class="price">${p.price_label || won(p.price_krw_total)}</div>
-          <div class="pp">1박 약 ${won(p.price_per_night_krw || Math.round(p.price_krw_total / 3))}</div>
+          <div class="price">${p.price_label || (won(p.price_krw_total) + " 참고")}</div>
+          <div class="pp">최종 총액은 에어비엔비 링크 기준</div>
         </div>
-        <a class="btn" style="margin-top:0.65rem;display:flex" href="${p.url}" target="_blank" rel="noopener">에어비엔비에서 보기</a>
+        <a class="btn" style="margin-top:0.65rem;display:flex" href="${p.url}" target="_blank" rel="noopener">에어비엔비에서 가격 확인</a>
       </article>`;
     }
 

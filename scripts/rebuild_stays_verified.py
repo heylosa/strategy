@@ -1,4 +1,8 @@
-"""Rebuild stays.json with browser-verified Airbnb 3-night totals (2026-08-26)."""
+"""Rebuild stays.json — single-unit listings only; prices marked as snapshot.
+
+Multi-unit (호텔형·아파트 선택) listings are excluded: search card totals
+often differ from the unit the detail page shows.
+"""
 from __future__ import annotations
 
 import json
@@ -19,15 +23,14 @@ Q = urlencode(
     }
 )
 
-# Airbnb search price_min/max = nightly avg. ~18–35만/박 ≈ 3박 총액 60–100만대.
 SEARCH_EXTRA = (
     "&min_bedrooms=1&room_types%5B%5D=Entire%20home%2Fapt"
     "&currency=KRW&price_min=180000&price_max=350000"
 )
 
-# Verified live from Airbnb UI (총액 for 11/7–11/10, 4 adults) on 2026-08-26.
+# Single-unit only. total = last browser 총액 snapshot (may differ on your account).
 VERIFIED: dict[int, list[dict]] = {
-    1: [  # Asakusa
+    1: [
         {
             "id": "1471471947479651832",
             "name": "스카이트리·아사쿠사 인근 집",
@@ -50,20 +53,13 @@ VERIFIED: dict[int, list[dict]] = {
             "total": 786085,
         },
     ],
-    2: [  # Ueno
+    2: [
         {
             "id": "1648221931259790752",
             "name": "우에노·아키하바라 더블 욕실",
             "rating": 5.0,
             "note": "욕실 2 · 아키하바라 도보권",
             "total": 739811,
-        },
-        {
-            "id": "1617061064590210372",
-            "name": "헤밍웨이 아파트 (아키하바라)",
-            "rating": 4.89,
-            "note": "우에노·아사쿠사·센소지 접근",
-            "total": 773824,
         },
         {
             "id": "26418319",
@@ -73,14 +69,7 @@ VERIFIED: dict[int, list[dict]] = {
             "total": 767210,
         },
     ],
-    3: [  # Asakusabashi
-        {
-            "id": "1609922418100475536",
-            "name": "와토 아사쿠사바시",
-            "rating": 4.95,
-            "note": "아사쿠사 10분 · Wi-Fi",
-            "total": 757239,
-        },
+    3: [
         {
             "id": "1172128897619011588",
             "name": "Japandi Studio 아사쿠사바시",
@@ -89,7 +78,7 @@ VERIFIED: dict[int, list[dict]] = {
             "total": 751665,
         },
     ],
-    4: [  # Kinshicho
+    4: [
         {
             "id": "859687024625850143",
             "name": "60㎡ 넓은 공간 · 최대 6인",
@@ -112,20 +101,13 @@ VERIFIED: dict[int, list[dict]] = {
             "total": 701711,
         },
     ],
-    5: [  # Shinjuku — rechecked bookable only
+    5: [
         {
             "id": "22852461",
             "name": "신주쿠 근처 넓은 숙소",
             "rating": 4.96,
             "note": "넓고 편안 · 신주쿠 접근",
             "total": 779672,
-        },
-        {
-            "id": "1521036993938688598",
-            "name": "unito 신주쿠 와카마츠",
-            "rating": 4.81,
-            "note": "와카마츠역 도보 5분 · 아파트 선택",
-            "total": 768338,
         },
     ],
 }
@@ -152,10 +134,10 @@ def pick(row: dict) -> dict:
         "price_krw_total": total,
         "note": row["note"],
         "url": room_url(row["id"]),
-        "price_label": f"₩{total:,} (3박·4인·총액)",
+        "price_label": f"참고 ₩{total:,} · 링크에서 확인",
         "price_per_night_krw": round(total / 3),
         "available": True,
-        "price_source": "airbnb_ui_total",
+        "price_source": "snapshot_may_differ",
         "checked_at": NOW,
     }
 
@@ -177,7 +159,7 @@ def main() -> None:
         area["airbnb_picks"] = picks
         area["airbnb"] = search_url(rank)
         area["budget_hint"] = (
-            "3박 4인 에어비엔비 총액 ₩60–100만 (11/7–11/10, 브라우저 실측)"
+            "목표 3박 총액 ₩60–100만. 화면에 적은 금액은 참고용 — 최종은 링크."
         )
         for p in picks:
             featured.append({**p, "area": area["name"]})
@@ -186,17 +168,16 @@ def main() -> None:
     data["featured_airbnb"] = featured[:8]
     data["queried_at"] = NOW
     data["airbnb_note"] = (
-        "가격은 에어비엔비 화면의 ‘총액’(3박·4인, 11/7–11/10)을 브라우저로 확인한 값. "
-        f"평점 4+ · ₩60–100만 총액만 표시 (검증 {NOW[:16].replace('T', ' ')}). "
-        "이전 추정가(1박/가상 카탈로그)는 폐기. 예약 직전 링크에서 재확인."
+        "가격은 스냅샷 참고값입니다. 에어비엔비는 계정·쿠키·객실 선택에 따라 "
+        "총액이 다르게 보일 수 있습니다. 호텔형(아파트 여러 개) 리스팅은 제외했습니다. "
+        f"최종 금액은 반드시 링크에서 확인 ({NOW[:16].replace('T', ' ')})."
     )
     data["tips"][0] = (
-        "에어비엔비 ‘총액’ 기준 ₩60–100만(3박) · 평점 4+. "
-        "검색 필터 price_min/max는 1박 평균이라 18–35만으로 맞춤."
+        "숙소 가격 = 링크 총액이 정답. 페이지 숫자는 참고 스냅샷일 뿐."
     )
 
     STAYS.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"OK · {len(featured)} verified picks · {NOW}")
+    print(f"OK · {len(featured)} single-unit picks · {NOW}")
 
 
 if __name__ == "__main__":
