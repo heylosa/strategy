@@ -15,5 +15,5 @@ def run(name: str) -> None:
 
 if __name__ == "__main__":
     run("update_flights.py")
-    run("build_stays_airbnb.py")
+    run("rebuild_stays_verified.py")
     print("Done.")

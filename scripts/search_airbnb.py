@@ -11,7 +11,8 @@ HEADERS = {
     "Accept-Language": "ko-KR,ko;q=0.9",
 }
 
-# price_min/max on airbnb.co.kr = per night KRW (60만-100만/박)
+# price_min/max on airbnb.co.kr = NIGHTLY average KRW
+# For ~₩60–100만 / 3 nights stay total, use ~180000–350000 per night.
 AREAS = {
     "asakusa": "Asakusa-Tokyo-Japan",
     "ueno": "Ueno-Tokyo-Japan",
