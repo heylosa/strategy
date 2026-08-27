@@ -25,7 +25,7 @@ BASE = (
     "https://www.airbnb.co.kr/s/{slug}/homes"
     "?checkin=2026-11-07&checkout=2026-11-10&adults=4"
     "&min_bedrooms=1&room_types%5B%5D=Entire%20home%2Fapt"
-    "&currency=KRW&price_min=600000&price_max=1000000"
+    "&currency=KRW&price_min=180000&price_max=350000"
 )
 
 
