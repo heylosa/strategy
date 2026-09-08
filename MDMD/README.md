@@ -27,9 +27,13 @@ MDMD/
     chapters/          챕터별 .typ (생성물)
   pdf/
     MDMD_PE_ASK_Study.pdf
+    MDMD_PE_ASK_Compact.pdf   약 30페이지 급행본
+  compact/                 초심자용 압축본 (원본은 compact/md/)
+    md/00_컴팩트.md
+    build.py               python compact/build.py
 ```
 
-- `md/`가 유일한 원본이다. `typst/`와 `pdf/`는 빌드 산출물이므로 직접 편집하지 않는다.
+- 본편 원본은 `md/`, 급행 원본은 `compact/md/`이다. `typst/`와 `pdf/`는 빌드 산출물이므로 직접 편집하지 않는다.
 - 파일명은 `NN_주제.md` 형식이고 첫 줄은 `# NN. 챕터 제목`이다.
 
 ## 챕터 목차
@@ -94,6 +98,15 @@ python build.py
 ```
 
 `build.py`는 `md/*.md`를 읽어 `typst/chapters/*.typ`와 `typst/main.typ`으로 변환한 뒤 PDF를 `pdf/MDMD_PE_ASK_Study.pdf`에 쓴다. Typst만 변환하고 PDF는 나중에 만들려면 `python build.py --no-pdf`. 변환이 손실 없이 되려면 원고가 `_STYLE_GUIDE.md`의 허용 문법 안에 있어야 한다. 빌드 오류가 나면 대개 표 열 수 초과, 셀 안 줄바꿈, 허용되지 않은 콜아웃 라벨, LaTeX 수식 중 하나다. 1주일 플랜의 상세는 `md/00_학습가이드.md`를 본다.
+
+급행(약 30페이지, 기초 0 기준)은 본편과 별도다.
+
+```text
+cd MDMD
+python compact/build.py
+```
+
+산출물은 `pdf/MDMD_PE_ASK_Compact.pdf`. 원고는 `compact/md/00_컴팩트.md`. 본편 `md/`는 건드리지 않는다.
 
 ## 규약 요약
 
